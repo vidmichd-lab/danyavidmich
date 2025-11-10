@@ -1,0 +1,38 @@
+---
+interface Props {
+  subtitle?: string;
+  tertiary?: string;
+  variant?: "home" | "detail";
+}
+
+const { subtitle = "", tertiary = "", variant = "detail" } = Astro.props;
+---
+
+<div class="header">
+  <div class="top">
+    {variant === "home" ? (
+      <a onclick="topFunction()" id="title1" title="Go to top">Danya Vidmich</a>
+    ) : (
+      <a href="/" class="header__back">
+        <span class="header__back-icon" aria-hidden="true">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M16.2426 6.34317L14.8284 4.92896L7.75739 12L14.8285 19.0711L16.2427 17.6569L10.5858 12L16.2426 6.34317Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <span class="header__title-text">Danya Vidmich</span>
+      </a>
+    )}
+    <p id="title2">{subtitle}</p>
+    <p id="title3">{tertiary}</p>
+  </div>
+</div>
+

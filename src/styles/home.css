@@ -1,0 +1,46 @@
+@layer layout {
+  .portfolio {
+    --portfolio-item-spacing: calc(var(--space-xl) + var(--space-sm));
+    display: flex;
+    flex-direction: column;
+    gap: var(--portfolio-item-spacing);
+    width: calc(((100% - 10px) / 5) * 4);
+  }
+
+  .portfolio__hero {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .portfolio__columns {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-md);
+    align-items: flex-start;
+  }
+
+  .portfolio__column {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .portfolio__columns .cards,
+  .portfolio__columns .banner,
+  .portfolio__columns .banner2,
+  .portfolio__columns .portfolio-inline-block {
+    width: 100%;
+  }
+
+  @media (max-width: 800px) {
+    .portfolio {
+      width: 100%;
+    }
+
+    .portfolio__columns {
+      grid-template-columns: 1fr;
+    }
+  }
+}

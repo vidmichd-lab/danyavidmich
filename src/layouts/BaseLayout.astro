@@ -1,0 +1,62 @@
+---
+import "@styles/reset.css";
+import "@styles/base.css";
+import "@styles/global.css";
+
+import lazyScriptUrl from "@scripts/lazy-media.ts?url";
+import revealScriptUrl from "@scripts/reveal.ts?url";
+
+const {
+  title = "Designer Danya Vidmich",
+  description = "Graphic and product designer. Ex Badoo, Yandex Music, Yandex Go and Art. Lebedev Studio. Making media Lug. Co-founded dating app Apt",
+  keywords = "graphic design, product design, Danya Vidmich, portfolio, designer, yandex go, yandex music, badoo, apt app, apt, vidmich, daniil vidmich, даня видмич, даниил видмич, видмич, дизайнер, арт-директор, art director, cv, studio, works, cases, identity, branding, web, mobile, merch",
+  author = "Danya Vidmich",
+  ogTitle = "Danya Vidmich. Graphic and product design",
+  ogDescription = description,
+  ogType = "website",
+  ogUrl = "https://danyavidmich.com",
+  twitterCard = "summary_large_image",
+  preloadFonts = true
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={author} />
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={ogUrl} />
+
+    <meta name="twitter:card" content={twitterCard} />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    {preloadFonts && (
+      <>
+        <link rel="preload" href="/fonts/RightGrotesk-Medium.otf" as="font" type="font/otf" crossorigin />
+        <link rel="preload" href="/fonts/arialnarrow.ttf" as="font" type="font/ttf" crossorigin />
+      </>
+    )}
+
+    <slot name="head" />
+  </head>
+  <body>
+    <slot />
+    <script type="module" src={lazyScriptUrl}></script>
+    <script type="module" src={revealScriptUrl}></script>
+  </body>
+</html>
+

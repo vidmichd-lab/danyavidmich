@@ -1,0 +1,474 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import "@styles/home.css";
+import { getCases } from "@utils/casesStore";
+import { getCaseTag } from "@utils/caseTags";
+
+const title = "Designer Danya Vidmich";
+const description =
+  "Graphic and product designer. Ex Badoo, Yandex Music, Yandex Go and Art. Lebedev Studio. Making media Lug. Co-founded dating app Apt";
+const cases = await getCases();
+const heroCase = cases.find((entry) => entry.isHero) ?? cases[0];
+const otherCases = heroCase
+  ? cases.filter((entry) => entry.id !== heroCase.id)
+  : cases;
+const heroTag = heroCase ? getCaseTag(heroCase.tag) : null;
+const resolveLink = (entry) => {
+  if (!entry) return undefined;
+  const linkValue =
+    typeof entry.linkUrl === "string" ? entry.linkUrl : `/${entry.slug}.html`;
+  if (!linkValue) return undefined;
+  const trimmed = linkValue.trim();
+  return trimmed.length > 0 ? trimmed : undefined;
+};
+const heroLink = resolveLink(heroCase);
+const otherCasesWithMeta = otherCases.map((entry) => ({
+  entry,
+  tag: getCaseTag(entry.tag),
+  link: resolveLink(entry)
+}));
+type CaseWithMeta = (typeof otherCasesWithMeta)[number];
+
+const COLUMN_COUNT = 3;
+const caseColumns: Array<Array<CaseWithMeta>> = Array.from(
+  { length: COLUMN_COUNT },
+  () => [] as Array<CaseWithMeta>
+);
+
+otherCasesWithMeta.forEach((item, idx) => {
+  caseColumns[idx % COLUMN_COUNT].push(item);
+});
+
+if (heroCase) {
+  const heroMeta = {
+    entry: heroCase,
+    tag: heroTag ?? getCaseTag(heroCase.tag),
+    link: heroLink
+  } as CaseWithMeta;
+  caseColumns[0].unshift(heroMeta);
+}
+
+type ExtraMediaItem = {
+  src?: string;
+  alt?: string;
+  link?: string;
+  title?: string;
+  description?: string;
+  tagId?: import("@utils/casesStore").CaseTag;
+  loading?: "lazy" | "eager";
+  iframeSrc?: string;
+  iframeAllow?: string;
+  iframeStyle?: string;
+  caption?: string;
+};
+
+const getExtraMediaTag = (tagId?: import("@utils/casesStore").CaseTag) =>
+  tagId ? getCaseTag(tagId) : null;
+
+const isIframeItem = (
+  item: ExtraMediaItem
+): item is ExtraMediaItem & { iframeSrc: string } =>
+  typeof item.iframeSrc === "string" && item.iframeSrc.length > 0;
+
+type ExtraMediaBlock = {
+  layout: "single" | "double";
+  items: ReadonlyArray<ExtraMediaItem>;
+};
+
+const columnExtras: ReadonlyArray<ReadonlyArray<ExtraMediaItem>> = [
+  [
+    {
+      src: "/img/gr/po1.webp",
+      alt: "Poster collage"
+    },
+    {
+      src: "/img/gr/po2.webp",
+      alt: "Poster collage variant"
+    },
+    {
+      src: "/img/gr/rublev/cover.gif",
+      alt: "Rublev typeface cover",
+      link: "/rublev.html",
+      title: "Rublev",
+      tagId: "typography"
+    },
+    {
+      src: "/img/gr/Frame%2029.webp",
+      alt: "Frame poster"
+    },
+    {
+      src: "/img/gr/Frame%203%20Large.webp",
+      alt: "Frame poster alternate"
+    }
+  ],
+  [
+    {
+      src: "/img/gr/po4.webp",
+      alt: "Poster artwork"
+    },
+    {
+      src: "/img/gr/po3.webp",
+      alt: "Poster artwork variant"
+    },
+    {
+      src: "/img/gr/01234.webp",
+      alt: "01234 typography poster"
+    },
+    {
+      src: "/img/gr/po5.webp",
+      alt: "Poster graphic"
+    },
+    {
+      src: "/img/gr/signs.webp",
+      alt: "Wayfinding signs"
+    },
+    {
+      src: "/img/other/chess.webp",
+      alt: "Chess poster"
+    },
+    {
+      src: "/img/gr/fop.webp",
+      alt: "Poster collage"
+    }
+  ],
+  [
+    {
+      src: "/img/other/budu.webp",
+      alt: "Budu poster"
+    },
+    {
+      src: "/img/gr/swan.webp",
+      alt: "Swan poster"
+    },
+    {
+      src: "/img/gr/igla.gif",
+      alt: "Igla motion poster"
+    },
+    {
+      src: "/img/gr/cubes3.webp",
+      alt: "Cubes poster"
+    },
+    {
+      src: "/img/other/poster2.webp",
+      alt: "Poster artwork"
+    },
+    {
+      iframeSrc:
+        "https://player.vimeo.com/video/714391101?h=f94ebefed7&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1",
+      iframeAllow: "autoplay; fullscreen; picture-in-picture",
+      iframeStyle: "top:0;left:0;width:100%;height:100%;",
+      title: "Temp School Promo"
+    },
+    {
+      src: "/img/other/ach.webp",
+      alt: "ACH poster"
+    },
+    {
+      src: "/img/other/window.webp",
+      alt: "Window poster"
+    },
+    {
+      src: "/img/other/go.webp",
+      alt: "Yandex Go poster"
+    }
+  ]
+] as const;
+
+type ColumnItem =
+  | {
+      kind: "case";
+      entry: CaseWithMeta["entry"];
+      tag: CaseWithMeta["tag"];
+      link: CaseWithMeta["link"];
+    }
+  | {
+      kind: "case-secondary";
+      entry: CaseWithMeta["entry"];
+    }
+  | {
+      kind: "media";
+      media: ExtraMediaItem;
+    };
+
+const buildColumnItems = (
+  caseItems: CaseWithMeta[],
+  extras: ReadonlyArray<ExtraMediaItem>
+): ColumnItem[] => {
+  if (caseItems.length === 0) {
+    return extras.map((media) => ({
+      kind: "media",
+      media
+    }));
+  }
+
+  const result: ColumnItem[] = [];
+  const totalCases = caseItems.length;
+  const totalExtras = extras.length;
+  const step =
+    totalExtras > 0 ? Math.max(1, Math.round(totalCases / totalExtras)) : 0;
+  let extraIndex = 0;
+  let caseCounter = step;
+
+  caseItems.forEach((item) => {
+    result.push({
+      kind: "case",
+      entry: item.entry,
+      tag: item.tag,
+      link: item.link
+    });
+
+    if (item.entry.layout === "double" && item.entry.secondaryImage) {
+      result.push({
+        kind: "case-secondary",
+        entry: item.entry
+      });
+    }
+
+    if (totalExtras > 0) {
+      caseCounter -= 1;
+      if (caseCounter <= 0 && extraIndex < totalExtras) {
+        result.push({
+          kind: "media",
+          media: extras[extraIndex++]
+        });
+        caseCounter = step;
+      }
+    }
+  });
+
+  while (extraIndex < totalExtras) {
+    result.push({
+      kind: "media",
+      media: extras[extraIndex++]
+    });
+  }
+
+  return result;
+};
+
+const displayColumns = caseColumns.map((caseItems, columnIndex) =>
+  buildColumnItems(caseItems, columnExtras[columnIndex] ?? [])
+);
+---
+
+<BaseLayout {title} {description} ogTitle="Danya Vidmich. Graphic and product design">
+  <Fragment slot="head">
+    <link rel="dns-prefetch" href="https://player.vimeo.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://mc.yandex.ru" />
+    <link rel="preconnect" href="https://player.vimeo.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
+    <script defer src="https://player.vimeo.com/api/player.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LGZW7QNFB"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-4LGZW7QNFB');
+    </script>
+    <script is:inline>
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(93372850, "init", {
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true,
+          webvisor:true
+      });
+    </script>
+  </Fragment>
+
+  <noscript>
+    <div>
+      <img src="https://mc.yandex.ru/watch/93372850" style="position:absolute; left:-9999px;" alt="" />
+    </div>
+  </noscript>
+
+  <Header variant="home" />
+
+  <div class="main">
+    <div class="about">
+      <div>
+        <div>
+          <p>
+            Multidisciplinary designer. Ex Badoo, Yandex Music, Yandex Go and
+            <a href="https://www.artlebedev.ru/vidmich/">Art. Lebedev Studio</a>. Co-founded dating app
+            <a href="https://danyavidmich.com/aptproduct">Apt</a>.
+            <a href="https://danyavidmich.com/fonts">Type</a> creator. Making media
+            <a href="https://instagram.com/lugmedia/">Lug</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="action-group">
+        <a class="circle-button" href="cv.html" aria-label="Open CV page">
+          <span aria-hidden="true" class="circle-button__text">CV</span>
+          <span class="sr-only">Open CV Page</span>
+        </a>
+
+        <a class="circle-button" href="mailto:mail@danyavidmich.com" aria-label="Get in touch by email">
+          <span aria-hidden="true" class="circle-button__icon tabler--mail-filled"></span>
+          <span class="sr-only">Get in touch</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="aboutzero"></div>
+
+    <section class="portfolio">
+      <div class="portfolio__columns">
+        {displayColumns.map((columnItems) => (
+          <div class="portfolio__column">
+            {columnItems.map((item) => {
+              if (item.kind === "media") {
+                if (isIframeItem(item.media)) {
+                  const allowValue =
+                    typeof item.media.iframeAllow === "string"
+                      ? item.media.iframeAllow
+                      : "autoplay; fullscreen; picture-in-picture";
+                  const styleValue =
+                    typeof item.media.iframeStyle === "string"
+                      ? item.media.iframeStyle
+                      : "top:0;left:0;width:100%;height:100%;";
+                  return (
+                    <div class="bigcard">
+                      <iframe
+                        src={item.media.iframeSrc}
+                        title={item.media.title ?? "Embedded media"}
+                        loading={item.media.loading ?? "lazy"}
+                        style={styleValue}
+                        frameborder="0"
+                        allow={allowValue}
+                        allowfullscreen
+                      ></iframe>
+                      {item.media.caption && <p>{item.media.caption}</p>}
+                    </div>
+                  );
+                }
+
+                const tag = getExtraMediaTag(item.media.tagId);
+                const hasTitle = Boolean(item.media.title);
+                const hasTag = Boolean(tag);
+
+                return (
+                  <div class="bigcard">
+                    {item.media.link ? (
+                      <a href={item.media.link}>
+                        <img
+                          id="click"
+                          src={item.media.src ?? ""}
+                          alt={item.media.alt ?? ""}
+                          loading={item.media.loading ?? "lazy"}
+                        />
+                      </a>
+                    ) : (
+                      <img
+                        src={item.media.src ?? ""}
+                        alt={item.media.alt ?? ""}
+                        loading={item.media.loading ?? "lazy"}
+                      />
+                    )}
+                    {(hasTitle || hasTag) && (
+                      <p>
+                        {item.media.title ?? ""}
+                        {tag && (
+                          <span class={tag.className}>
+                            {item.media.description ?? tag.label}
+                            <span></span>
+                          </span>
+                        )}
+                      </p>
+                    )}
+                    {item.media.caption && !(hasTitle || hasTag) && (
+                      <p>{item.media.caption}</p>
+                    )}
+                  </div>
+                );
+              }
+
+              if (item.kind === "case-secondary") {
+                return (
+                  <div class="bigcard">
+                    <img
+                      src={item.entry.secondaryImage ?? item.entry.coverImage}
+                      alt={
+                        item.entry.coverImageAlt ??
+                        `${item.entry.title} secondary`
+                      }
+                      loading="lazy"
+                    />
+                  </div>
+                );
+              }
+
+              const { entry, tag, link } = item;
+              const fetchPriority = entry.isHero ? "high" : undefined;
+              const loadingMode = entry.isHero ? "eager" : "lazy";
+
+              return (
+                <div class="bigcard">
+                  {link ? (
+                    <a href={link}>
+                      <img
+                        id="click"
+                        src={entry.coverImage}
+                        alt={entry.coverImageAlt ?? entry.title}
+                        fetchpriority={fetchPriority}
+                        loading={loadingMode}
+                      />
+                    </a>
+                  ) : (
+                    <img
+                      src={entry.coverImage}
+                      alt={entry.coverImageAlt ?? entry.title}
+                      fetchpriority={fetchPriority}
+                      loading={loadingMode}
+                    />
+                  )}
+                  {link ? (
+                    <a href={link}>
+                      <p>
+                        {entry.title}{" "}
+                        {tag && (
+                          <span class={tag.className}>
+                            {entry.description ?? tag.label}
+                            <span></span>
+                          </span>
+                        )}
+                      </p>
+                    </a>
+                  ) : (
+                    <p>
+                      {entry.title}{" "}
+                      {tag && (
+                        <span class={tag.className}>
+                          {entry.description ?? tag.label}
+                          <span></span>
+                        </span>
+                      )}
+                    </p>
+                  )}
+                </div>
+              );
+            })}
+        </div>
+        ))}
+      </div>
+    </section>
+  </div>
+
+  <div class="header">
+    <div class="top">
+      <a onclick="topFunction()" id="title1" title="Go to top">Danya Vidmich</a>
+      <p id="title2"></p>
+      <p id="title3"></p>
+    </div>
+  </div>
+</BaseLayout>
+

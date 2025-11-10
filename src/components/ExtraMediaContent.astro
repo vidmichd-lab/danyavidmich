@@ -1,0 +1,76 @@
+---
+import { getCaseTag } from "@utils/caseTags";
+import type { CaseTag } from "@utils/casesStore";
+
+interface ExtraMediaItem {
+  src?: string;
+  alt?: string;
+  link?: string;
+  title?: string;
+  description?: string;
+  tagId?: CaseTag;
+  loading?: "lazy" | "eager";
+  iframeSrc?: string;
+  iframeAllow?: string;
+  iframeStyle?: string;
+  caption?: string;
+}
+
+const { item } = Astro.props as { item: ExtraMediaItem };
+
+const isIframe = typeof item?.iframeSrc === "string" && item.iframeSrc.length > 0;
+const allowValue =
+  typeof item?.iframeAllow === "string"
+    ? item.iframeAllow
+    : "autoplay; fullscreen; picture-in-picture";
+const styleValue =
+  typeof item?.iframeStyle === "string"
+    ? item.iframeStyle
+    : "top:0;left:0;width:100%;height:100%;";
+const loadingValue = item?.loading ?? "lazy";
+const tag = item?.tagId ? getCaseTag(item.tagId) : null;
+const hasCaption =
+  Boolean(item?.title) || Boolean(item?.description) || Boolean(tag) || Boolean(item?.caption);
+const altValue = item?.alt ?? "";
+const titleValue = item?.title ?? "";
+const descriptionValue = item?.description ?? tag?.label ?? "";
+---
+
+{isIframe ? (
+  <>
+    <iframe
+      src={item.iframeSrc}
+      title={titleValue || "Embedded media"}
+      loading={loadingValue}
+      style={styleValue}
+      frameborder="0"
+      allow={allowValue}
+      allowfullscreen
+    ></iframe>
+    {item.caption && <p>{item.caption}</p>}
+  </>
+) : (
+  <>
+    {item?.src && (
+      item.link ? (
+        <a href={item.link}>
+          <img src={item.src} alt={altValue} loading={loadingValue} id="click" />
+        </a>
+      ) : (
+        <img src={item.src} alt={altValue} loading={loadingValue} />
+      )
+    )}
+    {hasCaption && (
+      <p>
+        {titleValue}
+        {tag && (
+          <span class={tag.className}>
+            {descriptionValue}
+            <span></span>
+          </span>
+        )}
+      </p>
+    )}
+  </>
+)}
+

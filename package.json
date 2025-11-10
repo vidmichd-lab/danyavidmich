@@ -1,0 +1,49 @@
+{
+  "name": "danyavidmich-portfolio",
+  "version": "1.0.0",
+  "description": "Pixel-perfect portfolio site for Danya Vidmich rebuilt with Astro and TypeScript.",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "lint": "eslint \"src/**/*.{ts,tsx,astro}\"",
+    "images:webp": "node scripts/convert-images.mjs",
+    "images:update-refs": "node scripts/update-image-refs.mjs",
+    "format": "prettier --write .",
+    "test": "npm run test:unit && npm run test:visual",
+    "test:unit": "vitest run",
+    "test:visual": "npm run build && playwright test",
+    "test:watch": "vitest watch",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/node": "^8.3.4",
+    "astro": "^4.5.6"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.6.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@playwright/test": "^1.48.0",
+    "@types/node": "^24.10.0",
+    "@typescript-eslint/eslint-plugin": "^8.0.0",
+    "@typescript-eslint/parser": "^8.0.0",
+    "astro-eslint-parser": "^1.0.2",
+    "eslint": "^9.9.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^1.3.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "jsdom": "^24.0.0",
+    "prettier": "^3.3.0",
+    "prettier-plugin-astro": "^0.13.0",
+    "sass": "^1.77.0",
+    "sharp": "^0.34.5",
+    "typescript": "^5.6.0",
+    "vite": "^5.4.0",
+    "vitest": "^2.1.1"
+  },
+  "astro": {
+    "output": "static"
+  }
+}

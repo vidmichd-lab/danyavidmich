@@ -1,0 +1,108 @@
+@layer base {
+  @font-face {
+    font-family: "RightGrotesk";
+    src: url("/fonts/RightGrotesk-Medium.otf") format("opentype");
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: "Arial Narrow";
+    src: url("/fonts/arialnarrow.ttf") format("truetype");
+    font-display: swap;
+  }
+
+  :root {
+    color-scheme: light;
+    --color-background: #f9fafb;
+    --color-text-primary: #525252;
+    --color-text-muted: #606060;
+    --color-highlight-branding: #fce74e;
+    --color-highlight-visual: #ff6430;
+    --color-highlight-product: #2c80ff;
+    --color-highlight-web: #ff90d3;
+    --color-highlight-typography: #ff003d;
+    --color-highlight-merch: #7ebd2c;
+    --color-highlight-concept: #bba483;
+    --color-highlight-extra: #1187ad;
+    --color-highlight-neutral: lightgrey;
+    --color-surface: #eaebec;
+    --color-border: #d9dadd;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --font-body: "Arial Narrow", "RightGrotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: "Arial Narrow", "RightGrotesk", sans-serif;
+    --transition-default: 0.25s ease;
+    --shadow-subtle: 0 12px 32px rgba(36, 36, 36, 0.08);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    min-height: 100vh;
+    margin: 0;
+    color: var(--color-text-primary);
+    background-color: var(--color-background);
+    font-family: var(--font-body);
+    font-size: 1.125rem;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  img,
+  picture {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: #1e1e1e;
+    text-decoration: none;
+    transition: color var(--transition-default);
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: #141414;
+    text-decoration: none;
+  }
+
+  .lazy-media {
+    filter: blur(18px);
+    transform: scale(1.02);
+    transition: filter 0.6s ease, transform 0.6s ease, opacity 0.4s ease;
+    opacity: 0.85;
+  }
+
+  .lazy-loaded {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  *::selection {
+    background-color: var(--color-highlight-branding);
+    color: var(--color-text-primary);
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
+

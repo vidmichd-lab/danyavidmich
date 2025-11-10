@@ -1,0 +1,13 @@
+node_modules/
+public/uploads/
+dist/
+dist 2/
+dist 3/
+dist-static.zip
+dist.zip
+test-results/
+coverage/
+.astro/
+*.log
+.DS_Store
+
