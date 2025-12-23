@@ -38,6 +38,12 @@
 
     toggleScrollTriggerVisibility();
     window.addEventListener("scroll", toggleScrollTriggerVisibility, { passive: true });
+
+    // Handle click for scroll to top
+    scrollTrigger.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
   }
 
   function hydrateImages() {
@@ -168,9 +174,13 @@
     hydrateIframes();
     hydrateReveal();
 
-    window.topFunction = function () {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
+    // Handle all scroll-to-top buttons
+    document.querySelectorAll("[data-scroll-to-top]").forEach(function (button) {
+      button.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
   }
 
   if (document.readyState === "loading") {

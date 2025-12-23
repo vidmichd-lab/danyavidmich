@@ -287,8 +287,8 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
   </Fragment>
 
   <noscript>
-    <div>
-      <img src="https://mc.yandex.ru/watch/93372850" style="position:absolute; left:-9999px;" alt="" />
+    <div class="sr-only">
+      <img src="https://mc.yandex.ru/watch/93372850" alt="" width="1" height="1" />
     </div>
   </noscript>
 
@@ -301,7 +301,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
           <p>
             Multidisciplinary designer. Ex Badoo, Yandex Music, Yandex Go and
             <a href="https://www.artlebedev.ru/vidmich/">Art. Lebedev Studio</a>. Co-founded dating app
-            <a href="https://danyavidmich.com/aptproduct">Apt</a>.
+            <a href="https://danyavidmich.com/apt-product">Apt</a>.
             <a href="https://danyavidmich.com/fonts">Type</a> creator. Making media
             <a href="https://instagram.com/lugmedia/">Lug</a>
           </p>
@@ -364,14 +364,14 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                         <img
                           id="click"
                           src={item.media.src ?? ""}
-                          alt={item.media.alt ?? ""}
+                          alt={item.media.alt ?? item.media.title ?? "Case image"}
                           loading={item.media.loading ?? "lazy"}
                         />
                       </a>
                     ) : (
                       <img
                         src={item.media.src ?? ""}
-                        alt={item.media.alt ?? ""}
+                        alt={item.media.alt ?? item.media.title ?? "Case image"}
                         loading={item.media.loading ?? "lazy"}
                       />
                     )}
@@ -466,7 +466,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
 
   <div class="header">
     <div class="top">
-      <a onclick="topFunction()" id="title1" title="Go to top">Danya Vidmich</a>
+      <a href="#" id="title1" data-scroll-to-top aria-label="Scroll to top" title="Go to top">Danya Vidmich</a>
       <p id="title2"></p>
       <p id="title3"></p>
     </div>

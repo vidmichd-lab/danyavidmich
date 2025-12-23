@@ -11,7 +11,7 @@ const { subtitle = "", tertiary = "", variant = "detail" } = Astro.props;
 <div class="header">
   <div class="top">
     {variant === "home" ? (
-      <a onclick="topFunction()" id="title1" title="Go to top">Danya Vidmich</a>
+      <a href="#" id="title1" data-scroll-to-top aria-label="Scroll to top" title="Go to top">Danya Vidmich</a>
     ) : (
       <a href="/" class="header__back">
         <span class="header__back-icon" aria-hidden="true">
