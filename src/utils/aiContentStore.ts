@@ -26,7 +26,9 @@ export function getAIContent(): ProjectContent[] {
   }
 
   if (!existsSync(aiContentFile)) {
-    console.warn(`AI content file not found: ${aiContentFile}`);
+    if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+      console.warn(`AI content file not found: ${aiContentFile}`);
+    }
     return [];
   }
 
@@ -34,7 +36,9 @@ export function getAIContent(): ProjectContent[] {
     aiContentCache = JSON.parse(readFileSync(aiContentFile, 'utf-8'));
     return aiContentCache;
   } catch (error) {
-    console.error('Error loading AI content:', error);
+    if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+      console.error('Error loading AI content:', error);
+    }
     return [];
   }
 }

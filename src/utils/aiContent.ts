@@ -192,7 +192,9 @@ export async function generateWithAI(
       return data.choices[0]?.message?.content || "";
     }
   } catch (error) {
-    console.error("AI generation error:", error);
+    if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+      console.error("AI generation error:", error);
+    }
     throw error;
   }
 }
@@ -220,7 +222,9 @@ export function parseAIContent(aiResponse: string): ProjectContent {
       subtitle: "",
     };
   } catch (error) {
-    console.error("Error parsing AI content:", error);
+    if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+      console.error("Error parsing AI content:", error);
+    }
     return {
       shortDescription: aiResponse.substring(0, 150),
       longDescription: aiResponse,
