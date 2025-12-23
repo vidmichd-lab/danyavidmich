@@ -54,7 +54,7 @@ jobs:
           local-dir: ./dist/
           server-dir: public_html/
           state-name: .ftp-deploy-sync-state.json
-          dangerous-clean-slate: false
+          dangerous-clean-slate: true
           exclude: |
             **/.git*
             **/.git*/**
