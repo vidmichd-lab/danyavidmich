@@ -60,6 +60,19 @@
     color: inherit;
   }
 
+  .circle-button__icon--telegram {
+    width: 20px;
+    height: 20px;
+    display: block;
+    filter: brightness(0);
+    transition: filter var(--transition-default);
+  }
+
+  .circle-button:hover .circle-button__icon--telegram,
+  .circle-button:focus-visible .circle-button__icon--telegram {
+    filter: brightness(0) invert(1);
+  }
+
   .circle-button__text {
     font-size: 0.9rem;
     font-weight: 600;

@@ -178,7 +178,7 @@
     document.querySelectorAll("[data-scroll-to-top]").forEach(function (button) {
       button.addEventListener("click", function (e) {
         e.preventDefault();
-        window.scrollTo({ top: 0, behavior: "smooth" });
+      window.scrollTo({ top: 0, behavior: "smooth" });
       });
     });
   }
