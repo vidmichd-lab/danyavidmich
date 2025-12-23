@@ -1,4 +1,5 @@
 import { getCases } from "./casesStore";
+import { getProjectAIContent } from "./aiContentStore";
 
 const BASE_URL = "https://danyavidmich.com";
 
@@ -17,9 +18,13 @@ export async function getOGMeta(slug: string, pageTitle?: string): Promise<OGMet
 
   if (caseEntry) {
     const title = pageTitle || `${caseEntry.title} — Danya Vidmich`;
-    const description = caseEntry.description 
-      ? `${caseEntry.description} — Design work by Danya Vidmich`
-      : `Design work: ${caseEntry.title} by Danya Vidmich`;
+    
+    // Try to get AI-generated content first
+    const aiContent = getProjectAIContent(caseEntry.id);
+    const description = aiContent?.shortDescription 
+      || (caseEntry.description 
+        ? `${caseEntry.description} — Design work by Danya Vidmich`
+        : `Design work: ${caseEntry.title} by Danya Vidmich`);
     
     return {
       title,

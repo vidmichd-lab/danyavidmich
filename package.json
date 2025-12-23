@@ -12,6 +12,7 @@
     "images:update-refs": "node scripts/update-image-refs.mjs",
     "pdf:generate": "node scripts/generate-pdf.mjs",
     "sitemap:generate": "node scripts/generate-sitemap.mjs",
+    "ai:generate": "node scripts/generate-ai-content.mjs",
     "format": "prettier --write .",
     "test": "npm run test:unit && npm run test:visual",
     "test:unit": "vitest run",

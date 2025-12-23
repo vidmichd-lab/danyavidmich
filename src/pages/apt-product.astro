@@ -2,8 +2,13 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import { getOGMeta } from "@utils/ogMeta";
+import { getProjectAIContent } from "@utils/aiContentStore";
+import { getCases } from "@utils/casesStore";
 
-const subtitle = "Apt Product";
+const cases = await getCases();
+const project = cases.find(c => c.slug === "apt-product");
+const aiContent = project ? getProjectAIContent(project.id) : null;
+const subtitle = aiContent?.subtitle || "Apt Product";
 const tertiary = "";
 const ogMeta = await getOGMeta("apt-product");
 ---
@@ -22,7 +27,11 @@ const ogMeta = await getOGMeta("apt-product");
         <div class="main">
       		<div class="about9">
       		    <div>
-      		             <p>I developed my own DatingTech application, enabling users to connect through local events. The app was entirely conceptualized and overseen by me. It was created using Flutter and Go for both iOS and Android platforms. Additionally, I was responsible for crafting the app's B2C/B2B landing pages and handling all aspects of print, digital, offline, social, and merchandise layouts. The app was officially launched in May 2021 and successfully garnered 7000 Monthly Active Users at its peak</p> 
+      		             {aiContent?.longDescription ? (
+      		               <p>{aiContent.longDescription}</p>
+      		             ) : (
+      		               <p>I developed my own DatingTech application, enabling users to connect through local events. The app was entirely conceptualized and overseen by me. It was created using Flutter and Go for both iOS and Android platforms. Additionally, I was responsible for crafting the app's B2C/B2B landing pages and handling all aspects of print, digital, offline, social, and merchandise layouts. The app was officially launched in May 2021 and successfully garnered 7000 Monthly Active Users at its peak</p>
+      		             )} 
       		                 		                <div class="button">
       			        <span class=".solar--play-circle-bold"></span><a href="https://vimeo.com/714390233">Watch showreel</a>
       			    </div>   

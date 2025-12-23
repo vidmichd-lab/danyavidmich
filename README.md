@@ -54,6 +54,29 @@ Repeat after any visual change to guarantee pixel-perfect parity.
 - The main portfolio feed now uses a CSS masonry (`column-count`) layout defined in `src/styles/home.css`. Each card inherits existing classes (`.bigcard`, `.cards`) plus new aliases (`.gallery-item`, `.gallery-pair`) for clearer naming. The layout gracefully collapses to a single column under 800px.
 - Sidebar content (`.about`, `.aboutzero`) remains fixed to preserve the original pixel grid while the masonry grid flows underneath.
 
+## AI Content Generation
+
+The site includes AI-powered content generation for consistent, professional descriptions across all projects.
+
+### Quick Start
+
+1. Set your OpenAI API key:
+```bash
+export OPENAI_API_KEY="your-key-here"
+```
+
+2. Generate content for all projects:
+```bash
+npm run ai:generate
+```
+
+3. AI-generated content is automatically used in:
+   - OG meta tags for social sharing
+   - Project descriptions
+   - Page subtitles
+
+See [AI_INTEGRATION.md](./AI_INTEGRATION.md) for detailed documentation.
+
 ## Project Structure
 
 - `src/pages/*.html.astro` – page templates mirroring legacy routes (e.g. `aptproduct.html`).

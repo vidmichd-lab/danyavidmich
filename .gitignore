@@ -11,4 +11,7 @@ coverage/
 *.log
 .DS_Store
 dv/
+.ai-cache/
+.env
+.env.local
 
