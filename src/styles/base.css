@@ -69,12 +69,9 @@
     transition: color var(--transition-default);
   }
 
-  a:hover,
-  /* Improved focus indicators for accessibility */
-  *:focus-visible {
-    outline: 2px solid #2c80ff;
-    outline-offset: 2px;
-    border-radius: 2px;
+  a:hover {
+    color: #141414;
+    text-decoration: none;
   }
 
   a:focus-visible {
