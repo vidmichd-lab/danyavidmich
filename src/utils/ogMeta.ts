@@ -45,7 +45,7 @@ export async function getOGMeta(slug: string, pageTitle?: string): Promise<OGMet
     ogTitle: "Danya Vidmich. Graphic and product design",
     ogDescription: "Graphic and product designer. Ex Badoo, Yandex Music, Yandex Go and Art. Lebedev Studio. Making media Lug. Co-founded dating app Apt",
     ogUrl: `${BASE_URL}/${slug}`,
-    ogImage: `${BASE_URL}/Union.png`,
+    ogImage: `${BASE_URL}/Union.png?v=2`,
   };
 
   // Special cases for specific pages
