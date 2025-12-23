@@ -23,6 +23,8 @@ describe("lazy-media helpers", () => {
   });
 
   it("applies loading styles for incomplete assets", () => {
+    // Убеждаемся, что изображение не загружено
+    Object.defineProperty(image, "complete", { value: false, configurable: true });
     applyLoadingStyles(image);
 
     expect(image.classList.contains("lazy-media")).toBe(true);
