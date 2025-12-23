@@ -52,7 +52,7 @@ jobs:
           protocol: ftp
           port: ${{ secrets.FTP_PORT || 21 }}
           local-dir: ./dist/
-          server-dir: ./
+          server-dir: /www/danyavidmich.com/
           state-name: .ftp-deploy-sync-state.json
           dangerous-clean-slate: true
           exclude: |
