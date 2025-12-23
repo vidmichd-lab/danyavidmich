@@ -1,103 +1,183 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-	<loc>https://danyavidmich.com/</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/danyavidmich_cv.pdf</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/bandlink.html</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/korolev.html</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/s7.html</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/aptgraphic.html</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/badoo.html</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/rublev.html</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/aptproduct.html</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/humans.html</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/cinema.html</loc>
-	<lastmod>2023-04-28T10:10:52+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/bandlink</loc>
-	<lastmod>2023-04-28T10:10:54+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/korolev</loc>
-	<lastmod>2023-04-28T10:10:55+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/s7</loc>
-	<lastmod>2023-04-28T10:10:56+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/aptgraphic</loc>
-	<lastmod>2023-04-28T10:10:56+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/badoo</loc>
-	<lastmod>2023-04-28T10:10:57+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/aptproduct</loc>
-	<lastmod>2023-04-28T10:10:58+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/humans</loc>
-	<lastmod>2023-04-28T10:10:59+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/rublev</loc>
-	<lastmod>2023-04-28T10:10:59+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
-<url>
-	<loc>https://danyavidmich.com/cinema</loc>
-	<lastmod>2023-04-28T10:11:00+01:00</lastmod>
-	<priority>1.0</priority>
-</url>
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://danyavidmich.com/</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/cv_vidmich_designer.pdf</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/360-captures</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/apt-branding</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/apt-product</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/badoo</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/badoo-hotline</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/bandlink</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/black-friday-practicum</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/chekhov</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/cinema</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/cv</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/fonts</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/gorenko</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/humans</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/korolev</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/lug</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/may-of-may</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/my</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/palio</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/peterburgskie-povesti</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/plays</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/prosto-school</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/rublev</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/s7</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/stereo</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/sub</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/temp-school-graphics</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/wouly</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://danyavidmich.com/yandex-practicum-pro</loc>
+    <lastmod>2025-12-23T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

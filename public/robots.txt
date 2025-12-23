@@ -2,4 +2,4 @@ User-agent: *
 Crawl-delay: 1
 Host: danyavidmich.com
 Disallow: /badoo
-Sitemap: http://danyavidmich/sitemap.xml
+Sitemap: https://danyavidmich.com/sitemap.xml
