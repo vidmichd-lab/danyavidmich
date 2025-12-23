@@ -323,7 +323,7 @@
   }
 
   .graphic > .cv-entry:first-child {
-    padding-top: var(--space-md);
+    padding-top: calc(var(--space-xl) + var(--space-lg));
   }
 
   .cv-entry__summary {
