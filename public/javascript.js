@@ -188,11 +188,49 @@
       "DOMContentLoaded",
       function () {
         hydrate();
+        initAnalytics();
       },
       { once: true }
     );
   } else {
     hydrate();
+    initAnalytics();
+  }
+  
+  // Analytics tracking
+  function trackEvent(category, action, label) {
+    if (typeof gtag !== "undefined") {
+      gtag("event", action, {
+        event_category: category,
+        event_label: label
+      });
+    }
+    if (typeof ym !== "undefined") {
+      ym(93372850, "reachGoal", category + "_" + action, { label: label });
+    }
+  }
+  
+  function initAnalytics() {
+    // Track project clicks
+    document.querySelectorAll("a[href*='/']").forEach(function (link) {
+      var href = link.getAttribute("href");
+      if (!href || href.startsWith("http") || href.startsWith("mailto:")) return;
+      
+      link.addEventListener("click", function () {
+        var card = link.closest(".bigcard");
+        var projectName = card ? (card.querySelector("p")?.textContent || "Unknown") : link.textContent?.trim() || "Unknown";
+        trackEvent("Project", "Click", projectName);
+      });
+    });
+    
+    // Track filter usage
+    var filterButtons = document.querySelectorAll(".filter-button");
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var filter = button.dataset.filter || "all";
+        trackEvent("Filter", "Use", filter);
+      });
+    });
   }
 })();
 

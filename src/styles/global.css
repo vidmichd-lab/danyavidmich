@@ -74,11 +74,12 @@
     justify-content: flex-start;
     height: 44px;
     padding: 0 calc(var(--space-md) + 4px);
-    margin: var(--space-sm) var(--space-sm) 0 0;
+    margin: 0;
     border-radius: 999px;
     background-color: var(--color-surface);
     color: var(--color-text-primary);
     font-size: 1.125rem;
+    line-height: 1.1;
     text-decoration: none;
     gap: var(--space-xs);
   }
@@ -104,7 +105,7 @@
   .text-c9 {
     display: inline-block;
     padding: 0 calc(var(--space-xs) / 2);
-    border-radius: 4px;
+    border-radius: 8px;
     text-decoration: none;
   }
 
@@ -254,6 +255,25 @@
     margin-top: var(--space-sm);
   }
 
+  .avatar-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+  }
+
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
   .tag-collection {
     display: flex;
     flex-wrap: wrap;
@@ -290,6 +310,10 @@
     width: 100%;
   }
 
+  .graphic > .cv-entry:first-child {
+    padding-top: 0;
+  }
+
   .cv-entry__summary {
     display: flex;
     justify-content: space-between;
@@ -300,14 +324,18 @@
 
   .cv-entry__heading {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--space-sm);
     margin-top: -0.25rem;
   }
 
   .cv-entry__logo {
-    width: 32px;
-    height: 32px;
+    width: auto;
+    height: calc(1.1rem * 1.1 * 3 + 2px);
     object-fit: contain;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
   }
 
   .cv-entry__heading-text {
@@ -337,9 +365,9 @@
   }
 
   .cv-entry__summary-note {
-    margin: 2px 0 0;
-    font-size: 1.125rem;
-    color: var(--color-text-muted);
+    margin: var(--space-xs) 0 0;
+    font-size: 1.1rem;
+    color: #999;
   }
 
   .cv-entry__meta {
@@ -347,13 +375,14 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 2px;
-    color: var(--color-text-muted);
+    color: #999;
     font-size: 1.1rem;
     text-align: right;
   }
 
   .cv-entry__meta p {
     margin: 0;
+    font-size: 1.1rem;
   }
 
   .cv-entry__details {
@@ -386,7 +415,11 @@
     display: flex;
     gap: var(--space-xl);
     align-items: flex-start;
-    margin-top: calc(var(--space-xl) + var(--space-sm));
+    margin-top: calc(var(--space-xl) + var(--space-lg));
+  }
+  
+  .cv-duo-group + .cv-section__title {
+    margin-top: calc(var(--space-xl) + var(--space-lg));
   }
 
   .cv-duo {
@@ -429,7 +462,13 @@
 
   .gallery-item,
   .bigcard {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
+    transition: transform var(--transition-default);
+  }
+
+  .gallery-item:has(a):hover,
+  .bigcard:has(a):hover {
+    transform: scale(0.98);
   }
 
   #bigcard2 {
@@ -612,7 +651,7 @@
     width: 141px;
     height: 94px;
     margin-bottom: var(--space-md);
-    border-radius: 6px;
+    border-radius: 12px;
     background-image: url("/img/other/mentor.webp");
     background-position: center;
     background-repeat: no-repeat;
@@ -659,7 +698,7 @@
   .bannerDiv {
     width: 100%;
     height: 1.5px;
-    border-radius: 24px;
+    border-radius: 28px;
     background-color: #000;
     opacity: 0.16;
   }
@@ -776,13 +815,18 @@
       justify-content: flex-start;
       min-height: 44px;
       padding: var(--space-xs) var(--space-md);
-      margin: var(--space-sm) 0 0 0;
+      margin: 0;
       border-radius: 999px;
       background-color: var(--color-surface);
       color: var(--color-text-primary);
       text-decoration: none;
-      font-size: 1rem;
+      font-size: 1.125rem;
+      line-height: 1.1;
       gap: var(--space-sm);
+    }
+    
+    .cv-duo__row {
+      gap: calc(var(--space-xs) / 2);
     }
 
     .cv-entry {
@@ -798,10 +842,21 @@
 
     .cv-entry__meta {
       margin: var(--space-sm) 0 var(--space-lg);
+      align-items: flex-start;
+      text-align: left;
+      font-size: 1.1rem;
+    }
+    
+    .cv-entry__meta p {
+      font-size: 1.1rem;
+    }
+    
+    .cv-entry__summary-note {
+      font-size: 1.1rem;
     }
 
     .cv-entry__summary-note {
-      font-size: 1.3rem;
+      font-size: 1.1rem;
     }
 
     .cv-section__title {

@@ -98,7 +98,7 @@ function generateStructuredContent(caseEntry: CaseEntry): ProjectContent {
   
   const shortDescription = `${categoryDesc} for ${caseEntry.title}. ${caseEntry.description || 'Professional design work by Danya Vidmich.'}`;
   
-  const longDescription = `${categoryDesc} for ${caseEntry.title}. ${caseEntry.description || 'A comprehensive design project showcasing professional expertise in visual communication and brand identity.'} Designed by Danya Vidmich, Art Communications Director with 7+ years of experience in major tech companies.`;
+  const longDescription = `${categoryDesc} for ${caseEntry.title}. ${caseEntry.description || 'A comprehensive design project showcasing professional expertise in visual communication and brand identity.'} Designed by Danya Vidmich, Multidisciplinary Design Lead with 8+ years of experience in major tech companies.`;
   
   const subtitle = caseEntry.title;
 

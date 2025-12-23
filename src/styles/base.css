@@ -32,8 +32,8 @@
     --space-md: 16px;
     --space-lg: 24px;
     --space-xl: 32px;
-    --radius-sm: 8px;
-    --radius-md: 12px;
+    --radius-sm: 12px;
+    --radius-md: 16px;
     --font-body: "Arial Narrow", "RightGrotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --font-display: "Arial Narrow", "RightGrotesk", sans-serif;
     --transition-default: 0.25s ease;

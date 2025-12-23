@@ -1,0 +1,123 @@
+---
+// Portfolio filters component
+---
+
+<div class="portfolio-filters" id="portfolio-filters">
+  <button class="filter-button filter-button--active" data-filter="all" aria-label="Show all projects">All</button>
+  <button class="filter-button" data-filter="branding" aria-label="Filter by Branding">Branding</button>
+  <button class="filter-button" data-filter="visual" aria-label="Filter by Visual Communications">Visual Communications</button>
+  <button class="filter-button" data-filter="product" aria-label="Filter by Product Design">Product Design</button>
+  <button class="filter-button" data-filter="web" aria-label="Filter by Web">Web</button>
+  <button class="filter-button" data-filter="typography" aria-label="Filter by Typography">Typography</button>
+  <button class="filter-button" data-filter="merch" aria-label="Filter by Merch">Merch</button>
+  <button class="filter-button" data-filter="concept" aria-label="Filter by Concept">Concept</button>
+</div>
+
+<script is:inline>
+  (function() {
+    function initFilters() {
+      var filters = document.getElementById('portfolio-filters');
+      if (!filters) return;
+      
+      var buttons = filters.querySelectorAll('.filter-button');
+      var cards = document.querySelectorAll('.portfolio__column .bigcard');
+      var columnsContainer = document.querySelector('.portfolio__columns');
+      
+      for (var i = 0; i < buttons.length; i++) {
+        (function(button) {
+          button.addEventListener('click', function() {
+            var filter = button.dataset.filter;
+            
+            for (var j = 0; j < buttons.length; j++) {
+              buttons[j].classList.remove('filter-button--active');
+            }
+            button.classList.add('filter-button--active');
+            
+            if (filter === 'all') {
+              if (columnsContainer) {
+                columnsContainer.classList.remove('portfolio__columns--filtered');
+              }
+            } else {
+              if (columnsContainer) {
+                columnsContainer.classList.add('portfolio__columns--filtered');
+              }
+            }
+            
+            for (var k = 0; k < cards.length; k++) {
+              (function(card) {
+                var cardTag = card.dataset.tag || '';
+                var shouldShow = filter === 'all' || cardTag === filter;
+                
+                if (shouldShow) {
+                  card.style.display = '';
+                  setTimeout(function() {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                  }, 10);
+                } else {
+                  card.style.opacity = '0';
+                  card.style.transform = 'scale(0.95)';
+                  setTimeout(function() {
+                    card.style.display = 'none';
+                  }, 200);
+                }
+              })(cards[k]);
+            }
+          });
+        })(buttons[i]);
+      }
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initFilters);
+    } else {
+      initFilters();
+    }
+  })();
+</script>
+
+<style>
+  .portfolio-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-md) 0;
+  }
+  
+  .filter-button {
+    display: inline-block;
+    padding: 0 calc(var(--space-xs) / 2);
+    border-radius: 4px;
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: all var(--transition-default);
+    border: none;
+    text-decoration: none;
+  }
+  
+  .filter-button:hover {
+    opacity: 0.7;
+  }
+  
+  .filter-button--active {
+    background-color: var(--color-text-primary);
+    color: var(--color-background);
+  }
+  
+  .portfolio__column .bigcard {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+  
+  .portfolio__columns--filtered {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-md);
+  }
+  
+  .portfolio__columns--filtered .portfolio__column {
+    display: contents;
+  }
+</style>

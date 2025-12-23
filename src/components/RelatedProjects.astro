@@ -1,0 +1,92 @@
+---
+import { getCases } from "@utils/casesStore";
+import { getCaseTag } from "@utils/caseTags";
+
+interface Props {
+  currentSlug: string;
+  currentTag?: string;
+  limit?: number;
+}
+
+const { currentSlug, currentTag, limit = 3 } = Astro.props;
+const cases = await getCases();
+
+// Get related projects (same tag, excluding current)
+const related = cases
+  .filter(c => c.slug !== currentSlug && (currentTag ? c.tag === currentTag : true))
+  .slice(0, limit)
+  .map(c => ({
+    ...c,
+    tag: getCaseTag(c.tag),
+    link: c.linkUrl || `/${c.slug}`
+  }));
+---
+
+{related.length > 0 && (
+  <section class="related-projects">
+    <h2 class="related-projects__title">Related Projects</h2>
+    <div class="related-projects__grid">
+      {related.map((project) => (
+        <a href={project.link} class="related-projects__card">
+          <img 
+            src={project.coverImage} 
+            alt={project.title}
+            loading="lazy"
+          />
+          <div class="related-projects__info">
+            <h3>{project.title}</h3>
+            {project.tag && (
+              <span class={project.tag.className}>
+                {project.description || project.tag.label}
+              </span>
+            )}
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .related-projects {
+    margin-top: calc(var(--space-xl) * 2);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--color-border);
+  }
+  
+  .related-projects__title {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-lg);
+    color: var(--color-text-primary);
+  }
+  
+  .related-projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+  }
+  
+  .related-projects__card {
+    display: block;
+    text-decoration: none;
+    transition: transform var(--transition-default);
+  }
+  
+  .related-projects__card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .related-projects__card img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .related-projects__info h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+</style>
+

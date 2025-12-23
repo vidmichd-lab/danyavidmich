@@ -52,9 +52,9 @@ export async function getOGMeta(slug: string, pageTitle?: string): Promise<OGMet
   const specialPages: Record<string, Partial<OGMeta>> = {
     cv: {
       title: "Danya Vidmich — Work Experience",
-      description: "Art Communications Director with 7+ years of experience in major tech companies. View full CV and work experience.",
+      description: "Multidisciplinary Design Lead with 8+ years of experience in major tech companies. View full CV and work experience.",
       ogTitle: "Danya Vidmich — Work Experience & CV",
-      ogDescription: "Art Communications Director with 7+ years of experience in major tech companies (Yandex Practicum, Yandex Music, Badoo, Yandex Go). Specializes in brand systems, digital product design and large-scale campaigns.",
+      ogDescription: "Multidisciplinary Design Lead with 8+ years of experience in major tech companies (Yandex Practicum, Yandex Music, Badoo, Yandex Go). Specializes in brand systems, digital product design and large-scale campaigns.",
       ogUrl: `${BASE_URL}/cv`,
     },
     "": {

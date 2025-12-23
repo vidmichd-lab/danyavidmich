@@ -327,12 +327,31 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
           <span aria-hidden="true" class="circle-button__icon tabler--mail-filled"></span>
           <span class="sr-only">Get in touch</span>
         </a>
+
+        <span class="avatar-wrapper">
+          <img 
+            class="avatar" 
+            src="/avatar.jpg" 
+            alt="Danya Vidmich" 
+            loading="eager"
+          />
+        </span>
       </div>
     </div>
 
     <div class="aboutzero"></div>
 
     <section class="portfolio">
+      <div class="portfolio-filters" id="portfolio-filters">
+        <button class="filter-button filter-button--active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="branding">Branding</button>
+        <button class="filter-button" data-filter="visual">Visual Communications</button>
+        <button class="filter-button" data-filter="product">Product Design</button>
+        <button class="filter-button" data-filter="web">Web</button>
+        <button class="filter-button" data-filter="typography">Typography</button>
+        <button class="filter-button" data-filter="merch">Merch</button>
+        <button class="filter-button" data-filter="concept">Concept</button>
+      </div>
       <div class="portfolio__columns">
         {displayColumns.map((columnItems) => (
           <div class="portfolio__column">
@@ -422,7 +441,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
               const loadingMode = entry.isHero ? "eager" : "lazy";
 
               return (
-                <div class="bigcard">
+                <div class="bigcard" data-tag={entry.tag}>
                   {link ? (
                     <a href={link}>
                       <img
@@ -478,7 +497,157 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
       <a href="#" id="title1" data-scroll-to-top aria-label="Scroll to top" title="Go to top">Danya Vidmich</a>
       <p id="title2"></p>
       <p id="title3"></p>
+      </div>
     </div>
-  </div>
+    
+  <script is:inline>
+    (function() {
+      function initFilters() {
+        var filters = document.getElementById('portfolio-filters');
+        if (!filters) return;
+        
+        var buttons = filters.querySelectorAll('.filter-button');
+        var cards = document.querySelectorAll('.portfolio__column .bigcard');
+        var columnsContainer = document.querySelector('.portfolio__columns');
+        
+        for (var i = 0; i < buttons.length; i++) {
+          (function(button) {
+            button.addEventListener('click', function() {
+              var filter = button.dataset.filter;
+              
+              for (var j = 0; j < buttons.length; j++) {
+                buttons[j].classList.remove('filter-button--active');
+              }
+              button.classList.add('filter-button--active');
+              
+              if (filter === 'all') {
+                if (columnsContainer) {
+                  columnsContainer.classList.remove('portfolio__columns--filtered');
+                }
+              } else {
+                if (columnsContainer) {
+                  columnsContainer.classList.add('portfolio__columns--filtered');
+                }
+              }
+              
+              for (var k = 0; k < cards.length; k++) {
+                (function(card) {
+                  var cardTag = card.dataset.tag || '';
+                  var shouldShow = filter === 'all' || cardTag === filter;
+                  
+                  if (shouldShow) {
+                    card.style.display = '';
+                    setTimeout(function() {
+                      card.style.opacity = '1';
+                      card.style.transform = 'scale(1)';
+                    }, 10);
+                  } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    setTimeout(function() {
+                      card.style.display = 'none';
+                    }, 200);
+                  }
+                })(cards[k]);
+              }
+            });
+          })(buttons[i]);
+        }
+      }
+      
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initFilters);
+        } else {
+          initFilters();
+        }
+      })();
+    </script>
+  
+  <style>
+    .portfolio-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      margin-bottom: 0;
+      padding: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    
+    .portfolio-filters::-webkit-scrollbar {
+      display: none;
+    }
+    
+    .filter-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-sm) calc(var(--space-md) + 4px);
+      border-radius: var(--radius-sm);
+      background-color: var(--color-surface);
+      color: var(--color-text-primary);
+      font-size: 1.125rem;
+      line-height: 1.2;
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: all var(--transition-default);
+      border: none;
+      text-decoration: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    
+    .filter-button:hover {
+      opacity: 0.7;
+    }
+    
+    .filter-button--active {
+      background-color: #000;
+      color: #fff;
+    }
+    
+    @media (max-width: 800px) {
+      .portfolio-filters {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: var(--space-sm) var(--space-md);
+        padding-bottom: var(--space-xs);
+        margin-left: calc(-1 * var(--space-md));
+        margin-right: calc(-1 * var(--space-md));
+        gap: var(--space-sm);
+        -webkit-overflow-scrolling: touch;
+      }
+      
+      .filter-button {
+        font-size: 1.125rem;
+        padding: var(--space-sm) calc(var(--space-md) + 4px);
+        min-height: auto;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: var(--radius-sm);
+        background-color: var(--color-surface);
+        min-width: auto;
+      }
+      
+      .filter-button--active {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+    
+    .portfolio__columns--filtered {
+      display: grid !important;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-md);
+    }
+    
+    .portfolio__columns--filtered .portfolio__column {
+      display: contents;
+    }
+    
+  </style>
 </BaseLayout>
 
