@@ -5,9 +5,11 @@ import "@styles/home.css";
 import { getCases, type CaseEntry } from "@utils/casesStore";
 import { getCaseTag } from "@utils/caseTags";
 
-const title = "Designer Danya Vidmich";
-const description =
-  "Graphic and product designer. Ex Badoo, Yandex Music, Yandex Go and Art. Lebedev Studio. Making media Lug. Co-founded dating app Apt";
+import { getOGMeta } from "@utils/ogMeta";
+
+const ogMeta = await getOGMeta("");
+const title = ogMeta.title;
+const description = ogMeta.description;
 const cases = await getCases();
 const heroCase = cases.find((entry) => entry.isHero) ?? cases[0];
 const otherCases = heroCase
@@ -254,7 +256,14 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
 );
 ---
 
-<BaseLayout {title} {description} ogTitle="Danya Vidmich. Graphic and product design">
+<BaseLayout
+  {title}
+  {description}
+  ogTitle={ogMeta.ogTitle}
+  ogDescription={ogMeta.ogDescription}
+  ogUrl={ogMeta.ogUrl}
+  ogImage={ogMeta.ogImage}
+>
   <Fragment slot="head">
     <link rel="dns-prefetch" href="https://player.vimeo.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />

@@ -1,13 +1,21 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
+import { getOGMeta } from "@utils/ogMeta";
 
-const title = `Danya Vidmich — MAY OF MAY`;
+const ogMeta = await getOGMeta("may-of-may", `Danya Vidmich — MAY OF MAY`);
 const subtitle = "MAY OF MAY";
 const tertiary = "";
 ---
 
-<BaseLayout {title}>
+<BaseLayout
+  title={ogMeta.title}
+  description={ogMeta.description}
+  ogTitle={ogMeta.ogTitle}
+  ogDescription={ogMeta.ogDescription}
+  ogUrl={ogMeta.ogUrl}
+  ogImage={ogMeta.ogImage}
+>
   <Header subtitle={subtitle} tertiary={tertiary} />
 
 
