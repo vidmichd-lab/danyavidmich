@@ -51,7 +51,7 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
           port: ${{ secrets.FTP_PORT || 21 }}
-          local-dir: dist
+          local-dir: ./dist/
           server-dir: public_html
           state-name: .ftp-deploy-sync-state.json
           dangerous-clean-slate: false
