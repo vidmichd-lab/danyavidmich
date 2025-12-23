@@ -46,6 +46,11 @@ const {
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="canonical" href={ogUrl} />
+    
+    {/* Preconnect to external resources */}
+    <link rel="preconnect" href="https://player.vimeo.com" crossorigin />
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
 
     {preloadFonts && (
       <>
@@ -94,6 +99,30 @@ const {
     <slot />
     <script is:inline src="/javascript.js" defer></script>
     <script src="/scripts/image-error-handler.js" defer></script>
+    <script is:inline>
+      // Register service worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              // Service worker registered
+            })
+            .catch((error) => {
+              // Service worker registration failed
+            });
+        });
+      }
+    </script>
+    <script>
+      // Initialize error tracking (only in production with DSN)
+      if (import.meta.env.PUBLIC_SENTRY_DSN && import.meta.env.PROD) {
+        import('/src/utils/sentry.ts').then(({ initSentry }) => {
+          initSentry();
+        }).catch(() => {
+          // Silently fail if Sentry can't be loaded
+        });
+      }
+    </script>
   </body>
 </html>
 
