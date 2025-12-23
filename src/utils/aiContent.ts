@@ -1,4 +1,4 @@
-import { getCases, type CaseEntry } from "./casesStore";
+import { type CaseEntry } from "./casesStore";
 
 export interface AIContentConfig {
   apiKey?: string;
@@ -27,7 +27,7 @@ Style guidelines:
 - Be factual and results-oriented
 `;
 
-const PROJECT_PROMPT_TEMPLATE = (caseEntry: CaseEntry) => `
+const _PROJECT_PROMPT_TEMPLATE = (caseEntry: CaseEntry) => `
 ${DEFAULT_STYLE_GUIDE}
 
 Project information:

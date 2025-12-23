@@ -41,12 +41,13 @@ export async function initSentry() {
         return event;
       },
     });
-  } catch (error) {
+  } catch {
     // Silently fail if Sentry can't be loaded
     // Error tracking should never break the site
   }
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export async function captureException(error: Error, context?: Record<string, any>) {
   if (typeof window === 'undefined') return;
   

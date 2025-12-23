@@ -1,16 +1,25 @@
 // Analytics tracking
+interface WindowWithAnalytics extends Window {
+  gtag?: (...args: unknown[]) => void;
+  ym?: (...args: unknown[]) => void;
+}
+
 export function trackEvent(category: string, action: string, label?: string) {
+  if (typeof window === 'undefined') return;
+  
+  const win = window as WindowWithAnalytics;
+  
   // Google Analytics
-  if (typeof gtag !== 'undefined') {
-    gtag('event', action, {
+  if (typeof win.gtag !== 'undefined' && win.gtag) {
+    win.gtag('event', action, {
       event_category: category,
       event_label: label
     });
   }
   
   // Yandex Metrika
-  if (typeof ym !== 'undefined') {
-    ym(93372850, 'reachGoal', `${category}_${action}`, { label });
+  if (typeof win.ym !== 'undefined' && win.ym) {
+    win.ym(93372850, 'reachGoal', `${category}_${action}`, { label });
   }
   
   // Console log for development
