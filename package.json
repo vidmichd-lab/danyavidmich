@@ -10,6 +10,7 @@
     "lint": "eslint \"src/**/*.{ts,tsx,astro}\"",
     "images:webp": "node scripts/convert-images.mjs",
     "images:update-refs": "node scripts/update-image-refs.mjs",
+    "pdf:generate": "node scripts/generate-pdf.mjs",
     "format": "prettier --write .",
     "test": "npm run test:unit && npm run test:visual",
     "test:unit": "vitest run",
@@ -18,7 +19,8 @@
     "check": "astro check"
   },
   "dependencies": {
-    "astro": "^4.5.6"
+    "astro": "^4.5.6",
+    "playwright": "^1.57.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.6.0",
