@@ -54,7 +54,7 @@ jobs:
           local-dir: ./dist/
           server-dir: /www/danyavidmich.com/
           state-name: .ftp-deploy-sync-state.json
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
           exclude: |
             **/.git*
             **/.git*/**
