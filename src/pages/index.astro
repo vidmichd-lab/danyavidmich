@@ -17,10 +17,17 @@ const heroTag = heroCase ? getCaseTag(heroCase.tag) : null;
 const resolveLink = (entry) => {
   if (!entry) return undefined;
   const linkValue =
-    typeof entry.linkUrl === "string" ? entry.linkUrl : `/${entry.slug}.html`;
+    typeof entry.linkUrl === "string" ? entry.linkUrl : `/${entry.slug}`;
   if (!linkValue) return undefined;
   const trimmed = linkValue.trim();
-  return trimmed.length > 0 ? trimmed : undefined;
+  if (trimmed.length === 0) return undefined;
+  if (/^https?:\/\//i.test(trimmed)) {
+    return trimmed;
+  }
+  if (trimmed.startsWith("/") && trimmed.endsWith(".html")) {
+    return trimmed.slice(0, -5);
+  }
+  return trimmed;
 };
 const heroLink = resolveLink(heroCase);
 const otherCasesWithMeta = otherCases.map((entry) => ({
@@ -307,7 +314,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
       </div>
 
       <div class="action-group">
-        <a class="circle-button" href="cv.html" aria-label="Open CV page">
+        <a class="circle-button" href="/cv" aria-label="Open CV page">
           <span aria-hidden="true" class="circle-button__text">CV</span>
           <span class="sr-only">Open CV Page</span>
         </a>

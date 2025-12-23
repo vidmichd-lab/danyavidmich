@@ -30,6 +30,19 @@ jobs:
       - name: Build static site
         run: npm run build
 
+      - name: Verify build output
+        run: |
+          if [ ! -d "dist" ]; then
+            echo "Error: dist directory not found"
+            exit 1
+          fi
+          if [ ! -f "dist/index.html" ]; then
+            echo "Error: dist/index.html not found"
+            exit 1
+          fi
+          echo "Build verification successful"
+          ls -la dist/ | head -20
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4
         with:
@@ -41,5 +54,14 @@ jobs:
           local-dir: dist
           server-dir: public_html
           state-name: .ftp-deploy-sync-state.json
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/.DS_Store
+            **/dist*.zip
+            **/dist 2/**
+            **/dist 3/**
+          log-level: verbose
 

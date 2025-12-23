@@ -1,4 +1,5 @@
 import { readFile, writeFile, mkdir, stat } from "fs/promises";
+import { existsSync } from "fs";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { randomUUID } from "crypto";
@@ -67,14 +68,34 @@ export interface CaseInput {
   gallery?: CaseGalleryItem[];
 }
 
-const CASES_FILE_PATH = fileURLToPath(CASES_FILE_URL);
+const resolveCasesFilePath = () => {
+  const projectRoot = process.cwd();
+  const candidatePaths = [
+    `${projectRoot}/src/data/cases.json`,
+    `${projectRoot}/dist/data/cases.json`,
+    fileURLToPath(CASES_FILE_URL)
+  ];
+
+  for (const candidate of candidatePaths) {
+    try {
+      if (existsSync(candidate)) {
+        return candidate;
+      }
+    } catch {
+      // ignore, try next candidate
+    }
+  }
+
+  return fileURLToPath(CASES_FILE_URL);
+};
+
+const CASES_FILE_PATH = resolveCasesFilePath();
 const DEFAULT_TAG: CaseTag = CASE_TAG_VALUES[0];
 
 export const isValidCaseTag = (value: string): value is CaseTag =>
   (CASE_TAG_VALUES as readonly string[]).includes(value);
 
-const getDefaultLinkForSlug = (slug: string) =>
-  slug ? `/${slug}.html` : "";
+const getDefaultLinkForSlug = (slug: string) => (slug ? `/${slug}` : "");
 
 const toBoolean = (value: unknown) => value === true || value === "true";
 

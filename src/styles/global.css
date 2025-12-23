@@ -766,14 +766,14 @@
       display: inline-flex;
       align-items: center;
       justify-content: flex-start;
-      height: 60px;
-      padding: 0 calc(var(--space-md) + 4px);
+      min-height: 44px;
+      padding: var(--space-xs) var(--space-md);
       margin: var(--space-sm) 0 0 0;
       border-radius: 999px;
       background-color: var(--color-surface);
       color: var(--color-text-primary);
       text-decoration: none;
-      font-size: 1.5rem;
+      font-size: 1rem;
       gap: var(--space-sm);
     }
 

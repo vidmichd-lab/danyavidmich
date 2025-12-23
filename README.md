@@ -72,16 +72,59 @@ Continuous deployment is configured through GitHub Actions. Every push to the `m
 
 1. Installs dependencies with `npm ci`.
 2. Builds the static bundle (`npm run build` → `dist/`).
-3. Uploads the `dist/` contents to the Reg.ru `public_html` directory via FTP.
+3. Verifies the build output.
+4. Uploads the `dist/` contents to the Reg.ru `public_html` directory via FTP.
 
-### Required repository secrets
+### Setup Instructions
 
-Set the following secrets in **Settings → Secrets and variables → Actions**:
+#### Step 1: Add Repository Secrets
 
-- `FTP_HOST` – `31.31.196.4`
-- `FTP_USER` – `u2034102`
-- `FTP_PASSWORD` – password from the Reg.ru FTP section
-- `FTP_PORT` *(optional)* – defaults to `21` when omitted
+1. Go to your GitHub repository.
+2. Navigate to **Settings** → **Secrets and variables** → **Actions**.
+3. Click **New repository secret** and add the following:
 
-After the secrets are configured, pushing to `main` (or running the workflow manually through “Run workflow”) will deploy automatically. To prevent partial uploads, each run cancels any in-progress deployment.
+   - **Name:** `FTP_HOST`  
+     **Value:** `31.31.196.4`
+
+   - **Name:** `FTP_USER`  
+     **Value:** `u2034102`
+
+   - **Name:** `FTP_PASSWORD`  
+     **Value:** Your FTP password from Reg.ru (the one shown in the FTP access section, not the control panel password)
+
+   - **Name:** `FTP_PORT` *(optional)*  
+     **Value:** `21` (default, can be omitted)
+
+#### Step 2: Test the Deployment
+
+1. Push any change to the `main` branch, or
+2. Go to **Actions** tab → **Deploy to Reg.ru** → **Run workflow** → **Run workflow** (manual trigger).
+
+The workflow will:
+- Build the site automatically
+- Upload only changed files (incremental sync)
+- Show detailed logs in the Actions tab
+
+#### Step 3: Verify Deployment
+
+After the workflow completes successfully:
+- Check your site at `https://danyavidmich.com`
+- Verify that new changes are live
+- Check the Actions tab for any errors
+
+### Troubleshooting
+
+- **Build fails:** Check that `npm ci` completes without errors locally.
+- **FTP connection fails:** Verify FTP credentials in Reg.ru panel and ensure the IP isn't blocked.
+- **Files not updating:** Check the workflow logs for specific file upload errors.
+- **Partial deployment:** The workflow uses incremental sync; deleted local files won't be removed from the server unless you manually clean `public_html`.
+
+### Manual Deployment
+
+If you need to deploy manually without GitHub Actions:
+
+```bash
+npm run build
+# Then upload dist/ contents to public_html via FTP client
+```
 

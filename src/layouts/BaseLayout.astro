@@ -3,9 +3,6 @@ import "@styles/reset.css";
 import "@styles/base.css";
 import "@styles/global.css";
 
-import lazyScriptUrl from "@scripts/lazy-media.ts?url";
-import revealScriptUrl from "@scripts/reveal.ts?url";
-
 const {
   title = "Designer Danya Vidmich",
   description = "Graphic and product designer. Ex Badoo, Yandex Music, Yandex Go and Art. Lebedev Studio. Making media Lug. Co-founded dating app Apt",
@@ -55,8 +52,7 @@ const {
   </head>
   <body>
     <slot />
-    <script type="module" src={lazyScriptUrl}></script>
-    <script type="module" src={revealScriptUrl}></script>
+    <script src="/javascript.js" defer></script>
   </body>
 </html>
 

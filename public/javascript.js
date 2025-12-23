@@ -126,10 +126,47 @@
     });
   }
 
+  function hydrateReveal() {
+    var selectors = [
+      ".portfolio__hero",
+      ".portfolio__columns .bigcard",
+      ".portfolio__columns .card",
+      ".graphic .bigcard",
+      ".graphic .card",
+      ".graphic .gallery-item",
+      ".cv-entry",
+      ".cv-duo-group",
+      ".tag-collection.cv-duo__row"
+    ];
+
+    var observer = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+        rootMargin: "0px 0px -10% 0px"
+      }
+    );
+
+    selectors.forEach(function (selector) {
+      document.querySelectorAll(selector).forEach(function (element) {
+        element.classList.add("reveal");
+        observer.observe(element);
+      });
+    });
+  }
+
   function hydrate() {
     hydrateScrollTrigger();
     hydrateImages();
     hydrateIframes();
+    hydrateReveal();
 
     window.topFunction = function () {
       window.scrollTo({ top: 0, behavior: "smooth" });

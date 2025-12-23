@@ -1,0 +1,10 @@
+RewriteEngine On
+
+# Serve extensionless URLs by internally mapping to .html files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_URI} !\.[a-zA-Z0-9]{1,5}$
+RewriteRule ^(.+)$ $1.html [L]
+
+DirectoryIndex index.html
+
