@@ -1,10 +1,8 @@
 import {
   applyLoadingStyles,
-  EAGER_THRESHOLD,
   markLoaded,
   PLACEHOLDER,
-  shouldKeepEager,
-  type LoadableElement
+  shouldKeepEager
 } from "@utils/lazy-media";
 
 declare global {

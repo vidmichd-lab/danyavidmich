@@ -2,7 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import "@styles/home.css";
-import { getCases } from "@utils/casesStore";
+import { getCases, type CaseEntry } from "@utils/casesStore";
 import { getCaseTag } from "@utils/caseTags";
 
 const title = "Designer Danya Vidmich";
@@ -14,7 +14,7 @@ const otherCases = heroCase
   ? cases.filter((entry) => entry.id !== heroCase.id)
   : cases;
 const heroTag = heroCase ? getCaseTag(heroCase.tag) : null;
-const resolveLink = (entry) => {
+const resolveLink = (entry: CaseEntry | undefined) => {
   if (!entry) return undefined;
   const linkValue =
     typeof entry.linkUrl === "string" ? entry.linkUrl : `/${entry.slug}`;
@@ -77,11 +77,6 @@ const isIframeItem = (
   item: ExtraMediaItem
 ): item is ExtraMediaItem & { iframeSrc: string } =>
   typeof item.iframeSrc === "string" && item.iframeSrc.length > 0;
-
-type ExtraMediaBlock = {
-  layout: "single" | "double";
-  items: ReadonlyArray<ExtraMediaItem>;
-};
 
 const columnExtras: ReadonlyArray<ReadonlyArray<ExtraMediaItem>> = [
   [
@@ -267,8 +262,8 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
     <link rel="preconnect" href="https://player.vimeo.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
-    <script defer src="https://player.vimeo.com/api/player.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LGZW7QNFB"></script>
+    <script is:inline defer src="https://player.vimeo.com/api/player.js"></script>
+    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-4LGZW7QNFB"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -349,8 +344,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                         src={item.media.iframeSrc}
                         title={item.media.title ?? "Embedded media"}
                         loading={item.media.loading ?? "lazy"}
-                        style={styleValue}
-                        frameborder="0"
+                        style={`${styleValue}; border: 0;`}
                         allow={allowValue}
                         allowfullscreen
                       ></iframe>

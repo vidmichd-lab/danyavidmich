@@ -42,8 +42,7 @@ const descriptionValue = item?.description ?? tag?.label ?? "";
       src={item.iframeSrc}
       title={titleValue || "Embedded media"}
       loading={loadingValue}
-      style={styleValue}
-      frameborder="0"
+      style={`${styleValue}; border: 0;`}
       allow={allowValue}
       allowfullscreen
     ></iframe>

@@ -13,7 +13,7 @@ async function replaceInFile(path) {
   let updated = original;
 
   for (const regex of patterns) {
-    updated = updated.replace(regex, (match, quote, filename) => `${quote}img/${filename}.webp${quote}`);
+    updated = updated.replace(regex, (_match, quote, filename) => `${quote}img/${filename}.webp${quote}`);
   }
 
   if (updated !== original) {
