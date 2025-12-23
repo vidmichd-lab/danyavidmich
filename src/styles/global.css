@@ -184,23 +184,14 @@
     background-size: cover;
   }
   
-  .bigcard img {
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-  }
-  
-  .gallery-item img {
-    aspect-ratio: auto;
-  }
-  
   .cv-entry__logo,
-  .cv-tool-logo,
-  .avatar {
+  .cv-tool-logo {
     aspect-ratio: 1 / 1;
     object-fit: contain;
   }
   
   .avatar {
+    aspect-ratio: 1 / 1;
     object-fit: cover;
   }
 
