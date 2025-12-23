@@ -25,8 +25,11 @@ async function generatePDF() {
   
   await page.goto(cvPath, { waitUntil: 'networkidle' });
 
-  // Wait for fonts and images to load
-  await page.waitForTimeout(1000);
+  // Wait for fonts, images and all content to load
+  await page.waitForTimeout(2000);
+  
+  // Wait for specific content to ensure it's rendered
+  await page.waitForSelector('.cv-entry__details', { timeout: 5000 });
 
   // Generate PDF
   console.log(`Generating PDF to: ${pdfPath}`);
