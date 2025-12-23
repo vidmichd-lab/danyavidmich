@@ -12,6 +12,7 @@ const {
   ogDescription = description,
   ogType = "website",
   ogUrl = "https://danyavidmich.com",
+  ogImage = "https://danyavidmich.com/Union.png",
   twitterCard = "summary_large_image",
   preloadFonts = true
 } = Astro.props;
@@ -31,10 +32,14 @@ const {
     <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={ogDescription} />
     <meta property="og:url" content={ogUrl} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <meta name="twitter:card" content={twitterCard} />
     <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -50,6 +55,40 @@ const {
     )}
 
     <slot name="head" />
+    
+    {/* JSON-LD structured data */}
+    <script type="application/ld+json" is:inline set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Danya Vidmich",
+      "alternateName": "Daniil Vidmich",
+      "jobTitle": "Art Communications Director",
+      "description": description,
+      "url": ogUrl,
+      "sameAs": [
+        "https://www.linkedin.com/in/vidmichd/",
+        "https://t.me/dvtel"
+      ],
+      "knowsAbout": [
+        "Graphic Design",
+        "Product Design",
+        "Brand Identity",
+        "Digital Marketing",
+        "UI/UX Design"
+      ],
+      "alumniOf": [
+        {
+          "@type": "Organization",
+          "name": "Art. Lebedev Studio"
+        }
+      ],
+      "worksFor": [
+        {
+          "@type": "Organization",
+          "name": "Yandex Practicum"
+        }
+      ]
+    })} />
   </head>
   <body>
     <slot />
