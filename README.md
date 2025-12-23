@@ -56,9 +56,19 @@ Repeat after any visual change to guarantee pixel-perfect parity.
 
 ## AI Content Generation
 
-The site includes AI-powered content generation for consistent, professional descriptions across all projects.
+The site includes AI-powered content generation for consistent, professional descriptions across all projects. Supports both **Yandex GPT** and **OpenAI**.
 
 ### Quick Start
+
+**Option 1: Yandex GPT (recommended for Russia)**
+
+1. Get your API key and Folder ID from [Yandex Cloud Console](https://console.cloud.yandex.ru/):
+```bash
+export YANDEX_API_KEY="your-api-key-here"
+export YANDEX_FOLDER_ID="your-folder-id-here"
+```
+
+**Option 2: OpenAI**
 
 1. Set your OpenAI API key:
 ```bash

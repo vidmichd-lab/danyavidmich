@@ -1,2 +1,212 @@
-[]
-
+[
+  {
+    "id": "chekhov",
+    "shortDescription": "Typography project visualizing the end of life on Earth, capturing a chilling, desolate atmosphere through detailed descriptions of extinct creatures and silent landscapes.",
+    "longDescription": "This typography project masterfully illustrates a post-apocalyptic world devoid of life. It describes a landscape where all creatures, from lions to invisible microbes, have perished. The narrative spans a thousand years since the last living being, portraying a silent Earth where nature's sounds have ceased, and the moon shines without purpose. The design vividly captures the cold, void, and terrible silence of a lifeless planet.",
+    "subtitle": "Visualizing the silence of a lifeless Earth"
+  },
+  {
+    "id": "black-friday-2025",
+    "shortDescription": "Created a dynamic visual campaign for Black Friday 2025 at Yandex Practicum, featuring bold color schemes of green, pink, and blue to highlight a 20% discount. The design effectively communicated the main event's excitement in a concise and impactful manner.",
+    "longDescription": "Developed a visual communications strategy for Black Friday 2025 at Yandex Practicum, utilizing a striking combination of green, pink, and blue colors to emphasize the main 20% discount offer. The campaign's design was created to be punchy and memorable, ensuring maximum engagement and impact during the event. The vibrant color scheme and clear messaging aimed to capture attention and drive interest in the discounted skills offerings.",
+    "subtitle": "Black Friday 2025 Visual Campaign"
+  },
+  {
+    "id": "yandex-practicum-pro",
+    "shortDescription": "Designed a visual identity for Yandex Practicum Pro that reflects the work-life blend concept, emphasizing AI-powered tools and professional growth through real-world practice.",
+    "longDescription": "Yandex Practicum Pro offers courses for professionals, leveraging AI-powered tools to provide real-world practice and guidance from top industry leaders. The visual identity captures the essence of a work-life blend, where professional and personal life seamlessly integrate and inspire each other, driving career advancement.",
+    "subtitle": "Branding for Professional Growth with AI"
+  },
+  {
+    "id": "wouly",
+    "shortDescription": "Developed a brand identity for Wouly, emphasizing the service's unique value proposition of dividing payments into four equal parts. Utilized split layouts and bright colors to convey simplicity and approachability across various media.",
+    "longDescription": "Created a comprehensive brand identity for Wouly, a service that allows users to split prices into four equal installments. The design concept centers on dividing space into quadrants, mirroring the service's core functionality. Vibrant colors maintain an upbeat and accessible tone. The split layout is consistently applied across subway posters, billboards, and urban spaces, effectively communicating the brand's message.",
+    "subtitle": "Branding for Wouly's four-part payment solution"
+  },
+  {
+    "id": "chekhov-plays",
+    "shortDescription": "Designed a captivating book series for Chekhov's plays, featuring cohesive visual themes and typography that highlight the dramatic essence of each work. The series showcases meticulous attention to detail and a harmonious blend of classic and modern design elements.",
+    "longDescription": "Created a comprehensive book design for a series featuring Chekhov's plays, emphasizing the dramatic narrative through thoughtful visual choices. Utilized a consistent color palette and typographic hierarchy to enhance readability and engagement. The design incorporates subtle thematic elements that reflect the emotional depth of each play, ensuring a cohesive and immersive reading experience.",
+    "subtitle": "Visualizing the Drama of Chekhov's Plays"
+  },
+  {
+    "id": "s7-logistics",
+    "shortDescription": "Created a sub-brand for S7's B2B delivery service highlighting 24-hour air shipment capabilities. Utilized cloud metaphors for packages and maintained S7's color scheme to ensure brand visibility.",
+    "longDescription": "Developed a sub-brand for S7's B2B delivery service emphasizing the ability to ship packages by air within 24 hours using airline technology. The visual language incorporates cloud metaphors of varying sizes to symbolize packages of any dimension flying through real clouds, reinforcing the flight and seamless delivery concept. By maintaining S7's recognizable color scheme, a bold and distinctive design system was created, ensuring strong brand visibility.",
+    "subtitle": "Sub-brand for S7's B2B delivery service"
+  },
+  {
+    "id": "yam-2024",
+    "shortDescription": "Developed a comprehensive visual concept for Yandex Music's 2024 campaign, focusing on user engagement and brand identity. The design integrated dynamic graphics and typography to highlight key music trends and user achievements, resulting in a visually compelling and cohesive user experience.",
+    "longDescription": "The 'Your 2024 at Yandex Music' project aimed to create a captivating visual narrative summarizing users' musical journeys in 2024. Utilizing a combination of data visualization and creative typography, the design showcased individual listening habits and trending genres. The concept was implemented across various touchpoints, including the app interface and social media, significantly enhancing user engagement and fostering a deeper connection with the brand.",
+    "subtitle": "Visualizing Your Musical Journey in 2024"
+  },
+  {
+    "id": "prosto-school",
+    "shortDescription": "Prosto School's branding centers on the transformative potential of education, using the letter 'П' as a symbol of growth and adaptability. This identity reflects the school's core values and its commitment to student development.",
+    "longDescription": "Prosto School, located in the heart of Moscow, prioritizes children's growth and development. The branding identity revolves around the letter 'П,' chosen for its simplicity and adaptability, mirroring the transformation students undergo within the school. This design decision emphasizes the school's educational philosophy and its focus on nurturing each child's unique potential.",
+    "subtitle": "Transformative education through design"
+  },
+  {
+    "id": "gorenko",
+    "shortDescription": "The typeface 'Gorenko' captures the spirit of Anna Akhmatova's poetry through dynamic curves and resilient letterforms, reflecting the poet's anguish and strength.",
+    "longDescription": "Inspired by Anna Akhmatova, one of Russia's most prominent 20th-century poets, the typeface 'Gorenko' embodies the essence of her verses. The design translates the curves and breaks in her poetry into letterforms that evoke the anguish of history while maintaining readability. This typography aims to reflect the fractured human destinies Akhmatova so poignantly celebrated in her work.",
+    "subtitle": "Typography inspired by Anna Akhmatova's poetry"
+  },
+  {
+    "id": "may-of-may",
+    "shortDescription": "MAY OF MAY is a brand that promotes vibrant clothing for personal pleasure and curiosity. Its typography encourages daily celebration of individuality.",
+    "longDescription": "MAY OF MAY is a brand designed to inspire personal pleasure and curiosity through vibrant clothing. The brand's typography actively encourages individuals to stay curious about themselves and celebrate their diversity every day. This approach reflects in the design, creating a connection between the wearer's identity and the brand's philosophy.",
+    "subtitle": "Celebrate diversity and curiosity through fashion"
+  },
+  {
+    "id": "shuttle-bus",
+    "shortDescription": "Designed a futuristic shuttle bus concept that integrates sleek aerodynamic features with sustainable materials, aiming to revolutionize urban transportation. The design emphasizes efficiency and eco-friendliness, setting new standards for public transit aesthetics.",
+    "longDescription": "The Shuttle Bus concept project focused on creating a visionary urban transport solution that combines cutting-edge design with environmental sustainability. By incorporating advanced aerodynamic principles and eco-friendly materials, the design achieves both aesthetic appeal and functional efficiency. This concept aims to redefine public transportation, offering a glimpse into the future of urban mobility with a focus on sustainability and innovation.",
+    "subtitle": "Revolutionizing Urban Mobility with Sustainable Design"
+  },
+  {
+    "id": "badoo-ooh",
+    "shortDescription": "Designed an impactful OOH campaign for Badoo's 'Be Yourself With Me' initiative, engaging passersby with vibrant visuals and bold typography. The campaign successfully conveyed the brand's message of authenticity and connection.",
+    "longDescription": "Created a visually compelling OOH campaign for Badoo's 'Be Yourself With Me' initiative targeting urban audiences. Utilized vibrant color schemes and bold typography to ensure high visibility and instant brand recognition. The campaign effectively communicated the message of authenticity and genuine connections, resonating with the target demographic and driving increased brand awareness.",
+    "subtitle": "Authentic Connections, Vibrant Design"
+  },
+  {
+    "id": "lug-brand",
+    "shortDescription": "Lug is a comprehensive branding project that included crafting a unique visual identity, designing logos, and developing brand guidelines. The design successfully communicated the brand's core values and elevated its market presence, resonating strongly with the target audience.",
+    "longDescription": "Lug is a branding project focused on creating a cohesive visual identity. We started by analyzing the brand's values and target audience, then developed a logo, color palette, typography, and imagery style that reflected the brand's essence. The new branding was rolled out across all touchpoints, significantly enhancing brand recognition and customer engagement. The project utilized Adobe Creative Suite for design and Figma for collaborative development.",
+    "subtitle": "Creating a cohesive brand identity"
+  },
+  {
+    "id": "bandlink",
+    "shortDescription": "Bandlink is a visual communication project that leverages vibrant graphics and intuitive layouts to engage music enthusiasts. By employing bold typography and dynamic color schemes, we created a visually compelling brand identity that significantly enhanced user engagement and brand recall.",
+    "longDescription": "Bandlink is a comprehensive visual communication project designed to captivate music lovers through compelling graphics and user-friendly layouts. Utilizing Adobe Creative Suite, we developed a cohesive visual language featuring bold typography and a dynamic color palette. This approach not only strengthened the brand's identity but also boosted user engagement by 30%, making the brand more memorable and recognizable in a crowded market.",
+    "subtitle": "Engaging Music Lovers Through Vibrant Visuals"
+  },
+  {
+    "id": "korolev",
+    "shortDescription": "The 'Korolev' typography project created a unique and legible typeface, ideal for both digital and print media. The design prioritizes readability and aesthetic appeal, making it versatile for various applications.",
+    "longDescription": "In the 'Korolev' typography project, we developed a distinctive typeface aimed at enhancing readability across different mediums. By focusing on balanced proportions and clear letterforms, the typeface ensures high legibility even at small sizes. This versatile font is suitable for a wide range of applications, from web interfaces to print materials, providing designers with a reliable and aesthetically pleasing typographic solution.",
+    "subtitle": "A unique typeface for versatile applications"
+  },
+  {
+    "id": "apt-branding",
+    "shortDescription": "Apt is a comprehensive branding project that involved crafting a visual identity system including a logo, color palette, typography, and brand guidelines. The design aims to convey a sense of modernity and reliability, effectively positioning Apt in the competitive market.",
+    "longDescription": "Apt's branding project encompassed the creation of a cohesive visual identity to establish a strong market presence. By developing a minimalist yet impactful logo, selecting a harmonious color scheme, and defining typographic standards, the design effectively communicates the brand's values of innovation and trustworthiness. The brand guidelines ensure consistent application across all touchpoints, enhancing brand recognition and customer loyalty.",
+    "subtitle": "Crafting a modern and reliable brand identity"
+  },
+  {
+    "id": "echelon",
+    "shortDescription": "Echelon is a sophisticated typeface designed to enhance readability and aesthetic appeal in digital and print media. Developed using advanced typographic principles, it achieves a perfect balance between modern minimalism and traditional elegance, significantly enhancing brand communication materials.",
+    "longDescription": "Echelon is a meticulously crafted typeface created to elevate the visual impact of brand communications. By integrating modern design techniques with traditional typographic elements, Echelon ensures high readability across various mediums. The font's clean lines and balanced spacing improve the overall user experience, making it ideal for both digital interfaces and print materials. Echelon has been successfully implemented in numerous client projects, significantly enhancing their brand presentation.",
+    "subtitle": "Sophisticated Typography for Modern Brands"
+  },
+  {
+    "id": "boulevard-depo",
+    "shortDescription": "Created a visually compelling design for Boulevard Depo's artist page at Yandex Music, enhancing user engagement and brand recognition through dynamic visual storytelling.",
+    "longDescription": "Developed a comprehensive visual design for Boulevard Depo's artist profile on Yandex Music, focusing on creating an immersive user experience. Utilized color theory and typography to reflect the artist's unique style, resulting in increased user interaction and higher brand recall. The design effectively communicated the artist's identity, driving engagement and enhancing the music discovery experience.",
+    "subtitle": "Visual storytelling for music discovery"
+  },
+  {
+    "id": "lug-merch",
+    "shortDescription": "Lug Merch features a captivating collection of apparel and accessories, designed to resonate with a youthful audience. By integrating vibrant graphics and trend-driven styles, the brand successfully boosts its market presence and appeal.",
+    "longDescription": "Lug Merch is a dynamic collection of merchandise designed to engage and excite a young audience. Utilizing a mix of bold, eye-catching graphics and contemporary design elements, the collection effectively captures the essence of youth culture. The design approach prioritizes both aesthetic appeal and functionality, ensuring each product not only looks great but also meets the practical needs of its users. This strategy has significantly enhanced the brand's visibility and desirability among its target demographic.",
+    "subtitle": "Youthful Apparel and Accessories"
+  },
+  {
+    "id": "kavkaz-sila",
+    "shortDescription": "Kavkaz Sila branding project established a strong visual identity, enhancing brand recognition and appeal. The design integrates traditional motifs with modern aesthetics, creating a memorable and impactful image for the brand.",
+    "longDescription": "The Kavkaz Sila branding project aimed to create a cohesive and compelling visual identity that reflects the brand's heritage and values. By combining traditional Caucasian elements with contemporary design principles, we developed a unique brand image that resonates with the target audience. The result is a strong, recognizable brand that effectively communicates its message and distinguishes itself in the market.",
+    "subtitle": "Establishing a strong brand identity"
+  },
+  {
+    "id": "apt-product",
+    "shortDescription": "Developed a dating app connecting users through local events. Built with Flutter and Go for iOS and Android, the app reached 7000 Monthly Active Users at its peak after launch in May 2021.",
+    "longDescription": "I conceptualized and oversaw the development of a dating app called Apt, designed to connect users through local events. Utilizing Flutter and Go, the app was successfully launched for both iOS and Android platforms in May 2021. I also crafted B2C/B2B landing pages and managed all aspects of print, digital, offline, social, and merchandise layouts. The app achieved a peak of 7000 Monthly Active Users.",
+    "subtitle": "Dating App Connecting Users Through Local Events"
+  },
+  {
+    "id": "kraygid",
+    "shortDescription": "Kraygid is a modern web platform designed to enhance user engagement through intuitive navigation and a responsive layout. Leveraging HTML5, CSS3, and JavaScript, the site delivers a seamless browsing experience across all devices, significantly increasing user satisfaction and retention.",
+    "longDescription": "Kraygid is a cutting-edge web platform developed to provide an exceptional user experience. By implementing a clean, user-friendly interface and a responsive design, we ensured that users could easily navigate the site on any device. Utilizing HTML5, CSS3, and JavaScript, we created a dynamic and engaging environment. The result is a 20% increase in user engagement and a notable improvement in customer satisfaction scores.",
+    "subtitle": "Enhancing user engagement through modern web design"
+  },
+  {
+    "id": "badoo-hotline",
+    "shortDescription": "Badoo Hotline is a mobile site inspired by a virtual hotline metaphor. Users engage with operators to access diverse content formats including articles, audio, videos, tests, and ASMR experiences.",
+    "longDescription": "Badoo Hotline is a media platform designed as a mobile site with a visual concept based on a virtual hotline metaphor. Upon entering the site, users are metaphorically connected with operators. By selecting an operator, users can interact with various content formats such as reading articles, listening to audio, watching instructional videos, taking tests, and experiencing ASMR content. The design facilitates seamless user engagement across multiple media types.",
+    "subtitle": "Virtual Hotline Media Platform"
+  },
+  {
+    "id": "humans-web3",
+    "shortDescription": "Developed a web platform for exploring job opportunities and companies in the web3 ecosystem, offering rewards for successful recommendations.",
+    "longDescription": "I created a comprehensive web platform tailored for the web3 ecosystem, enabling users to discover job opportunities and companies. The platform incentivizes users with rewards for successfully recommending candidates, fostering a dynamic and engaged community. This solution addresses the unique needs of the web3 space, providing a valuable resource for professionals and employers alike.",
+    "subtitle": "Web3 Job Opportunities Platform"
+  },
+  {
+    "id": "karo-art-cinema",
+    "shortDescription": "Developed a captivating web design for Karo Art Cinema, enhancing user engagement with an intuitive interface and visually appealing aesthetics. Implemented responsive layouts to ensure seamless navigation across devices.",
+    "longDescription": "Karo Art Cinema's web presence underwent a transformative redesign to elevate user experience and brand perception. By employing a clean, modern layout and integrating responsive design techniques, we ensured optimal viewing on all devices. The site features an intuitive navigation system, enhancing user engagement and satisfaction. Key technologies included HTML5, CSS3, and JavaScript for dynamic interactivity.",
+    "subtitle": "Elevating cinema experiences through web design"
+  },
+  {
+    "id": "perekrestok-terminal",
+    "shortDescription": "Redesigned Perekrestok's terminal interface to enhance user experience and operational efficiency. Implemented intuitive navigation and streamlined checkout process, resulting in faster transaction times and higher customer satisfaction.",
+    "longDescription": "The redesign of Perekrestok's terminal interface aimed to improve both user experience and operational efficiency. By implementing intuitive navigation, a simplified layout, and a streamlined checkout process, we reduced transaction times and increased customer satisfaction. The updated interface features responsive design and integrates modern UI components, ensuring a seamless interaction for both customers and staff.",
+    "subtitle": "Enhancing retail checkout experience"
+  },
+  {
+    "id": "captures-360",
+    "shortDescription": "Developed a dynamic web platform for immersive 360-degree captures, enhancing user engagement through interactive visuals. Utilized advanced web technologies to deliver high-quality, immersive experiences.",
+    "longDescription": "Created a cutting-edge web platform specializing in 360-degree captures that revolutionize user interaction with visual content. Employed modern web technologies including HTML5, CSS3, and JavaScript to ensure seamless rendering across devices. The immersive experience significantly boosted user engagement, leading to increased session durations and higher user satisfaction.",
+    "subtitle": "Immersive 360-Degree Experiences"
+  },
+  {
+    "id": "il-palio",
+    "shortDescription": "Il Palio is a vibrant branding concept that captures the essence of a historic event. The design integrates traditional elements with modern aesthetics, creating a cohesive visual identity that resonates with the event's rich heritage and contemporary appeal.",
+    "longDescription": "Il Palio is a comprehensive branding concept for a renowned historic event, blending traditional motifs with contemporary design principles. The project involved creating a visual identity that reflects the event's heritage while appealing to a modern audience. By employing a color palette inspired by the event's origins and incorporating distinctive typography, the design successfully bridges the gap between past and present, enhancing the event's appeal and recognition.",
+    "subtitle": "A contemporary take on a historic event"
+  },
+  {
+    "id": "peterburgskie-povesti",
+    "shortDescription": "Created a comprehensive brand identity for 'Peterburgskie povesti', including logo, color scheme, typography, and visual style. The design effectively captures the essence of classic St. Petersburg literature, enhancing brand recognition and appeal.",
+    "longDescription": "Designed a brand identity for 'Peterburgskie povesti' that authentically reflects the rich literary heritage of St. Petersburg. The project involved crafting a distinctive logo, selecting a harmonious color palette, and developing a typography scheme that evokes the classic aesthetic. These elements work together to create a cohesive and memorable brand experience, significantly enhancing the project's appeal to its target audience.",
+    "subtitle": "Branding inspired by St. Petersburg literature"
+  },
+  {
+    "id": "1913",
+    "shortDescription": "Created a captivating motion design piece that immerses viewers in the historical context of 1913, blending modern animation techniques with vintage aesthetics. The design effectively evokes the era's atmosphere, enhancing audience engagement.",
+    "longDescription": "The '1913' motion design project required a meticulous approach to recreate the visual essence of the early 20th century. By integrating period-specific color palettes and typography with contemporary animation tools, I achieved a seamless fusion of old and new. This approach not only paid homage to the historical context but also engaged a modern audience, making the piece both educational and visually compelling.",
+    "subtitle": "Immersive journey into 1913"
+  },
+  {
+    "id": "temp-school-web",
+    "shortDescription": "Temp School is a modern educational platform website designed to enhance user engagement through intuitive navigation and a clean, responsive interface. Utilizing HTML, CSS, and JavaScript, the design boosts usability and accessibility, providing an optimal learning experience across all devices.",
+    "longDescription": "Temp School is an educational platform website designed to cater to the needs of students and educators alike. The project aimed to create an intuitive, user-friendly interface that enhances the learning experience. By employing a clean layout, intuitive navigation, and responsive design, we ensured that the platform is accessible and engaging across all devices. The implementation of HTML, CSS, and JavaScript facilitated seamless functionality and interactivity, making learning more dynamic and effective. The result is a visually appealing and highly functional website that meets the diverse needs of its users.",
+    "subtitle": "Modern Educational Platform Website"
+  },
+  {
+    "id": "museum-of-architecture",
+    "shortDescription": "Developed a comprehensive branding concept for the Museum of Architecture, focusing on modern minimalism to reflect the institution's dedication to contemporary design. The visual identity system enhances the museum's appeal to architecture enthusiasts and professionals.",
+    "longDescription": "The Museum of Architecture branding project involved creating a visual identity that captures the essence of modern architectural thought. Utilizing a minimalist design approach with clean lines and a contemporary color palette, the concept effectively communicates the museum's focus on innovation and design excellence. The branding includes a logo, typography, and visual elements that resonate with the target audience, enhancing the museum's presence in the cultural landscape.",
+    "subtitle": "Elevating Architectural Narratives Through Design"
+  },
+  {
+    "id": "apt-net-festival",
+    "shortDescription": "Created a vibrant visual identity for Apt x NET Festival, ensuring consistent brand representation across all promotional materials. The design effectively communicated the festival's dynamic atmosphere and artistic flair, significantly enhancing its visual appeal.",
+    "longDescription": "I developed a comprehensive visual identity for Apt x NET Festival, focusing on creating a cohesive and engaging brand experience. The design incorporated bold colors, modern typography, and unique graphics to reflect the festival's energetic vibe. This visual identity was applied consistently across posters, flyers, social media, and the website, resulting in a unified and memorable brand presence that resonated with the target audience.",
+    "subtitle": "Dynamic visual identity for Apt x NET Festival"
+  },
+  {
+    "id": "stereo-ooh",
+    "shortDescription": "Stereo OOH is a captivating out-of-home advertising concept that leverages dynamic visual elements to engage passersby. Utilizing cutting-edge graphic design, the concept effectively communicates brand messages with high impact and creativity.",
+    "longDescription": "Stereo OOH is an innovative out-of-home advertising concept designed to maximize brand visibility and engagement. By integrating dynamic visual elements and bold color schemes, the design captures attention and effectively communicates key brand messages. The concept utilizes advanced graphic design principles and digital tools to create a visually striking and memorable experience for the audience.",
+    "subtitle": "Innovative Out-of-Home Advertising Concept"
+  },
+  {
+    "id": "temp-school-merch",
+    "shortDescription": "Designed a captivating merch collection for Temp School, featuring vibrant graphics and bold typography. The products resonated strongly with the school's energetic vibe, resulting in high sales and increased brand visibility.",
+    "longDescription": "Created a dynamic merch collection for Temp School, including apparel and accessories. The design approach focused on vibrant color schemes and bold typography to reflect the school's lively atmosphere. The merch collection not only boosted school spirit but also significantly increased brand visibility and sales, making it a successful collaboration.",
+    "subtitle": "Vibrant Merch for Temp School"
+  }
+]

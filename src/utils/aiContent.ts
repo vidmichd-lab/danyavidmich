@@ -110,43 +110,87 @@ function generateStructuredContent(caseEntry: CaseEntry): ProjectContent {
 }
 
 /**
- * Generate AI content using OpenAI API
+ * Generate AI content using OpenAI or Yandex GPT API
  */
 export async function generateWithAI(
   prompt: string,
-  apiKey: string,
-  model: string = "gpt-4o-mini"
+  config: {
+    provider: "openai" | "yandex";
+    apiKey: string;
+    folderId?: string;
+    model?: string;
+  }
 ): Promise<string> {
   try {
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${apiKey}`,
-      },
-      body: JSON.stringify({
-        model,
-        messages: [
-          {
-            role: "system",
-            content: DEFAULT_STYLE_GUIDE,
+    let response;
+    
+    if (config.provider === "yandex") {
+      if (!config.folderId) {
+        throw new Error("Yandex GPT requires folderId");
+      }
+      
+      response = await fetch(`https://llm.api.cloud.yandex.net/foundationModels/v1/completion`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Api-Key ${config.apiKey}`,
+          "x-folder-id": config.folderId,
+        },
+        body: JSON.stringify({
+          modelUri: `gpt://${config.folderId}/yandexgpt/latest`,
+          completionOptions: {
+            stream: false,
+            temperature: 0.7,
+            maxTokens: "500",
           },
-          {
-            role: "user",
-            content: prompt,
-          },
-        ],
-        temperature: 0.7,
-        max_tokens: 500,
-      }),
-    });
+          messages: [
+            {
+              role: "system",
+              text: DEFAULT_STYLE_GUIDE,
+            },
+            {
+              role: "user",
+              text: prompt,
+            },
+          ],
+        }),
+      });
+    } else {
+      response = await fetch("https://api.openai.com/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${config.apiKey}`,
+        },
+        body: JSON.stringify({
+          model: config.model || "gpt-4o-mini",
+          messages: [
+            {
+              role: "system",
+              content: DEFAULT_STYLE_GUIDE,
+            },
+            {
+              role: "user",
+              content: prompt,
+            },
+          ],
+          temperature: 0.7,
+          max_tokens: 500,
+        }),
+      });
+    }
 
     if (!response.ok) {
       throw new Error(`AI API error: ${response.statusText}`);
     }
 
     const data = await response.json();
-    return data.choices[0]?.message?.content || "";
+    
+    if (config.provider === "yandex") {
+      return data.result?.alternatives?.[0]?.message?.text || "";
+    } else {
+      return data.choices[0]?.message?.content || "";
+    }
   } catch (error) {
     console.error("AI generation error:", error);
     throw error;

@@ -10,7 +10,8 @@
     "coverImage": "/img/gr/chekhov/1.webp",
     "linkUrl": "/chekhov.html",
     "createdAt": "2025-04-01T00:00:00.000Z",
-    "updatedAt": "2025-04-01T00:00:00.000Z"
+    "updatedAt": "2025-04-01T00:00:00.000Z",
+    "originalText": "All men and beasts, lions, eagles, and quails, horned stags, geese, spiders, silent fish that inhabit the waves, starfish from the sea, and creatures invisible to the eye — in one word, life — all, all life, completing the dreary round imposed upon it, has died out at last. A thousand years have passed since the earth last bore a living creature on her breast, and the unhappy moon now lights her lamp in vain. No longer are the cries of storks heard in the meadows, or the drone of beetles in the groves of limes. All is cold, cold. All is void, void, void. All is terrible, terrible"
   },
   {
     "id": "black-friday-2025",
@@ -22,7 +23,8 @@
     "coverImage": "/img/gr/black-friday-practicum/01.webp",
     "linkUrl": "/black-friday-practicum",
     "createdAt": "2025-03-25T00:00:00.000Z",
-    "updatedAt": "2025-03-25T00:00:00.000Z"
+    "updatedAt": "2025-03-25T00:00:00.000Z",
+    "originalText": "THE MAIN DISCOUNT OF THE YEAR GREEN PINK BLUE 20 PERCENT NEW BLACK FRIDAY SKILLS IT B3gegDSGj23t!11! Black Friday in a concise and punchy way"
   },
   {
     "id": "yandex-practicum-pro",
@@ -34,7 +36,8 @@
     "coverImage": "/img/gr/yandex-practicum-pro/0.webp",
     "linkUrl": "/yandex-practicum-pro",
     "createdAt": "2025-03-20T00:00:00.000Z",
-    "updatedAt": "2025-03-20T00:00:00.000Z"
+    "updatedAt": "2025-03-20T00:00:00.000Z",
+    "originalText": "Yandex Practicum courses for professionals. Stay ahead with AI-powered tools, real-world practice, and guidance from top industry leaders — so your career keeps moving forward. Our visual identity is built around the idea of work-life blend, where work and life flow together naturally and inspire each other."
   },
   {
     "id": "wouly",
@@ -46,7 +49,8 @@
     "coverImage": "/img/gr/wouly/0.gif",
     "linkUrl": "/wouly.html",
     "createdAt": "2025-03-18T00:00:00.000Z",
-    "updatedAt": "2025-03-18T00:00:00.000Z"
+    "updatedAt": "2025-03-18T00:00:00.000Z",
+    "originalText": "New identity for Wouly — a service that lets you split prices into four equal pieces, making your wishes more achievable. The layouts are all about dividing the space into four parts — kind of like the whole idea of the service. It’s simple, visual, and straight to the point. Bright colors keeps the vibe upbeat and approachable. Split layouts reflects the \"four equal parts\" idea visually. Check out how it works in subway posters, billboards, and urban spaces"
   },
   {
     "id": "chekhov-plays",
@@ -70,7 +74,8 @@
     "coverImage": "/img/gr/s7/cover.webp",
     "linkUrl": "/s7.html",
     "createdAt": "2025-03-12T00:00:00.000Z",
-    "updatedAt": "2025-03-12T00:00:00.000Z"
+    "updatedAt": "2025-03-12T00:00:00.000Z",
+    "originalText": "Develop a sub-brand for S7’s B2B delivery service that communicates the ability to ship packages by air using the airline's technology, ensuring delivery within 24 hours.\n\n  I based the visual language on a metaphor of clouds of different sizes, symbolizing packages of any dimension. These “clouds” fly through real clouds, reinforcing the concept of flight and seamless delivery.\n\n  By maintaining S7’s recognizable color scheme, I created a bold and distinctive design system that stands out among other shipments, ensuring strong brand visibility."
   },
   {
     "id": "yam-2024",
@@ -94,7 +99,8 @@
     "coverImage": "/img/gr/prosto-school/3.webp",
     "linkUrl": "/prosto-school",
     "createdAt": "2025-03-08T00:00:00.000Z",
-    "updatedAt": "2025-03-08T00:00:00.000Z"
+    "updatedAt": "2025-03-08T00:00:00.000Z",
+    "originalText": "Prosto School is a private school in the heart of Moscow, where the child is the top priority. The identity is built around the letter \"П\" in russian — a simple yet adaptable form, reflecting the growth and transformation of students within the school."
   },
   {
     "id": "gorenko",
@@ -106,7 +112,8 @@
     "coverImage": "/img/gr/gorenko/5.webp",
     "linkUrl": "/gorenko.html",
     "createdAt": "2025-03-06T00:00:00.000Z",
-    "updatedAt": "2025-03-06T00:00:00.000Z"
+    "updatedAt": "2025-03-06T00:00:00.000Z",
+    "originalText": "The persona of Anna Akhmatova (née Gorenko), one of the most prominent Russian poets of the 20th century, inspired the creation of this typeface. The curves and breaks in her verses became the foundation for letters that seem to \"writhe\" in the anguish of history yet remain resilient and readable. I hope I have succeeded in capturing the spirit of fractured human destinies that Akhmatova so poignantly celebrated in her work"
   },
   {
     "id": "may-of-may",
@@ -118,7 +125,8 @@
     "coverImage": "/img/gr/may-of-may/cover.webp",
     "linkUrl": "/may-of-may",
     "createdAt": "2025-03-05T00:00:00.000Z",
-    "updatedAt": "2025-03-05T00:00:00.000Z"
+    "updatedAt": "2025-03-05T00:00:00.000Z",
+    "originalText": "May of May is a brand that offers vibrant clothing, designed to be worn for no specific reason, but purely for personal pleasure and desire.\n  This concept is reflected in the typography, which encourages, \"Hey, stay curious about yourself and celebrate your diversity every day\""
   },
   {
     "id": "shuttle-bus",
@@ -246,6 +254,7 @@
     "slug": "apt-product",
     "tag": "product",
     "description": "Dating App",
+    "originalText": "I developed my own DatingTech application, enabling users to connect through local events. The app was entirely conceptualized and overseen by me. It was created using Flutter and Go for both iOS and Android platforms. Additionally, I was responsible for crafting the app's B2C/B2B landing pages and handling all aspects of print, digital, offline, social, and merchandise layouts. The app was officially launched in May 2021 and successfully garnered 7000 Monthly Active Users at its peak",
     "layout": "single",
     "coverImage": "/img/pr/apt/apt0.webp",
     "linkUrl": "/apt-product",
@@ -274,7 +283,8 @@
     "coverImage": "/img/pr/badoo/cover.webp",
     "linkUrl": "/badoo-hotline",
     "createdAt": "2025-02-18T00:00:00.000Z",
-    "updatedAt": "2025-02-18T00:00:00.000Z"
+    "updatedAt": "2025-02-18T00:00:00.000Z",
+    "originalText": "The visual concept of the mobile site draws inspiration from a virtual hotline metaphor. Upon entering the site, users are metaphorically connected with operators. By selecting an operator, users can engage with various content formats such as reading articles, listening to audio, watching instructional videos, taking tests, and experiencing ASMR content"
   },
   {
     "id": "humans-web3",
@@ -286,7 +296,8 @@
     "coverImage": "/img/pr/humans/cover.webp",
     "linkUrl": "/humans.html",
     "createdAt": "2025-02-17T00:00:00.000Z",
-    "updatedAt": "2025-02-17T00:00:00.000Z"
+    "updatedAt": "2025-02-17T00:00:00.000Z",
+    "originalText": "I have crafted a web platform that enables users to explore job opportunities and companies within the web3 ecosystem. Additionally, users are incentivized with rewards for successful recommendations"
   },
   {
     "id": "karo-art-cinema",
@@ -418,4 +429,3 @@
     "updatedAt": "2025-02-05T00:00:00.000Z"
   }
 ]
-
