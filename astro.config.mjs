@@ -11,7 +11,14 @@ export default defineConfig({
   },
   vite: {
     build: {
-      cssCodeSplit: false
+      cssCodeSplit: false,
+      cssMinify: true,
+      minify: "terser",
+      terserOptions: {
+        compress: {
+          drop_console: true
+        }
+      }
     }
   }
 });
