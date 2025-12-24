@@ -96,21 +96,12 @@
         return;
       }
 
+      // Use native lazy loading - don't override src with placeholder
+      // The browser will handle lazy loading automatically
       image.loading = "lazy";
-
-      if (!image.dataset.src) {
-        image.dataset.src = image.currentSrc || image.src;
-      }
-
-      if (!image.dataset.srcset && image.srcset) {
-        image.dataset.srcset = image.srcset;
-        image.removeAttribute("srcset");
-      }
-
-      if (image.dataset.src) {
-        image.src = PLACEHOLDER;
-      }
-
+      
+      // Only observe for IntersectionObserver if we need to track loading state
+      // Native lazy loading handles the actual loading
       observer.observe(image);
     });
   }
