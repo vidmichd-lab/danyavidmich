@@ -606,8 +606,10 @@
     font-size: 1.125rem;
     position: relative;
     z-index: 2;
-    background-color: #f9fafb;
-    padding: 0 4px;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    text-align: left;
   }
 
   #title3 {
