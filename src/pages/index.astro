@@ -49,8 +49,17 @@ const caseColumns: Array<Array<CaseWithMeta>> = Array.from(
   () => [] as Array<CaseWithMeta>
 );
 
-otherCasesWithMeta.forEach((item, idx) => {
-  caseColumns[idx % COLUMN_COUNT].push(item);
+otherCasesWithMeta.forEach((item) => {
+  // Find the column with the least items for even distribution
+  let minColumnIndex = 0;
+  let minLength = caseColumns[0].length;
+  for (let i = 1; i < COLUMN_COUNT; i++) {
+    if (caseColumns[i].length < minLength) {
+      minLength = caseColumns[i].length;
+      minColumnIndex = i;
+    }
+  }
+  caseColumns[minColumnIndex].push(item);
 });
 
 if (heroCase) {
