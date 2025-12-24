@@ -138,18 +138,6 @@ const columnExtras: ReadonlyArray<ReadonlyArray<ExtraMediaItem>> = [
   ],
   [
     {
-      src: "/img/other/budu.webp",
-      alt: "Budu poster"
-    },
-    {
-      src: "/img/gr/swan.webp",
-      alt: "Swan poster"
-    },
-    {
-      src: "/img/gr/igla.gif",
-      alt: "Igla motion poster"
-    },
-    {
       src: "/img/gr/cubes3.webp",
       alt: "Cubes poster"
     },
@@ -175,6 +163,18 @@ const columnExtras: ReadonlyArray<ReadonlyArray<ExtraMediaItem>> = [
     {
       src: "/img/other/go.webp",
       alt: "Yandex Go poster"
+    },
+    {
+      src: "/img/other/budu.webp",
+      alt: "Budu poster"
+    },
+    {
+      src: "/img/gr/swan.webp",
+      alt: "Save the swan poster"
+    },
+    {
+      src: "/img/gr/igla.gif",
+      alt: "Igla motion poster"
     }
   ]
 ] as const;
@@ -298,7 +298,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
     </div>
   </noscript>
 
-  <Header variant="home" />
+  <Header variant="home" subtitle="Projects" />
 
   <div class="main">
     <div class="about">
@@ -330,8 +330,8 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
             class="avatar" 
             src="/avatar.jpg" 
             alt="Danya Vidmich" 
-            width="56"
-            height="56"
+            width="64"
+            height="64"
             loading="eager"
             onerror="this.onerror=null; this.style.display='none';"
           />
@@ -351,11 +351,14 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
         <button class="filter-button" data-filter="typography">Typography</button>
         <button class="filter-button" data-filter="merch">Merch</button>
         <button class="filter-button" data-filter="concept">Concept</button>
+        <button class="filter-button" data-filter="posters">Posters</button>
       </div>
       <div class="portfolio__columns">
-        {displayColumns.map((columnItems) => (
-          <div class="portfolio__column">
-            {columnItems.map((item) => {
+        {(() => {
+          let caseIndex = 0;
+          return displayColumns.map((columnItems) => (
+            <div class="portfolio__column">
+              {columnItems.map((item) => {
               if (item.kind === "media") {
                 if (isIframeItem(item.media)) {
                   const allowValue =
@@ -366,8 +369,9 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                     typeof item.media.iframeStyle === "string"
                       ? item.media.iframeStyle
                       : "top:0;left:0;width:100%;height:100%;";
+                  const iframeTag = item.media.tagId || "posters";
                   return (
-                    <div class="bigcard">
+                    <div class="bigcard" data-tag={iframeTag}>
                       <iframe
                         src={item.media.iframeSrc}
                         title={item.media.title ?? "Embedded media"}
@@ -384,9 +388,10 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                 const tag = getExtraMediaTag(item.media.tagId);
                 const hasTitle = Boolean(item.media.title);
                 const hasTag = Boolean(tag);
+                const mediaTag = item.media.tagId || "posters";
 
                 return (
-                  <div class="bigcard">
+                  <div class="bigcard" data-tag={mediaTag}>
                     {item.media.link ? (
                       <a href={item.media.link}>
                         <img
@@ -425,7 +430,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
 
               if (item.kind === "case-secondary") {
                 return (
-                  <div class="bigcard">
+                  <div class="bigcard" data-tag={item.entry.tag}>
                     <img
                       src={item.entry.secondaryImage ?? item.entry.coverImage}
                       alt={
@@ -439,8 +444,10 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
               }
 
               const { entry, tag, link } = item;
-              const fetchPriority = entry.isHero ? "high" : undefined;
-              const loadingMode = entry.isHero ? "eager" : "lazy";
+              const isEarlyCase = caseIndex < 9;
+              caseIndex++;
+              const fetchPriority = entry.isHero ? "high" : isEarlyCase ? "high" : undefined;
+              const loadingMode = entry.isHero || isEarlyCase ? "eager" : "lazy";
 
               return (
                 <div class="bigcard" data-tag={entry.tag}>
@@ -467,7 +474,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                     <a href={link}>
                       <p>
                         {entry.title}{" "}
-                        {tag && (
+                        {tag && entry.id !== "1913" && (entry.description || tag.label) && (
                           <span class={tag.className}>
                             {entry.description ?? tag.label}
                             <span></span>
@@ -478,7 +485,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                   ) : (
                     <p>
                       {entry.title}{" "}
-                      {tag && (
+                      {tag && entry.id !== "1913" && (entry.description || tag.label) && (
                         <span class={tag.className}>
                           {entry.description ?? tag.label}
                           <span></span>
@@ -490,7 +497,8 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
               );
             })}
         </div>
-        ))}
+          ))
+        })()}
       </div>
     </section>
   </div>

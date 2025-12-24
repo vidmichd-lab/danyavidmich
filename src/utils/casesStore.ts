@@ -30,7 +30,8 @@ export const CASE_TAG_VALUES = [
   "typography",
   "merch",
   "concept",
-  "motion"
+  "motion",
+  "posters"
 ] as const;
 
 export type CaseTag = (typeof CASE_TAG_VALUES)[number];
@@ -90,7 +91,7 @@ const resolveCasesFilePath = () => {
 };
 
 const CASES_FILE_PATH = resolveCasesFilePath();
-const DEFAULT_TAG: CaseTag = CASE_TAG_VALUES[0];
+const DEFAULT_TAG: CaseTag = "posters";
 
 export const isValidCaseTag = (value: string): value is CaseTag =>
   (CASE_TAG_VALUES as readonly string[]).includes(value);

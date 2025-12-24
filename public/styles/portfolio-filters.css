@@ -1,7 +1,7 @@
 .portfolio-filters {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-sm);
+  gap: var(--space-xs);
   margin-bottom: 0;
   padding: 0;
   overflow-x: auto;
@@ -18,7 +18,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-sm) calc(var(--space-md) + 4px);
+  padding: calc(var(--space-xs) + 2px) calc(var(--space-sm) + 4px);
   border-radius: 9999px;
   background-color: var(--color-surface);
   color: var(--color-text-primary);
@@ -60,13 +60,13 @@
     padding-bottom: var(--space-xs);
     margin-left: calc(-1 * var(--space-md));
     margin-right: calc(-1 * var(--space-md));
-    gap: var(--space-sm);
+    gap: var(--space-xs);
     -webkit-overflow-scrolling: touch;
   }
   
   .filter-button {
     font-size: 1.125rem;
-    padding: var(--space-sm) calc(var(--space-md) + 4px);
+    padding: calc(var(--space-xs) + 2px) calc(var(--space-sm) + 4px);
     min-height: auto;
     display: inline-flex;
     align-items: center;

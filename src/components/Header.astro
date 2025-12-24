@@ -16,8 +16,8 @@ const { subtitle = "", tertiary = "", variant = "detail" } = Astro.props;
       <a href="/" class="header__back">
         <span class="header__back-icon" aria-hidden="true">
           <svg
-            width="20"
-            height="20"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ const { subtitle = "", tertiary = "", variant = "detail" } = Astro.props;
         <span class="header__title-text">Danya Vidmich</span>
       </a>
     )}
-    <p id="title2">{subtitle}</p>
+    {variant !== "home" && <p id="title2">{subtitle}</p>}
     <p id="title3">{tertiary}</p>
   </div>
 </div>

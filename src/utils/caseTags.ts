@@ -42,6 +42,11 @@ export const CASE_TAGS: CaseTagOption[] = [
     id: "concept",
     label: "Concept",
     className: "text-c3"
+  },
+  {
+    id: "posters",
+    label: "Posters",
+    className: "text-c9"
   }
 ];
 

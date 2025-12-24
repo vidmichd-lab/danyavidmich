@@ -14,17 +14,29 @@
     "originalText": "All men and beasts, lions, eagles, and quails, horned stags, geese, spiders, silent fish that inhabit the waves, starfish from the sea, and creatures invisible to the eye — in one word, life — all, all life, completing the dreary round imposed upon it, has died out at last. A thousand years have passed since the earth last bore a living creature on her breast, and the unhappy moon now lights her lamp in vain. No longer are the cries of storks heard in the meadows, or the drone of beetles in the groves of limes. All is cold, cold. All is void, void, void. All is terrible, terrible"
   },
   {
-    "id": "black-friday-2025",
-    "title": "Black Friday 2025 at Yandex Practicum",
-    "slug": "black-friday-practicum",
-    "tag": "visual",
-    "description": "Visual Communications",
+    "id": "may-of-may",
+    "title": "MAY OF MAY",
+    "slug": "may-of-may",
+    "tag": "branding",
+    "description": "Branding",
     "layout": "single",
-    "coverImage": "/img/gr/black-friday-practicum/01.webp",
-    "linkUrl": "/black-friday-practicum",
-    "createdAt": "2025-03-25T00:00:00.000Z",
-    "updatedAt": "2025-03-25T00:00:00.000Z",
-    "originalText": "THE MAIN DISCOUNT OF THE YEAR GREEN PINK BLUE 20 PERCENT NEW BLACK FRIDAY SKILLS IT B3gegDSGj23t!11! Black Friday in a concise and punchy way"
+    "coverImage": "/img/gr/may-of-may/cover.webp",
+    "linkUrl": "/may-of-may",
+    "createdAt": "2025-04-02T00:00:00.000Z",
+    "updatedAt": "2025-04-02T00:00:00.000Z",
+    "originalText": "May of May is a brand that offers vibrant clothing, designed to be worn for no specific reason, but purely for personal pleasure and desire.\n  This concept is reflected in the typography, which encourages, \"Hey, stay curious about yourself and celebrate your diversity every day\""
+  },
+  {
+    "id": "shuttle-bus",
+    "title": "Shuttle Bus",
+    "slug": "shuttle-bus",
+    "tag": "concept",
+    "description": "Concept / Visual Communications",
+    "layout": "single",
+    "coverImage": "/img/sh.webp",
+    "linkUrl": "",
+    "createdAt": "2025-03-04T00:00:00.000Z",
+    "updatedAt": "2025-03-04T00:00:00.000Z"
   },
   {
     "id": "yandex-practicum-pro",
@@ -114,31 +126,6 @@
     "createdAt": "2025-03-06T00:00:00.000Z",
     "updatedAt": "2025-03-06T00:00:00.000Z",
     "originalText": "The persona of Anna Akhmatova (née Gorenko), one of the most prominent Russian poets of the 20th century, inspired the creation of this typeface. The curves and breaks in her verses became the foundation for letters that seem to \"writhe\" in the anguish of history yet remain resilient and readable. I hope I have succeeded in capturing the spirit of fractured human destinies that Akhmatova so poignantly celebrated in her work"
-  },
-  {
-    "id": "may-of-may",
-    "title": "MAY OF MAY",
-    "slug": "may-of-may",
-    "tag": "branding",
-    "description": "Branding",
-    "layout": "single",
-    "coverImage": "/img/gr/may-of-may/cover.webp",
-    "linkUrl": "/may-of-may",
-    "createdAt": "2025-03-05T00:00:00.000Z",
-    "updatedAt": "2025-03-05T00:00:00.000Z",
-    "originalText": "May of May is a brand that offers vibrant clothing, designed to be worn for no specific reason, but purely for personal pleasure and desire.\n  This concept is reflected in the typography, which encourages, \"Hey, stay curious about yourself and celebrate your diversity every day\""
-  },
-  {
-    "id": "shuttle-bus",
-    "title": "Shuttle Bus",
-    "slug": "shuttle-bus",
-    "tag": "concept",
-    "description": "Concept / Visual Communications",
-    "layout": "single",
-    "coverImage": "/img/sh.webp",
-    "linkUrl": "",
-    "createdAt": "2025-03-04T00:00:00.000Z",
-    "updatedAt": "2025-03-04T00:00:00.000Z"
   },
   {
     "id": "badoo-ooh",
@@ -351,7 +338,7 @@
     "id": "peterburgskie-povesti",
     "title": "Peterburgskie povesti",
     "slug": "peterburgskie-povesti",
-    "tag": "branding",
+    "tag": "posters",
     "layout": "single",
     "coverImage": "/img/gr/peterburgskie-povesti/3.webp",
     "linkUrl": "/peterburgskie-povesti",
@@ -362,7 +349,8 @@
     "id": "1913",
     "title": "1913",
     "slug": "1913",
-    "tag": "motion",
+    "tag": "branding",
+    "description": "",
     "layout": "single",
     "coverImage": "/img/gr/1913.webp",
     "linkUrl": "https://vimeo.com/930019703?share=copy",
@@ -427,5 +415,18 @@
     "linkUrl": "",
     "createdAt": "2025-02-05T00:00:00.000Z",
     "updatedAt": "2025-02-05T00:00:00.000Z"
+  },
+  {
+    "id": "black-friday-2025",
+    "title": "Black Friday 2025 at Yandex Practicum",
+    "slug": "black-friday-practicum",
+    "tag": "visual",
+    "description": "Visual Communications",
+    "layout": "single",
+    "coverImage": "/img/gr/black-friday-practicum/01.webp",
+    "linkUrl": "/black-friday-practicum",
+    "createdAt": "2025-01-01T00:00:00.000Z",
+    "updatedAt": "2025-01-01T00:00:00.000Z",
+    "originalText": "THE MAIN DISCOUNT OF THE YEAR GREEN PINK BLUE 20 PERCENT NEW BLACK FRIDAY SKILLS IT B3gegDSGj23t!11! Black Friday in a concise and punchy way"
   }
 ]
