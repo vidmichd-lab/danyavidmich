@@ -315,15 +315,15 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
       </div>
 
       <div class="action-group">
-        <a class="circle-button" href="/cv/" aria-label="Open CV page">
+        <button class="circle-button" onclick="window.location.href='/cv/'" aria-label="Open CV page">
           <span aria-hidden="true" class="circle-button__text">CV</span>
           <span class="sr-only">Open CV Page</span>
-        </a>
+        </button>
 
-        <a class="circle-button" href="mailto:mail@danyavidmich.com" aria-label="Get in touch by email">
+        <button class="circle-button" onclick="window.location.href='mailto:mail@danyavidmich.com'" aria-label="Get in touch by email">
           <span aria-hidden="true" class="circle-button__icon tabler--mail-filled"></span>
           <span class="sr-only">Get in touch</span>
-        </a>
+        </button>
 
         <span class="avatar-wrapper">
           <img 
