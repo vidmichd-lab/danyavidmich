@@ -50,22 +50,35 @@ const caseColumns: Array<Array<CaseWithMeta>> = Array.from(
   () => [] as Array<CaseWithMeta>
 );
 
+// Distribute cases with priority on balancing first 2 columns for mobile
+// Strategy: distribute evenly between columns 0 and 1, then move every 3rd to column 2
 otherCasesWithMeta.forEach((item, idx) => {
-  // For mobile (2 columns visible), distribute evenly: 0, 1, 0, 1...
-  // For desktop (3 columns), use round-robin: 0, 1, 2, 0, 1, 2...
-  // Since mobile shows first 2 columns, we use round-robin which naturally
-  // distributes evenly across first 2 columns when cycling through 3
-  const columnIndex = idx % COLUMN_COUNT;
-  caseColumns[columnIndex].push(item);
+  // Every 3rd item (indices 2, 5, 8...) goes to column 2 for desktop
+  // This keeps columns 0 and 1 balanced for mobile
+  if ((idx + 1) % 3 === 0) {
+    caseColumns[2].push(item);
+  } else {
+    // Alternate between columns 0 and 1 for mobile balance
+    const mobileColumn = idx % 2;
+    caseColumns[mobileColumn].push(item);
+  }
 });
 
+// Add hero case to balance the first two columns for mobile
 if (heroCase) {
   const heroMeta = {
     entry: heroCase,
     tag: heroTag ?? getCaseTag(heroCase.tag),
     link: heroLink
   } as CaseWithMeta;
-  caseColumns[0].unshift(heroMeta);
+  const col0Count = caseColumns[0].length;
+  const col1Count = caseColumns[1].length;
+  // Add hero to the shorter column (or column 0 if equal) to maintain mobile balance
+  if (col0Count <= col1Count) {
+    caseColumns[0].unshift(heroMeta);
+  } else {
+    caseColumns[1].unshift(heroMeta);
+  }
 }
 
 type ExtraMediaItem = {

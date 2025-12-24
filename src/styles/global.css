@@ -879,6 +879,10 @@
       padding-right: var(--space-lg);
       width: calc(100% + var(--space-lg) * 2);
       box-sizing: border-box;
+      /* Use native mobile scrolling - no smooth behavior */
+      /* Enable hardware acceleration for smoother scrolling */
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
     }
 
     .mobile-filters-actions::-webkit-scrollbar {
@@ -891,6 +895,7 @@
       gap: var(--space-xs);
       margin-top: 0;
       flex-shrink: 0;
+      min-width: max-content;
     }
 
     .mobile-filters-actions .portfolio-filters {
@@ -901,6 +906,7 @@
       overflow-x: visible;
       flex-wrap: nowrap;
       display: flex;
+      min-width: max-content;
     }
 
     .tag-collection {
@@ -1013,6 +1019,13 @@
 
     .cv-duo + .cv-duo {
       margin-top: calc(var(--space-xl) + var(--space-lg));
+    }
+
+    .cards p,
+    .gallery-pair p,
+    .gallery-item p,
+    .bigcard p {
+      font-size: 18px;
     }
   }
 }
