@@ -444,7 +444,7 @@ Apt.
                       <a href={item.media.link}>
                         <img
                           id="click"
-                          src={getOptimizedImagePath(item.media.src ?? "")}
+                          src={item.media.src ? getOptimizedImagePath(item.media.src) : ""}
                           srcSet={item.media.src && !item.media.src.toLowerCase().endsWith('.gif') ? generateSrcSet(item.media.src) : undefined}
                           sizes="(max-width: 800px) 50vw, 33vw"
                           alt={item.media.alt ?? item.media.title ?? "Case image"}
@@ -457,7 +457,7 @@ Apt.
                       </a>
                     ) : (
                       <img
-                        src={getOptimizedImagePath(item.media.src ?? "")}
+                        src={item.media.src ? getOptimizedImagePath(item.media.src) : ""}
                         srcSet={item.media.src && !item.media.src.toLowerCase().endsWith('.gif') ? generateSrcSet(item.media.src) : undefined}
                         sizes="(max-width: 800px) 50vw, 33vw"
                         alt={item.media.alt ?? item.media.title ?? "Case image"}

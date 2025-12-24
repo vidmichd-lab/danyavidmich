@@ -107,19 +107,19 @@ async function optimizeImage(inputPath, options = {}) {
       const originalWidth = metadata.width;
       
       for (const breakpoint of BREAKPOINTS) {
-        if (breakpoint.width <= originalWidth) {
-          const responsivePath = `${outputBase}${breakpoint.suffix}.webp`;
-          
-          await image
-            .resize(breakpoint.width, null, {
-              withoutEnlargement: true,
-              fit: 'inside'
-            })
-            .webp({ quality: QUALITY })
-            .toFile(responsivePath);
-          
-          console.log(`  → Generated: ${breakpoint.width}w version`);
-        }
+        // Always generate responsive versions, even if original is smaller
+        // This ensures all breakpoints are available for srcset
+        const responsivePath = `${outputBase}${breakpoint.suffix}.webp`;
+        
+        await image
+          .resize(breakpoint.width, null, {
+            withoutEnlargement: true,
+            fit: 'inside'
+          })
+          .webp({ quality: QUALITY })
+          .toFile(responsivePath);
+        
+        console.log(`  → Generated: ${breakpoint.width}w version`);
       }
     }
     
