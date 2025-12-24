@@ -18,7 +18,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: calc(var(--space-xs) + 2px) calc(var(--space-sm) + 4px);
+  height: 64px;
+  padding: 0 calc(var(--space-sm) + 4px);
   border-radius: 9999px;
   background-color: var(--color-surface);
   color: var(--color-text-primary);
@@ -66,8 +67,8 @@
   
   .filter-button {
     font-size: 1.125rem;
-    padding: calc(var(--space-xs) + 2px) calc(var(--space-sm) + 4px);
-    min-height: auto;
+    height: 64px;
+    padding: 0 calc(var(--space-sm) + 4px);
     display: inline-flex;
     align-items: center;
     justify-content: center;
