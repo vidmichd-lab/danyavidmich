@@ -327,7 +327,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
         </div>
       </div>
 
-      <div class="action-group">
+      <div class="action-group desktop-only">
         <button class="circle-button" onclick="window.location.href='/cv/'" aria-label="Open CV page">
           <span aria-hidden="true" class="circle-button__text">CV</span>
           <span class="sr-only">Open CV Page</span>
@@ -354,7 +354,30 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
 
     <div class="aboutzero"></div>
 
-    <section class="portfolio">
+    <div class="mobile-filters-actions">
+      <div class="action-group">
+        <button class="circle-button" onclick="window.location.href='/cv/'" aria-label="Open CV page">
+          <span aria-hidden="true" class="circle-button__text">CV</span>
+          <span class="sr-only">Open CV Page</span>
+        </button>
+
+        <button class="circle-button" onclick="window.location.href='mailto:mail@danyavidmich.com'" aria-label="Get in touch by email">
+          <span aria-hidden="true" class="circle-button__icon tabler--mail-filled"></span>
+          <span class="sr-only">Get in touch</span>
+        </button>
+
+        <span class="avatar-wrapper">
+          <img 
+            class="avatar" 
+            src="/avatar.jpg" 
+            alt="Danya Vidmich" 
+            width="64"
+            height="64"
+            loading="eager"
+            onerror="this.onerror=null; this.style.display='none';"
+          />
+        </span>
+      </div>
       <div class="portfolio-filters" id="portfolio-filters">
         <button class="filter-button filter-button--active" data-filter="all">All</button>
         <button class="filter-button" data-filter="branding">Branding</button>
@@ -366,6 +389,8 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
         <button class="filter-button" data-filter="concept">Concept</button>
         <button class="filter-button" data-filter="posters">Posters</button>
       </div>
+    </div>
+    <section class="portfolio">
       <div class="portfolio__columns">
         {(() => {
           let caseIndex = 0;

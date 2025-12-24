@@ -269,6 +269,10 @@
     margin-top: var(--space-sm);
   }
 
+  .mobile-filters-actions {
+    display: none;
+  }
+
   .avatar-wrapper {
     display: inline-flex;
     align-items: center;
@@ -785,7 +789,11 @@
       width: calc(100% - var(--space-lg));
       height: auto;
       margin-bottom: var(--space-lg);
-      font-size: 2rem;
+      font-size: 1.125rem;
+    }
+
+    .about p {
+      font-size: 1.125rem;
     }
 
     .about9 {
@@ -825,6 +833,42 @@
 
     .action-group {
       margin-top: var(--space-md);
+    }
+
+    .desktop-only {
+      display: none;
+    }
+
+    .mobile-filters-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      margin-bottom: var(--space-md);
+      padding: 0 var(--space-md);
+      margin-left: calc(-1 * var(--space-md));
+      margin-right: calc(-1 * var(--space-md));
+    }
+
+    .mobile-filters-actions::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mobile-filters-actions .action-group {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: var(--space-xs);
+      margin-top: 0;
+      flex-shrink: 0;
+    }
+
+    .mobile-filters-actions .portfolio-filters {
+      flex-shrink: 0;
+      margin-bottom: 0;
+      padding: 0;
     }
 
     .tag-collection {
