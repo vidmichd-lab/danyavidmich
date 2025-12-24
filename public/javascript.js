@@ -1,6 +1,5 @@
 (function () {
-  var PLACEHOLDER =
-    "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Crect width='8' height='8' fill='%23F4F5F6'/%3E%3C/svg%3E";
+  // Placeholder not needed - using native lazy loading with CSS blur effect
   var EAGER_THRESHOLD = 4;
 
   var scrollTrigger = null;
