@@ -55,7 +55,7 @@ export async function getOGMeta(slug: string, pageTitle?: string): Promise<OGMet
       description: "Multidisciplinary Design Lead with 8+ years of experience in major tech companies. View full CV and work experience.",
       ogTitle: "Danya Vidmich — Work Experience & CV",
       ogDescription: "Multidisciplinary Design Lead with 8+ years of experience in major tech companies (Yandex Practicum, Yandex Music, Badoo, Yandex Go). Specializes in brand systems, digital product design and large-scale campaigns.",
-      ogUrl: `${BASE_URL}/cv`,
+      ogUrl: `${BASE_URL}/cv/`,
     },
     "": {
       title: "Designer Danya Vidmich",
