@@ -845,11 +845,13 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
       margin-bottom: var(--space-md);
-      padding: 0 var(--space-md);
+      padding: 0;
       margin-left: calc(-1 * var(--space-md));
       margin-right: calc(-1 * var(--space-md));
-      width: 100vw;
-      max-width: 100%;
+      padding-left: var(--space-md);
+      padding-right: var(--space-md);
+      width: calc(100% + var(--space-md) * 2);
+      max-width: 100vw;
     }
 
     .mobile-filters-actions::-webkit-scrollbar {
