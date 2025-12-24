@@ -27,7 +27,11 @@ const resolveLink = (entry: CaseEntry | undefined) => {
     return trimmed;
   }
   if (trimmed.startsWith("/") && trimmed.endsWith(".html")) {
-    return trimmed.slice(0, -5);
+    const withoutHtml = trimmed.slice(0, -5);
+    return withoutHtml.endsWith("/") ? withoutHtml : `${withoutHtml}/`;
+  }
+  if (trimmed.startsWith("/") && !trimmed.endsWith("/")) {
+    return `${trimmed}/`;
   }
   return trimmed;
 };
