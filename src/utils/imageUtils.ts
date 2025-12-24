@@ -5,20 +5,20 @@
 export function generateSrcSet(basePath: string, breakpoints = [400, 800, 1200, 1920]): string {
   return breakpoints
     .map((width) => {
-      // If path already has optimized directory, use it
-      const optimizedPath = basePath.includes('/optimized/')
+      // Convert to optimized path
+      let optimizedPath = basePath.includes('/optimized/')
         ? basePath
         : basePath.replace('/img/', '/img/optimized/').replace(/\.(jpg|jpeg|png|gif)$/i, '.webp');
       
-      // Add width suffix if not already present
-      const suffix = `-${width}w`;
-      const ext = optimizedPath.match(/\.(webp|jpg|jpeg|png)$/i)?.[0] || '.webp';
-      const pathWithoutExt = optimizedPath.replace(/\.(webp|jpg|jpeg|png)$/i, '');
+      // Ensure .webp extension
+      if (!optimizedPath.endsWith('.webp')) {
+        optimizedPath = optimizedPath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+      }
       
-      // Check if responsive version exists (has width suffix)
-      const responsivePath = optimizedPath.includes(suffix)
-        ? optimizedPath
-        : `${pathWithoutExt}${suffix}${ext}`;
+      // Add width suffix
+      const suffix = `-${width}w`;
+      const pathWithoutExt = optimizedPath.replace(/\.webp$/i, '');
+      const responsivePath = `${pathWithoutExt}${suffix}.webp`;
       
       return `${responsivePath} ${width}w`;
     })

@@ -60,7 +60,9 @@ async function optimizeImage(inputPath, options = {}) {
       return;
     }
     
-    const outputDir = join(OUTPUT_DIR, dirname(inputPath.replace('public/', '')));
+    // Fix output path - remove 'public/img/' prefix to avoid duplicate 'img' in path
+    const relativePath = inputPath.replace(/^public\/img\//, '');
+    const outputDir = join(OUTPUT_DIR, dirname(relativePath));
     await mkdir(outputDir, { recursive: true });
     
     const baseName = basename(inputPath, ext);
@@ -84,10 +86,10 @@ async function optimizeImage(inputPath, options = {}) {
         await pipeline.toFile(`${outputBase}.webp`);
         console.log(`✓ Optimized: ${inputPath} → ${outputBase}.webp`);
       } else if (compress) {
-        // Re-compress existing WebP
+        // Re-compress existing WebP (replace original name, not add -optimized)
         pipeline = pipeline.webp({ quality: QUALITY });
-        await pipeline.toFile(`${outputBase}-optimized.webp`);
-        console.log(`✓ Re-compressed: ${inputPath} → ${outputBase}-optimized.webp`);
+        await pipeline.toFile(`${outputBase}.webp`);
+        console.log(`✓ Re-compressed: ${inputPath} → ${outputBase}.webp`);
       } else {
         // Just copy if no optimization needed
         await pipeline.toFile(outputBase + ext);
