@@ -56,13 +56,16 @@
 @media (max-width: 800px) {
   .portfolio-filters {
     flex-wrap: nowrap;
-    overflow-x: auto;
-    padding: var(--space-sm) var(--space-md);
-    padding-bottom: var(--space-xs);
-    margin-left: calc(-1 * var(--space-md));
-    margin-right: calc(-1 * var(--space-md));
+    overflow-x: visible;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
     gap: var(--space-xs);
     -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-filters-actions .portfolio-filters {
+    overflow-x: visible;
   }
   
   .filter-button {
