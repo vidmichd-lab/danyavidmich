@@ -789,11 +789,7 @@
       width: calc(100% - var(--space-lg));
       height: auto;
       margin-bottom: var(--space-lg);
-      font-size: 1.125rem;
-    }
-
-    .about p {
-      font-size: 1.125rem;
+      font-size: 2rem;
     }
 
     .about9 {
