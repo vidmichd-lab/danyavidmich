@@ -54,9 +54,14 @@ async function optimizeImage(inputPath, options = {}) {
       return;
     }
     
-    // For GIFs, we'll handle them separately (convert to video)
-    if (ext === '.gif' && isAnimated) {
-      console.log(`⚠️  Skipping animated GIF: ${inputPath} (should be converted to video)`);
+    // For GIFs, copy them as-is (don't convert to WebP)
+    if (ext === '.gif') {
+      const relativePath = inputPath.replace(/^public\/img\//, '');
+      const outputDir = join(OUTPUT_DIR, dirname(relativePath));
+      await mkdir(outputDir, { recursive: true });
+      const outputPath = join(outputDir, basename(inputPath));
+      await image.toFile(outputPath);
+      console.log(`✓ Copied GIF: ${inputPath} → ${outputPath}`);
       return;
     }
     
