@@ -4,6 +4,7 @@ import Header from "@components/Header.astro";
 import "@styles/home.css";
 import { getCases, type CaseEntry } from "@utils/casesStore";
 import { getCaseTag } from "@utils/caseTags";
+import { generateSrcSet, getOptimizedImagePath } from "@utils/imageUtils";
 
 import { getOGMeta } from "@utils/ogMeta";
 
@@ -511,7 +512,9 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                     <a href={link}>
                       <img
                         id="click"
-                        src={entry.coverImage}
+                        src={getOptimizedImagePath(entry.coverImage)}
+                        srcSet={generateSrcSet(entry.coverImage)}
+                        sizes="(max-width: 800px) 50vw, 33vw"
                         alt={entry.coverImageAlt ?? entry.title}
                         fetchpriority={fetchPriority}
                         loading={loadingMode}
@@ -522,7 +525,9 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                     </a>
                   ) : (
                     <img
-                      src={entry.coverImage}
+                      src={getOptimizedImagePath(entry.coverImage)}
+                      srcSet={generateSrcSet(entry.coverImage)}
+                      sizes="(max-width: 800px) 50vw, 33vw"
                       alt={entry.coverImageAlt ?? entry.title}
                       fetchpriority={fetchPriority}
                       loading={loadingMode}

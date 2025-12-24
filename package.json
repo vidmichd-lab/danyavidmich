@@ -10,6 +10,8 @@
     "lint": "eslint \"src/**/*.{ts,tsx,astro}\"",
     "images:webp": "node scripts/convert-images.mjs",
     "images:update-refs": "node scripts/update-image-refs.mjs",
+    "images:optimize": "node scripts/optimize-images.mjs --resize --compress",
+    "images:responsive": "node scripts/optimize-images.mjs --responsive",
     "pdf:generate": "node scripts/generate-pdf.mjs",
     "sitemap:generate": "node scripts/generate-sitemap.mjs",
     "ai:generate": "node scripts/generate-ai-content.mjs",
