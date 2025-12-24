@@ -268,7 +268,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
     <link rel="preconnect" href="https://player.vimeo.com" crossorigin />
     <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
     <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
-    <script is:inline defer src="https://player.vimeo.com/api/player.js"></script>
+    <script is:inline defer src="https://player.vimeo.com/api/player.js" onerror="this.onerror=null; console.warn('Vimeo player script blocked or failed to load');"></script>
     <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-4LGZW7QNFB"></script>
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
