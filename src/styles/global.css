@@ -185,6 +185,13 @@
     background-position: center;
     background-size: cover;
   }
+
+  /* Prevent layout shift for images */
+  .bigcard img,
+  .gallery-item img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
   
   .cv-entry__logo,
   .cv-tool-logo {
