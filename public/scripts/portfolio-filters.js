@@ -1,6 +1,6 @@
 (function() {
   function initFilters() {
-    var filters = document.getElementById('portfolio-filters');
+    var filters = document.getElementById('portfolio-filters') || document.getElementById('portfolio-filters-desktop');
     if (!filters) return;
     
     var buttons = filters.querySelectorAll('.filter-button');

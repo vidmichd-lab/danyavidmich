@@ -273,6 +273,10 @@
     display: none;
   }
 
+  .desktop-filters {
+    display: block;
+  }
+
   .avatar-wrapper {
     display: inline-flex;
     align-items: center;
@@ -832,6 +836,10 @@
     }
 
     .desktop-only {
+      display: none;
+    }
+
+    .desktop-filters {
       display: none;
     }
 

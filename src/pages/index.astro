@@ -391,6 +391,17 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
       </div>
     </div>
     <section class="portfolio">
+      <div class="portfolio-filters desktop-filters" id="portfolio-filters-desktop">
+        <button class="filter-button filter-button--active" data-filter="all">All</button>
+        <button class="filter-button" data-filter="branding">Branding</button>
+        <button class="filter-button" data-filter="visual">Visual Communications</button>
+        <button class="filter-button" data-filter="product">Product Design</button>
+        <button class="filter-button" data-filter="web">Web</button>
+        <button class="filter-button" data-filter="typography">Typography</button>
+        <button class="filter-button" data-filter="merch">Merch</button>
+        <button class="filter-button" data-filter="concept">Concept</button>
+        <button class="filter-button" data-filter="posters">Posters</button>
+      </div>
       <div class="portfolio__columns">
         {(() => {
           let caseIndex = 0;
