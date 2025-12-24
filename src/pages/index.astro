@@ -458,7 +458,7 @@ Apt.
                         <img
                           id="click"
                           src={item.media.src ? getOptimizedImagePath(item.media.src) : ""}
-                          srcSet={item.media.src && !item.media.src.toLowerCase().endsWith('.gif') ? generateSrcSet(item.media.src) : undefined}
+                          srcset={item.media.src && !item.media.src.toLowerCase().endsWith('.gif') ? generateSrcSet(item.media.src) : undefined}
                           sizes="(max-width: 800px) 50vw, 33vw"
                           alt={item.media.alt ?? item.media.title ?? "Case image"}
                           loading={item.media.loading ?? "lazy"}
@@ -471,7 +471,7 @@ Apt.
                     ) : (
                       <img
                         src={item.media.src ? getOptimizedImagePath(item.media.src) : ""}
-                        srcSet={item.media.src && !item.media.src.toLowerCase().endsWith('.gif') ? generateSrcSet(item.media.src) : undefined}
+                        srcset={item.media.src && !item.media.src.toLowerCase().endsWith('.gif') ? generateSrcSet(item.media.src) : undefined}
                         sizes="(max-width: 800px) 50vw, 33vw"
                         alt={item.media.alt ?? item.media.title ?? "Case image"}
                         loading={item.media.loading ?? "lazy"}
@@ -504,7 +504,7 @@ Apt.
                   <div class="bigcard" data-tag={item.entry.tag}>
                     <img
                       src={getOptimizedImagePath(item.entry.secondaryImage ?? item.entry.coverImage)}
-                      srcSet={generateSrcSet(item.entry.secondaryImage ?? item.entry.coverImage)}
+                      srcset={generateSrcSet(item.entry.secondaryImage ?? item.entry.coverImage)}
                       sizes="(max-width: 800px) 50vw, 33vw"
                       alt={
                         item.entry.coverImageAlt ??
@@ -532,7 +532,7 @@ Apt.
                       <img
                         id="click"
                         src={getOptimizedImagePath(entry.coverImage)}
-                        srcSet={generateSrcSet(entry.coverImage)}
+                        srcset={generateSrcSet(entry.coverImage)}
                         sizes="(max-width: 800px) 50vw, 33vw"
                         alt={entry.coverImageAlt ?? entry.title}
                         fetchpriority={fetchPriority}
@@ -545,7 +545,7 @@ Apt.
                   ) : (
                     <img
                       src={getOptimizedImagePath(entry.coverImage)}
-                      srcSet={generateSrcSet(entry.coverImage)}
+                      srcset={generateSrcSet(entry.coverImage)}
                       sizes="(max-width: 800px) 50vw, 33vw"
                       alt={entry.coverImageAlt ?? entry.title}
                       fetchpriority={fetchPriority}

@@ -133,12 +133,18 @@ const {
     <script>
         // Initialize error tracking (only in production with DSN) - deferred
         if (import.meta.env.PUBLIC_SENTRY_DSN && import.meta.env.PROD) {
-          const initSentryAsync = () => {
-            import('/src/utils/sentry.ts').then(({ initSentry }) => {
-              initSentry();
-            }).catch(() => {
+          const initSentryAsync = async () => {
+            try {
+              // Use dynamic import with proper path resolution
+              const { initSentry } = await import('../utils/sentry.ts');
+              await initSentry();
+            } catch (error) {
               // Silently fail if Sentry can't be loaded
-            });
+              // Only log in development
+              if (import.meta.env.DEV) {
+                console.warn('Sentry initialization failed:', error);
+              }
+            }
           };
 
           if ('requestIdleCallback' in window) {

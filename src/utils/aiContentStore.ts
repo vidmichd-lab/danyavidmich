@@ -33,12 +33,14 @@ export function getAIContent(): ProjectContent[] {
   }
 
   try {
-    aiContentCache = JSON.parse(readFileSync(aiContentFile, 'utf-8'));
+    const content = JSON.parse(readFileSync(aiContentFile, 'utf-8'));
+    aiContentCache = Array.isArray(content) ? content : [];
     return aiContentCache;
   } catch (error) {
     if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
       console.error('Error loading AI content:', error);
     }
+    aiContentCache = [];
     return [];
   }
 }
