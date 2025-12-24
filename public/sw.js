@@ -1,12 +1,12 @@
 // Service Worker for offline support
-const CACHE_NAME = 'danyavidmich-v1';
-const STATIC_CACHE_NAME = 'danyavidmich-static-v1';
-const IMAGE_CACHE_NAME = 'danyavidmich-images-v1';
+const CACHE_NAME = 'danyavidmich-v2';
+const STATIC_CACHE_NAME = 'danyavidmich-static-v2';
+const IMAGE_CACHE_NAME = 'danyavidmich-images-v2';
 
 // Assets to cache on install
 const STATIC_ASSETS = [
   '/',
-  '/cv',
+  '/cv/',
   '/styles/portfolio-filters.css',
   '/scripts/portfolio-filters.js',
   '/scripts/image-error-handler.js',
@@ -19,7 +19,19 @@ const STATIC_ASSETS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(STATIC_CACHE_NAME).then((cache) => {
-      return cache.addAll(STATIC_ASSETS);
+      return Promise.all(
+        STATIC_ASSETS.map((url) => {
+          return fetch(url, { redirect: 'follow' })
+            .then((response) => {
+              if (response.ok) {
+                return cache.put(url, response);
+              }
+            })
+            .catch(() => {
+              // Silently fail for assets that can't be cached
+            });
+        })
+      );
     })
   );
   self.skipWaiting();
@@ -65,7 +77,7 @@ self.addEventListener('fetch', (event) => {
         if (response) {
           return response;
         }
-        return fetch(request).then((response) => {
+        return fetch(request, { redirect: 'follow' }).then((response) => {
           if (response.status === 200) {
             const responseToCache = response.clone();
             caches.open(IMAGE_CACHE_NAME).then((cache) => {
@@ -91,14 +103,20 @@ self.addEventListener('fetch', (event) => {
       if (response) {
         return response;
       }
-      return fetch(request).then((response) => {
-        if (response.status === 200) {
+      return fetch(request, { redirect: 'follow' }).then((response) => {
+        // Cache successful responses (including redirected ones)
+        if (response.status === 200 || response.status === 0) {
           const responseToCache = response.clone();
           caches.open(STATIC_CACHE_NAME).then((cache) => {
             cache.put(request, responseToCache);
           });
         }
         return response;
+      }).catch((error) => {
+        // If fetch fails, try to serve from cache
+        return caches.match(request).then((cachedResponse) => {
+          return cachedResponse || new Response('Network error', { status: 408 });
+        });
       });
     })
   );
