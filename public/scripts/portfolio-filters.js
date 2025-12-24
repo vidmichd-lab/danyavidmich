@@ -1,21 +1,30 @@
 (function() {
-  function initFilters() {
-    var filters = document.getElementById('portfolio-filters') || document.getElementById('portfolio-filters-desktop');
-    if (!filters) return;
+  function setupFilterLogic(filtersContainer) {
+    if (!filtersContainer) return;
     
-    var buttons = filters.querySelectorAll('.filter-button');
+    var buttons = filtersContainer.querySelectorAll('.filter-button');
     var cards = document.querySelectorAll('.portfolio__column .bigcard');
     var columnsContainer = document.querySelector('.portfolio__columns');
     
     for (var i = 0; i < buttons.length; i++) {
       (function(button) {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
           var filter = button.dataset.filter;
           
-          for (var j = 0; j < buttons.length; j++) {
-            buttons[j].classList.remove('filter-button--active');
-          }
-          button.classList.add('filter-button--active');
+          // Update active state for all filter containers
+          var allFilterContainers = document.querySelectorAll('.portfolio-filters');
+          allFilterContainers.forEach(function(container) {
+            var containerButtons = container.querySelectorAll('.filter-button');
+            for (var j = 0; j < containerButtons.length; j++) {
+              containerButtons[j].classList.remove('filter-button--active');
+              if (containerButtons[j].dataset.filter === filter) {
+                containerButtons[j].classList.add('filter-button--active');
+              }
+            }
+          });
           
           if (filter === 'all') {
             if (columnsContainer) {
@@ -50,6 +59,15 @@
         });
       })(buttons[i]);
     }
+  }
+  
+  function initFilters() {
+    // Initialize both mobile and desktop filter containers
+    var mobileFilters = document.getElementById('portfolio-filters');
+    var desktopFilters = document.getElementById('portfolio-filters-desktop');
+    
+    setupFilterLogic(mobileFilters);
+    setupFilterLogic(desktopFilters);
   }
   
   if (document.readyState === 'loading') {
