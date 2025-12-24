@@ -55,16 +55,8 @@
 
           var img = entry.target;
           observer.unobserve(img);
-
-          if (img.dataset.src) {
-            img.src = img.dataset.src;
-            delete img.dataset.src;
-          }
-
-          if (img.dataset.srcset) {
-            img.srcset = img.dataset.srcset;
-            delete img.dataset.srcset;
-          }
+          // Image is in viewport - native lazy loading will handle it
+          // CSS blur effect will be removed when image loads via 'load' event
         });
       },
       { rootMargin: "300px 0px", threshold: 0.01 }
