@@ -106,11 +106,14 @@ const {
       // Register service worker
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
+          navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' })
             .then((registration) => {
-              // Service worker registered
+              // Check for updates periodically
+              setInterval(() => {
+                registration.update();
+              }, 3600000); // Every hour
             })
-            .catch((error) => {
+            .catch(() => {
               // Service worker registration failed
             });
         });
