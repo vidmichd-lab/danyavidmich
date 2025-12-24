@@ -46,6 +46,10 @@
     box-sizing: border-box;
   }
 
+  html {
+    overflow-x: hidden;
+  }
+
   body {
     min-height: 100vh;
     margin: 0;
@@ -55,6 +59,7 @@
     font-size: 1.125rem;
     line-height: 1.1;
     text-align: left;
+    overflow-x: hidden;
   }
 
   img,
