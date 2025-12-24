@@ -341,8 +341,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
             alt="Danya Vidmich" 
             width="64"
             height="64"
-            loading="eager"
-            fetchpriority="high"
+            loading="lazy"
             decoding="async"
             onerror="this.onerror=null; this.style.display='none';"
           />
@@ -371,8 +370,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
             alt="Danya Vidmich" 
             width="64"
             height="64"
-            loading="eager"
-            fetchpriority="high"
+            loading="lazy"
             decoding="async"
             onerror="this.onerror=null; this.style.display='none';"
           />
@@ -496,10 +494,10 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
               }
 
               const { entry, tag, link } = item;
-              const isEarlyCase = caseIndex < 9;
               caseIndex++;
-              const fetchPriority = entry.isHero ? "high" : isEarlyCase ? "high" : undefined;
-              const loadingMode = entry.isHero || isEarlyCase ? "eager" : "lazy";
+              // Only hero case loads eagerly, all others are lazy
+              const fetchPriority = entry.isHero ? "high" : undefined;
+              const loadingMode = entry.isHero ? "eager" : "lazy";
 
               return (
                 <div class="bigcard" data-tag={entry.tag}>
@@ -511,7 +509,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                         alt={entry.coverImageAlt ?? entry.title}
                         fetchpriority={fetchPriority}
                         loading={loadingMode}
-                        decoding="async"
+                        decoding={entry.isHero ? "sync" : "async"}
                       />
                     </a>
                   ) : (

@@ -19,7 +19,6 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-md);
     align-items: flex-start;
-    min-height: 200vh;
   }
 
   .portfolio__column {
@@ -39,13 +38,11 @@
   @media (max-width: 800px) {
     .portfolio {
       width: 100%;
-      min-height: 200vh;
     }
 
     .portfolio__columns {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: var(--space-sm);
-      min-height: 200vh;
     }
   }
 }

@@ -57,7 +57,6 @@ const {
 
     {preloadFonts && (
       <>
-        <link rel="preload" href="/fonts/RightGrotesk-Medium.otf" as="font" type="font/otf" crossorigin="anonymous" fetchpriority="high" />
         <link rel="preload" href="/fonts/arialnarrow.ttf" as="font" type="font/ttf" crossorigin="anonymous" fetchpriority="high" />
       </>
     )}
@@ -118,31 +117,31 @@ const {
               // Service worker registration failed
             });
         };
-        
+
         if ('requestIdleCallback' in window) {
-          requestIdleCallback(registerSW, { timeout: 2000 });
+          requestIdleCallback(registerSW, { timeout: 5000 });
         } else {
-          setTimeout(registerSW, 1000);
+          setTimeout(registerSW, 3000);
         }
       }
     </script>
     <script>
-      // Initialize error tracking (only in production with DSN) - deferred
-      if (import.meta.env.PUBLIC_SENTRY_DSN && import.meta.env.PROD) {
-        const initSentryAsync = () => {
-          import('/src/utils/sentry.ts').then(({ initSentry }) => {
-            initSentry();
-          }).catch(() => {
-            // Silently fail if Sentry can't be loaded
-          });
-        };
-        
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(initSentryAsync, { timeout: 2000 });
-        } else {
-          setTimeout(initSentryAsync, 500);
+        // Initialize error tracking (only in production with DSN) - deferred
+        if (import.meta.env.PUBLIC_SENTRY_DSN && import.meta.env.PROD) {
+          const initSentryAsync = () => {
+            import('/src/utils/sentry.ts').then(({ initSentry }) => {
+              initSentry();
+            }).catch(() => {
+              // Silently fail if Sentry can't be loaded
+            });
+          };
+
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(initSentryAsync, { timeout: 5000 });
+          } else {
+            setTimeout(initSentryAsync, 3000);
+          }
         }
-      }
     </script>
   </body>
 </html>
