@@ -518,7 +518,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                       alt={entry.coverImageAlt ?? entry.title}
                       fetchpriority={fetchPriority}
                       loading={loadingMode}
-                      decoding="async"
+                      decoding={entry.isHero ? "sync" : "async"}
                       onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'800\' height=\'600\'%3E%3Crect width=\'800\' height=\'600\' fill=\'%23eaebec\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' fill=\'%23999\' font-family=\'Arial\' font-size=\'16\'%3EImage not available%3C/text%3E%3C/svg%3E'; this.style.opacity='0.7';"
                     />
                   )}
