@@ -11,7 +11,7 @@
     border-radius: 9999px;
     background-color: var(--color-surface);
     color: var(--color-text-primary);
-    font-size: 1.125rem;
+    font-size: 18px;
     text-decoration: none;
     cursor: pointer;
     transition: background-color var(--transition-default), color var(--transition-default);
@@ -64,7 +64,7 @@
 
 
   .circle-button__text {
-    font-size: 0.9rem;
+    font-size: 18px;
     font-weight: 600;
     letter-spacing: 0.05em;
     color: inherit;
@@ -80,7 +80,7 @@
     border-radius: 9999px;
     background-color: var(--color-surface);
     color: var(--color-text-primary);
-    font-size: 1.125rem;
+    font-size: 18px;
     line-height: 1.1;
     text-decoration: none;
     gap: var(--space-xs);
@@ -172,7 +172,7 @@
   }
 
   .mentioned {
-    font-size: 1.125rem;
+    font-size: 18px;
     line-height: 1.2;
   }
 
@@ -368,7 +368,7 @@
 
   .cv-entry__company {
     margin: 0;
-    font-size: 1.75rem;
+    font-size: 32px;
     font-family: var(--font-display);
     color: #000;
     text-decoration: none;
@@ -382,13 +382,13 @@
 
   .cv-entry__role {
     margin: 2px 0 0;
-    font-size: 1.75rem;
+    font-size: 32px;
     color: var(--color-text-muted);
   }
 
   .cv-entry__summary-note {
     margin: var(--space-xs) 0 0;
-    font-size: 1.1rem;
+    font-size: 18px;
     color: #999;
   }
 
@@ -398,13 +398,13 @@
     align-items: flex-end;
     gap: 2px;
     color: #999;
-    font-size: 1.1rem;
+    font-size: 18px;
     text-align: right;
   }
 
   .cv-entry__meta p {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 18px;
   }
 
   .cv-entry__details {
@@ -430,7 +430,7 @@
 
   .cv-section__title {
     margin-top: calc(var(--space-xl) + var(--space-lg));
-    font-size: 2rem;
+    font-size: 32px;
     font-family: var(--font-display);
   }
 
@@ -453,7 +453,7 @@
   .cv-duo h3,
   .cv-section__title p {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 32px;
     font-weight: 400;
     margin: 0 0 var(--space-sm);
   }
@@ -500,7 +500,7 @@
   }
 
   #bigText {
-    font-size: 4rem;
+    font-size: 32px;
   }
 
   #col1 {
@@ -529,7 +529,7 @@
     height: 44px;
     margin: 0 auto;
     background: linear-gradient(180deg, #f9fafb 60%, rgba(241, 241, 241, 0) 100%);
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 
   .top {
@@ -538,7 +538,7 @@
     justify-content: space-between;
     flex-direction: row;
     padding: var(--space-sm);
-    font-size: 1.125rem;
+    font-size: 18px;
     z-index: 1;
   }
 
@@ -563,7 +563,7 @@
     height: 24px;
     border-radius: 50%;
     background-color: rgba(0, 0, 0, 0.1);
-    font-size: 0.75rem;
+    font-size: 18px;
     line-height: 1;
     color: #111;
     transition: background-color var(--transition-default), color var(--transition-default);
@@ -593,7 +593,7 @@
 
   #title1 {
     width: calc((100% - var(--space-lg)) / 5);
-    font-size: 1.125rem;
+    font-size: 18px;
     text-decoration: none;
   }
 
@@ -603,7 +603,7 @@
 
   #title2 {
     width: calc(((100% - var(--space-lg)) / 5) * 2);
-    font-size: 1.125rem;
+    font-size: 18px;
     position: relative;
     z-index: 2;
     background-color: transparent;
@@ -614,7 +614,7 @@
 
   #title3 {
     width: calc(((100% - var(--space-lg)) / 5) * 2);
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 
   .main {
@@ -633,7 +633,7 @@
     justify-content: space-between;
     width: calc((100% - var(--space-xl)) / 5);
     height: calc(100vh - 58px);
-    font-size: 2rem;
+    font-size: 32px;
   }
 
   .about9 {
@@ -643,7 +643,7 @@
     justify-content: space-between;
     width: calc((100% - var(--space-xl)) / 5);
     height: calc(100vh - 58px);
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 
   .aboutzero {
@@ -676,7 +676,7 @@
     border-radius: 0;
     border: 2px solid #e4e4e4;
     background: linear-gradient(0deg, rgba(255, 231, 0, 1) 0%, #efefef 20%);
-    font-size: 2rem;
+    font-size: 32px;
   }
 
   .bannerPhoto {
@@ -701,7 +701,7 @@
     border-radius: 0;
     border: 2px solid rgba(203, 203, 203, 1);
     background: #efefef;
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 
   .banner2_3 {
@@ -709,13 +709,13 @@
   }
 
   .bannerH1 {
-    font-size: 2rem;
+    font-size: 32px;
   }
 
   .bannerText {
     margin-top: var(--space-md);
     margin-bottom: calc(var(--space-xl) * 2);
-    font-size: 1.125rem;
+    font-size: 18px;
   }
 
   .bannerText li {
@@ -723,7 +723,7 @@
   }
 
   .bannerPrice {
-    font-size: 2rem;
+    font-size: 32px;
     opacity: 0.64;
   }
 
@@ -757,7 +757,7 @@
   @media (max-width: 800px) {
     .header {
       height: 64px;
-      font-size: 2rem;
+      font-size: 32px;
       z-index: 1;
     }
 
@@ -766,7 +766,7 @@
       align-items: center;
       justify-content: space-between;
       padding: var(--space-sm);
-      font-size: 2rem;
+      font-size: 32px;
     }
 
     .top a {
@@ -775,13 +775,13 @@
 
     #title1 {
       width: 100%;
-      font-size: 2rem;
+      font-size: 32px;
       text-decoration: none;
     }
 
     #title1 a {
       width: 100%;
-      font-size: 2rem;
+      font-size: 32px;
       text-decoration: none;
     }
 
@@ -795,7 +795,7 @@
       width: calc(100% - var(--space-lg));
       height: auto;
       margin-bottom: var(--space-lg);
-      font-size: 2rem;
+      font-size: 32px;
     }
 
     .about9 {
@@ -803,7 +803,7 @@
       width: 100%;
       height: auto;
       margin-bottom: var(--space-lg);
-      font-size: 1.5rem;
+      font-size: 32px;
     }
 
     .aboutzero {
@@ -900,7 +900,7 @@
       background-color: var(--color-surface);
       color: var(--color-text-primary);
       text-decoration: none;
-      font-size: 1.125rem;
+      font-size: 18px;
       line-height: 1.1;
       gap: var(--space-sm);
     }
@@ -924,24 +924,24 @@
       margin: var(--space-sm) 0 var(--space-lg);
       align-items: flex-start;
       text-align: left;
-      font-size: 1.1rem;
+      font-size: 18px;
     }
     
     .cv-entry__meta p {
-      font-size: 1.1rem;
+      font-size: 18px;
     }
     
     .cv-entry__summary-note {
-      font-size: 1.1rem;
+      font-size: 18px;
     }
 
     .cv-entry__summary-note {
-      font-size: 1.1rem;
+      font-size: 18px;
     }
 
     .cv-section__title {
       margin-top: var(--space-lg);
-      font-size: 1.5rem;
+      font-size: 32px;
     }
 
     .sitedesktop {
