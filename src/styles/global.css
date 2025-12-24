@@ -457,6 +457,10 @@
     margin-top: calc(var(--space-xl) + var(--space-lg));
   }
 
+  .cv-duo-group ~ section.cv-duo {
+    margin-top: calc(var(--space-xl) + var(--space-lg));
+  }
+
   .cv-duo {
     flex: 1;
     min-width: 280px;
