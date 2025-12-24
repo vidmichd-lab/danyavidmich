@@ -19,7 +19,7 @@
   align-items: center;
   justify-content: center;
   padding: var(--space-sm) calc(var(--space-md) + 4px);
-  border-radius: var(--radius-sm);
+  border-radius: 9999px;
   background-color: var(--color-surface);
   color: var(--color-text-primary);
   font-size: 1.125rem;
@@ -71,7 +71,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-sm);
+    border-radius: 9999px;
     background-color: var(--color-surface);
     min-width: auto;
   }
