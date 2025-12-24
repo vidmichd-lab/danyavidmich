@@ -49,17 +49,13 @@ const caseColumns: Array<Array<CaseWithMeta>> = Array.from(
   () => [] as Array<CaseWithMeta>
 );
 
-otherCasesWithMeta.forEach((item) => {
-  // Find the column with the least items for even distribution
-  let minColumnIndex = 0;
-  let minLength = caseColumns[0].length;
-  for (let i = 1; i < COLUMN_COUNT; i++) {
-    if (caseColumns[i].length < minLength) {
-      minLength = caseColumns[i].length;
-      minColumnIndex = i;
-    }
-  }
-  caseColumns[minColumnIndex].push(item);
+otherCasesWithMeta.forEach((item, idx) => {
+  // For mobile (2 columns visible), distribute evenly: 0, 1, 0, 1...
+  // For desktop (3 columns), use round-robin: 0, 1, 2, 0, 1, 2...
+  // Since mobile shows first 2 columns, we use round-robin which naturally
+  // distributes evenly across first 2 columns when cycling through 3
+  const columnIndex = idx % COLUMN_COUNT;
+  caseColumns[columnIndex].push(item);
 });
 
 if (heroCase) {
