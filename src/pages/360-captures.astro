@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import { getOGMeta } from "@utils/ogMeta";
+import { getOptimizedImagePath } from "@utils/imageUtils";
 
 const ogMeta = await getOGMeta("360-captures", `Danya Vidmich — 360 Web`);
 const subtitle = "360 Web";
@@ -31,23 +32,23 @@ const tertiary = "";
       		<div id="page3" class="graphic">
 
       			<div id="bigcard2" class="bigcard">
-      				<img src="/img/pr/360-captures/0.webp">
+      				<img src={getOptimizedImagePath("/img/pr/360-captures/0.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/pr/360-captures/2.webp">
+      				<img src={getOptimizedImagePath("/img/pr/360-captures/2.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/pr/360-captures/3.webp">
+      				<img src={getOptimizedImagePath("/img/pr/360-captures/3.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/pr/360-captures/4.webp">
+      				<img src={getOptimizedImagePath("/img/pr/360-captures/4.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/pr/360-captures/5.webp">
+      				<img src={getOptimizedImagePath("/img/pr/360-captures/5.webp")} loading="lazy" decoding="async" />
       			</div>
 
 

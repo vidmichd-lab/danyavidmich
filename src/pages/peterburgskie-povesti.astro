@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import { getOGMeta } from "@utils/ogMeta";
+import { getOptimizedImagePath } from "@utils/imageUtils";
 
 const ogMeta = await getOGMeta("peterburgskie-povesti", `Danya Vidmich — Peterburgskie povesti`);
 const subtitle = "Peterburgskie povesti";
@@ -31,11 +32,11 @@ const tertiary = "";
             <div  id="bigcard2" class="cards">
 
               <div class="card">
-                <img src="/img/gr/peterburgskie-povesti/2.webp">
+                <img src={getOptimizedImagePath("/img/gr/peterburgskie-povesti/2.webp")} loading="lazy" decoding="async" />
               </div>
 
               <div class="card">
-                <img src="/img/gr/peterburgskie-povesti/8.webp">
+                <img src={getOptimizedImagePath("/img/gr/peterburgskie-povesti/8.webp")} loading="lazy" decoding="async" />
               </div>
 
     </div>
@@ -43,33 +44,33 @@ const tertiary = "";
             <div  id="bigcard2" class="cards">
 
               <div class="card">
-                <img src="/img/gr/peterburgskie-povesti/1.webp">
+                <img src={getOptimizedImagePath("/img/gr/peterburgskie-povesti/1.webp")} loading="lazy" decoding="async" />
               </div>
 
               <div class="card">
-                <img src="/img/gr/peterburgskie-povesti/3.webp">
+                <img src={getOptimizedImagePath("/img/gr/peterburgskie-povesti/3.webp")} loading="lazy" decoding="async" />
               </div>
 
     </div>
                       <div  id="bigcard2" class="cards">
 
               <div class="card">
-                <img src="/img/gr/peterburgskie-povesti/4.webp">
+                <img src={getOptimizedImagePath("/img/gr/peterburgskie-povesti/4.webp")} loading="lazy" decoding="async" />
               </div>
 
               <div class="card">
-                <img src="/img/gr/peterburgskie-povesti/5.webp">
+                <img src={getOptimizedImagePath("/img/gr/peterburgskie-povesti/5.webp")} loading="lazy" decoding="async" />
               </div>
 
     </div>
               <div  id="bigcard2" class="cards">
 
               <div class="card">
-                <img src="/img/gr/peterburgskie-povesti/6.webp">
+                <img src={getOptimizedImagePath("/img/gr/peterburgskie-povesti/6.webp")} loading="lazy" decoding="async" />
               </div>
 
               <div class="card">
-                <img src="/img/gr/peterburgskie-povesti/7.webp">
+                <img src={getOptimizedImagePath("/img/gr/peterburgskie-povesti/7.webp")} loading="lazy" decoding="async" />
               </div>
 
       		</div>

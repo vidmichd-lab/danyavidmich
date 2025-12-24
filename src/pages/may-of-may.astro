@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import { getOGMeta } from "@utils/ogMeta";
+import { getOptimizedImagePath } from "@utils/imageUtils";
 
 const ogMeta = await getOGMeta("may-of-may", `Danya Vidmich — MAY OF MAY`);
 const subtitle = "MAY OF MAY";
@@ -35,20 +36,20 @@ const tertiary = "";
 
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/may-of-may/4.webp">
+      				<img src={getOptimizedImagePath("/img/gr/may-of-may/4.webp")} alt="MAY OF MAY" loading="lazy" decoding="async" />
       			</div>
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/may-of-may/7.webp">
+      				<img src={getOptimizedImagePath("/img/gr/may-of-may/7.webp")} alt="MAY OF MAY" loading="lazy" decoding="async" />
       			</div>
 
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/may-of-may/9.webp">
+      				<img src={getOptimizedImagePath("/img/gr/may-of-may/9.webp")} alt="MAY OF MAY" loading="lazy" decoding="async" />
       			</div>
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/may-of-may/0.webp">
+      				<img src={getOptimizedImagePath("/img/gr/may-of-may/0.webp")} alt="MAY OF MAY" loading="lazy" decoding="async" />
       			</div>
 
       		</div>

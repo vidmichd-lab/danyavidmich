@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import { getOGMeta } from "@utils/ogMeta";
+import { getOptimizedImagePath } from "@utils/imageUtils";
 
 const ogMeta = await getOGMeta("my", `Danya Vidmich — A MY`);
 const subtitle = "A MY";
@@ -33,11 +34,11 @@ const tertiary = "";
   <div  id="bigcard2" class="cards">
 
               <div class="card">
-                <img src="/img/gr/my/1.webp">
+                <img src={getOptimizedImagePath("/img/gr/my/1.webp")} loading="lazy" decoding="async" />
               </div>
 
               <div class="card">
-                <img src="/img/gr/my/2.webp">
+                <img src={getOptimizedImagePath("/img/gr/my/2.webp")} loading="lazy" decoding="async" />
               </div>
 
     </div>
@@ -45,11 +46,11 @@ const tertiary = "";
     <div  id="bigcard2" class="cards">
 
               <div class="card">
-                <img src="/img/gr/my/3.webp">
+                <img src={getOptimizedImagePath("/img/gr/my/3.webp")} loading="lazy" decoding="async" />
               </div>
 
               <div class="card">
-                <img src="/img/gr/my/4.webp">
+                <img src={getOptimizedImagePath("/img/gr/my/4.webp")} loading="lazy" decoding="async" />
               </div>
 
     </div>
@@ -57,11 +58,11 @@ const tertiary = "";
       <div  id="bigcard2" class="cards">
 
               <div class="card">
-                <img src="/img/gr/my/5.webp">
+                <img src={getOptimizedImagePath("/img/gr/my/5.webp")} loading="lazy" decoding="async" />
               </div>
 
               <div class="card">
-                <img src="/img/gr/my/6.webp">
+                <img src={getOptimizedImagePath("/img/gr/my/6.webp")} loading="lazy" decoding="async" />
               </div>
 
     </div>

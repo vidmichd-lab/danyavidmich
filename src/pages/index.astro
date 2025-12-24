@@ -317,8 +317,8 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
           <p>
             Multidisciplinary designer. Ex Badoo, Yandex Music, Yandex Go and
             <a href="https://www.artlebedev.ru/vidmich/">Art. Lebedev Studio</a>. Co-founded dating app
-            <a href="https://danyavidmich.com/apt-product">Apt</a>.
-            <a href="https://danyavidmich.com/fonts">Type</a> creator. Making media
+Apt.
+            Type creator. Making media
             <a href="https://instagram.com/lugmedia/">Lug</a>
           </p>
         </div>
@@ -490,7 +490,9 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                 return (
                   <div class="bigcard" data-tag={item.entry.tag}>
                     <img
-                      src={item.entry.secondaryImage ?? item.entry.coverImage}
+                      src={getOptimizedImagePath(item.entry.secondaryImage ?? item.entry.coverImage)}
+                      srcSet={generateSrcSet(item.entry.secondaryImage ?? item.entry.coverImage)}
+                      sizes="(max-width: 800px) 50vw, 33vw"
                       alt={
                         item.entry.coverImageAlt ??
                         `${item.entry.title} secondary`

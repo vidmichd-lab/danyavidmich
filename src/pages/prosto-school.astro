@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import { getOGMeta } from "@utils/ogMeta";
+import { getOptimizedImagePath } from "@utils/imageUtils";
 
 const ogMeta = await getOGMeta("prosto-school", `Danya Vidmich — Prosto School Identity`);
 const subtitle = "Prosto School Identity";
@@ -35,47 +36,47 @@ const tertiary = "";
       		<div id="page3" class="graphic">
 
       		    	<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/prosto-school/1.webp">
+      				<img src={getOptimizedImagePath("/img/gr/prosto-school/1.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/prosto-school/2.webp">
+      				<img src={getOptimizedImagePath("/img/gr/prosto-school/2.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/prosto-school/3.webp">
+      				<img src={getOptimizedImagePath("/img/gr/prosto-school/3.webp")} loading="lazy" decoding="async" />
       			</div>
 
 
                 <div  id="bigcard2" class="cards">
 
               <div class="card">
-                <img src="/img/gr/prosto-school/4.webp">
+                <img src={getOptimizedImagePath("/img/gr/prosto-school/4.webp")} loading="lazy" decoding="async" />
               </div>
 
               <div class="card">
-                <img src="/img/gr/prosto-school/5.webp">
+                <img src={getOptimizedImagePath("/img/gr/prosto-school/5.webp")} loading="lazy" decoding="async" />
               </div>
 
                 </div>
 
               <div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/prosto-school/6.webp">
+      				<img src={getOptimizedImagePath("/img/gr/prosto-school/6.webp")} loading="lazy" decoding="async" />
       			</div>
       			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/prosto-school/7.webp">
-      			</div>
-
-      			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/prosto-school/8.webp">
+      				<img src={getOptimizedImagePath("/img/gr/prosto-school/7.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/prosto-school/9.webp">
+      				<img src={getOptimizedImagePath("/img/gr/prosto-school/8.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/prosto-school/10.webp">
+      				<img src={getOptimizedImagePath("/img/gr/prosto-school/9.webp")} loading="lazy" decoding="async" />
+      			</div>
+
+      			<div id="bigcard2" class="bigcard">
+      				<img src={getOptimizedImagePath("/img/gr/prosto-school/10.webp")} loading="lazy" decoding="async" />
       			</div>
 
       		</div>

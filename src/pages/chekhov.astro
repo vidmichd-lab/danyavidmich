@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import { getOGMeta } from "@utils/ogMeta";
+import { getOptimizedImagePath } from "@utils/imageUtils";
 
 const ogMeta = await getOGMeta("chekhov", `Danya Vidmich — Font "Chekhov"`);
 const subtitle = "Font \"Chekhov\"";
@@ -31,37 +32,37 @@ const tertiary = "";
       		<div id="page3" class="graphic">
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/chekhov/2.webp">
+      				<img src={getOptimizedImagePath("/img/gr/chekhov/2.webp")} loading="lazy" decoding="async" />
       			</div>
 
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/chekhov/4.webp">
+      				<img src={getOptimizedImagePath("/img/gr/chekhov/4.webp")} loading="lazy" decoding="async" />
       			</div>
 
 
 
 
       			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/chekhov/5.webp">
+      				<img src={getOptimizedImagePath("/img/gr/chekhov/5.webp")} loading="lazy" decoding="async" />
       			</div>
     			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/chekhov/3.webp">
+      				<img src={getOptimizedImagePath("/img/gr/chekhov/3.webp")} loading="lazy" decoding="async" />
       			</div>
         			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/chekhov/6.webp">
+      				<img src={getOptimizedImagePath("/img/gr/chekhov/6.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			    			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/chekhov/7.webp">
+      				<img src={getOptimizedImagePath("/img/gr/chekhov/7.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			    			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/chekhov/8.webp">
+      				<img src={getOptimizedImagePath("/img/gr/chekhov/8.webp")} loading="lazy" decoding="async" />
       			</div>
 
       			    			    			    			<div id="bigcard2" class="bigcard">
-      				<img src="/img/gr/chekhov/9.webp">
+      				<img src={getOptimizedImagePath("/img/gr/chekhov/9.webp")} loading="lazy" decoding="async" />
       			</div>
 
       		</div>

@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import { getOGMeta } from "@utils/ogMeta";
+import { getOptimizedImagePath } from "@utils/imageUtils";
 
 const ogMeta = await getOGMeta("sub", `Danya Vidmich — H Subscription`);
 const subtitle = "H Subscription";
@@ -32,31 +33,31 @@ const tertiary = "";
       		<div id="page3" class="graphic">
 
       			<div id="bigcard2" class="bigcard">
-      				<img src="/img/pr/sub/1.webp">
+      				<img src={getOptimizedImagePath("/img/pr/sub/1.webp")} loading="lazy" decoding="async" />
       			</div>
                       <div id="bigcard2" class="bigcard">
-              <img src="/img/pr/sub/2.webp">
+              <img src={getOptimizedImagePath("/img/pr/sub/2.webp")} loading="lazy" decoding="async" />
             </div>
                                 <div id="bigcard2" class="bigcard">
-              <img src="/img/pr/sub/3.webp">
+              <img src={getOptimizedImagePath("/img/pr/sub/3.webp")} loading="lazy" decoding="async" />
             </div>
                                 <div id="bigcard2" class="bigcard">
-              <img src="/img/pr/sub/4.webp">
+              <img src={getOptimizedImagePath("/img/pr/sub/4.webp")} loading="lazy" decoding="async" />
             </div>
                                 <div id="bigcard2" class="bigcard">
-              <img src="/img/pr/sub/5.webp">
+              <img src={getOptimizedImagePath("/img/pr/sub/5.webp")} loading="lazy" decoding="async" />
             </div>
                                 <div id="bigcard2" class="bigcard">
-              <img src="/img/pr/sub/6.webp">
+              <img src={getOptimizedImagePath("/img/pr/sub/6.webp")} loading="lazy" decoding="async" />
             </div>
                                 <div id="bigcard2" class="bigcard">
-              <img src="/img/pr/sub/7.webp">
+              <img src={getOptimizedImagePath("/img/pr/sub/7.webp")} loading="lazy" decoding="async" />
             </div>
                                 <div id="bigcard2" class="bigcard">
-              <img src="/img/pr/sub/8.webp">
+              <img src={getOptimizedImagePath("/img/pr/sub/8.webp")} loading="lazy" decoding="async" />
             </div>
                                           <div id="bigcard2" class="bigcard">
-              <img src="/img/pr/sub/9.webp">
+              <img src={getOptimizedImagePath("/img/pr/sub/9.webp")} loading="lazy" decoding="async" />
             </div>
       		</div>
       	</div>

@@ -2,6 +2,7 @@
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
 import { getOGMeta } from "@utils/ogMeta";
+import { getOptimizedImagePath } from "@utils/imageUtils";
 
 const ogMeta = await getOGMeta("stereo", `Danya Vidmich — Stereo`);
 const subtitle = "Stereo";
@@ -34,20 +35,20 @@ const tertiary = "";
            <div  id="bigcard2" class="cards">
 
       			    			<div class="card">
-      				<img src="/img/gr/stereo/1.gif">
+      				<img src={getOptimizedImagePath("/img/gr/stereo/1.gif")} loading="lazy" decoding="async" />
       			</div>
 
       						    			<div class="card">
-      				<img src="/img/gr/stereo/5.gif">
+      				<img src={getOptimizedImagePath("/img/gr/stereo/5.gif")} loading="lazy" decoding="async" />
       			</div>
       			</div>
       			         <div  class="cards">
       						    			<div class="card">
-      				<img src="/img/gr/stereo/6.gif">
+      				<img src={getOptimizedImagePath("/img/gr/stereo/6.gif")} loading="lazy" decoding="async" />
       			</div>
 
       						    			<div class="card">
-      				<img src="/img/gr/stereo/7.gif">
+      				<img src={getOptimizedImagePath("/img/gr/stereo/7.gif")} loading="lazy" decoding="async" />
       			</div>
       			</div>
 
