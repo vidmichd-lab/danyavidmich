@@ -61,7 +61,8 @@
     line-height: 1.1;
     text-align: left;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
   }
 
   img,
