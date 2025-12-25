@@ -226,17 +226,20 @@
 
     var filtersInitialTop = null;
     var headerHeight = header.offsetHeight;
-    var mainLeft = 0;
+    var mainLeft = null;
 
     function calculateInitialPosition() {
       // Calculate initial position only once, when not stuck
       if (!mobileFilters.classList.contains("is-stuck")) {
         var rect = mobileFilters.getBoundingClientRect();
         filtersInitialTop = rect.top + window.scrollY;
-        // Calculate main's left position to align filters
-        var mainRect = main.getBoundingClientRect();
-        mainLeft = mainRect.left;
       }
+    }
+
+    function updateMainLeft() {
+      // Calculate main's left position - only when needed
+      var mainRect = main.getBoundingClientRect();
+      mainLeft = mainRect.left;
     }
 
     function updateStickyState() {
@@ -250,20 +253,17 @@
       // When scrolled past the initial position of filters, make them stick to header
       if (scrollY >= filtersInitialTop - headerHeight) {
         if (!mobileFilters.classList.contains("is-stuck")) {
-          // Update main's left position when sticking
-          var mainRect = main.getBoundingClientRect();
-          mainLeft = mainRect.left;
+          // Calculate and set left position only once when sticking
+          updateMainLeft();
           mobileFilters.style.left = mainLeft + "px";
           mobileFilters.classList.add("is-stuck");
-        } else {
-          // Update position on resize while stuck
-          var mainRect = main.getBoundingClientRect();
-          mobileFilters.style.left = mainRect.left + "px";
         }
+        // Don't update left on every scroll - it causes jumping
       } else {
         if (mobileFilters.classList.contains("is-stuck")) {
           mobileFilters.classList.remove("is-stuck");
           mobileFilters.style.left = "";
+          mainLeft = null;
           // Recalculate position after unsticking
           setTimeout(calculateInitialPosition, 0);
         }
@@ -288,6 +288,11 @@
     window.addEventListener("resize", function() {
       headerHeight = header.offsetHeight;
       calculateInitialPosition();
+      // Recalculate mainLeft on resize if stuck
+      if (mobileFilters.classList.contains("is-stuck")) {
+        updateMainLeft();
+        mobileFilters.style.left = mainLeft + "px";
+      }
       updateStickyState();
     }, { passive: true });
   }
