@@ -513,7 +513,10 @@
     margin-bottom: var(--space-lg);
     transition: transform var(--transition-default);
     min-height: 450px;
-    contain: layout style paint;
+  }
+  
+  .bigcard.reveal {
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
   
 
