@@ -995,6 +995,8 @@
       margin-right: calc(-1 * var(--space-lg));
       padding-left: var(--space-lg);
       padding-right: var(--space-lg);
+      padding-top: var(--space-xs);
+      padding-bottom: var(--space-xs);
       background: linear-gradient(180deg, #f9fafb 60%, rgba(241, 241, 241, 0) 100%);
       z-index: 999;
     }
