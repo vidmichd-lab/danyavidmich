@@ -627,8 +627,13 @@
     width: 100%;
     height: 44px;
     margin: 0 auto;
-    background: #f9fafb;
+    background: linear-gradient(180deg, #f9fafb 60%, rgba(241, 241, 241, 0) 100%);
     font-size: 18px;
+  }
+
+  /* Solid white background for header on homepage */
+  .home-page .header {
+    background: #f9fafb;
   }
 
   .top {
@@ -858,6 +863,11 @@
       height: 64px;
       font-size: 32px;
       z-index: 1000;
+      background: linear-gradient(180deg, #f9fafb 60%, rgba(241, 241, 241, 0) 100%);
+    }
+
+    /* Solid white background for header on homepage mobile */
+    .home-page .header {
       background: #f9fafb;
     }
 

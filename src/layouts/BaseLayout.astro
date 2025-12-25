@@ -15,7 +15,8 @@ const {
   ogImage = `${import.meta.env.PUBLIC_SITE_URL || "https://danyavidmich.com"}/Union.png`,
   twitterCard = "summary_large_image",
   preloadFonts = true,
-  showScrollUpButton = false
+  showScrollUpButton = false,
+  isHomePage = false
 } = Astro.props;
 ---
 
@@ -103,7 +104,7 @@ const {
       ]
     })} />
   </head>
-  <body>
+  <body class={isHomePage ? "home-page" : ""}>
     <slot />
     {/* Mobile email button - fixed at bottom, only on homepage */}
     {showScrollUpButton && (
