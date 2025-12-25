@@ -11,8 +11,8 @@ const {
   ogTitle = "Danya Vidmich. Graphic and product design",
   ogDescription = description,
   ogType = "website",
-  ogUrl = "https://danyavidmich.com",
-  ogImage = "https://danyavidmich.com/Union.png",
+  ogUrl = import.meta.env.PUBLIC_SITE_URL || "https://danyavidmich.com",
+  ogImage = `${import.meta.env.PUBLIC_SITE_URL || "https://danyavidmich.com"}/Union.png`,
   twitterCard = "summary_large_image",
   preloadFonts = true
 } = Astro.props;
@@ -114,10 +114,11 @@ const {
         const registerSW = () => {
           navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' })
             .then((registration) => {
-              // Check for updates periodically
-              setInterval(() => {
-                registration.update();
-              }, 3600000); // Every hour
+              // Check for updates on focus (when user returns to tab)
+        // This is more efficient than polling every hour
+        window.addEventListener('focus', function() {
+          registration.update();
+        }, { once: false });
             })
             .catch(() => {
               // Service worker registration failed
@@ -141,8 +142,9 @@ const {
               await initSentry();
             } catch (error) {
               // Silently fail if Sentry can't be loaded
-              // Only log in development
+              // Only log in development (terser will remove this in production)
               if (import.meta.env.DEV) {
+                // eslint-disable-next-line no-console
                 console.warn('Sentry initialization failed:', error);
               }
             }

@@ -3,7 +3,11 @@
     if (!filtersContainer) return;
     
     var buttons = filtersContainer.querySelectorAll('.filter-button');
+    if (!buttons || buttons.length === 0) return;
+    
     var cards = document.querySelectorAll('.portfolio__column .bigcard');
+    if (!cards || cards.length === 0) return;
+    
     var columnsContainer = document.querySelector('.portfolio__columns');
     
     for (var i = 0; i < buttons.length; i++) {
@@ -15,16 +19,25 @@
           var filter = button.dataset.filter;
           
           // Update active state for all filter containers
-          var allFilterContainers = document.querySelectorAll('.portfolio-filters');
-          allFilterContainers.forEach(function(container) {
-            var containerButtons = container.querySelectorAll('.filter-button');
-            for (var j = 0; j < containerButtons.length; j++) {
-              containerButtons[j].classList.remove('filter-button--active');
-              if (containerButtons[j].dataset.filter === filter) {
-                containerButtons[j].classList.add('filter-button--active');
-              }
+          try {
+            var allFilterContainers = document.querySelectorAll('.portfolio-filters');
+            if (allFilterContainers && allFilterContainers.length > 0) {
+              allFilterContainers.forEach(function(container) {
+                if (!container) return;
+                var containerButtons = container.querySelectorAll('.filter-button');
+                for (var j = 0; j < containerButtons.length; j++) {
+                  if (containerButtons[j]) {
+                    containerButtons[j].classList.remove('filter-button--active');
+                    if (containerButtons[j].dataset.filter === filter) {
+                      containerButtons[j].classList.add('filter-button--active');
+                    }
+                  }
+                }
+              });
             }
-          });
+          } catch (error) {
+            // Silently fail if there's an error updating filter states
+          }
           
           if (filter === 'all') {
             if (columnsContainer) {

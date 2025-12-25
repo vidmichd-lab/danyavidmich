@@ -26,7 +26,8 @@ export function getAIContent(): ProjectContent[] {
   }
 
   if (!existsSync(aiContentFile)) {
-    if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+    // Only log in development, terser will remove this in production
+    if (import.meta.env.DEV) {
       console.warn(`AI content file not found: ${aiContentFile}`);
     }
     return [];
@@ -37,7 +38,8 @@ export function getAIContent(): ProjectContent[] {
     aiContentCache = Array.isArray(content) ? content : [];
     return aiContentCache;
   } catch (error) {
-    if (typeof process !== 'undefined' && process.env.NODE_ENV === 'development') {
+    // Only log in development, terser will remove this in production
+    if (import.meta.env.DEV) {
       console.error('Error loading AI content:', error);
     }
     aiContentCache = [];

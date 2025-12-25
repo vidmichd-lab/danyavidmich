@@ -46,23 +46,29 @@
   }
 
   function hydrateImages() {
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) {
-            return;
-          }
+    try {
+      var observer = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              return;
+            }
 
-          var img = entry.target;
-          observer.unobserve(img);
-          // Image is in viewport - native lazy loading will handle it
-          // CSS blur effect will be removed when image loads via 'load' event
-        });
-      },
-      { rootMargin: "300px 0px", threshold: 0.01 }
-    );
+            var img = entry.target;
+            if (img && observer) {
+              observer.unobserve(img);
+            }
+            // Image is in viewport - native lazy loading will handle it
+            // CSS blur effect will be removed when image loads via 'load' event
+          });
+        },
+        { rootMargin: "300px 0px", threshold: 0.01 }
+      );
 
-    document.querySelectorAll("img").forEach(function (image, index) {
+      var images = document.querySelectorAll("img");
+      if (!images || images.length === 0) return;
+
+      images.forEach(function (image, index) {
       var shouldKeepEager =
         index < EAGER_THRESHOLD ||
         image.loading === "eager" ||
@@ -93,8 +99,15 @@
       
       // Only observe for IntersectionObserver if we need to track loading state
       // Native lazy loading handles the actual loading
-      observer.observe(image);
+      try {
+        observer.observe(image);
+      } catch (error) {
+        // Silently fail if observer can't observe image
+      }
     });
+    } catch (error) {
+      // Silently fail if IntersectionObserver is not supported
+    }
   }
 
   function hydrateIframes() {
@@ -114,20 +127,44 @@
     });
   }
 
-  function hydrateReveal() {
-    var selectors = [
-      ".portfolio__hero",
-      ".portfolio__columns .bigcard",
-      ".portfolio__columns .card",
-      ".graphic .bigcard",
-      ".graphic .card",
-      ".graphic .gallery-item",
-      ".cv-entry",
-      ".cv-duo-group",
-      ".tag-collection.cv-duo__row"
-    ];
+  function hydrateButtons() {
+    // Handle button clicks using data-action attribute instead of onclick
+    document.querySelectorAll('.circle-button[data-action]').forEach(function(button) {
+      var action = button.getAttribute('data-action');
+      if (!action) return;
+      
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        try {
+          if (action === 'cv') {
+            window.location.href = '/cv/';
+          } else if (action.startsWith('mailto:')) {
+            window.location.href = action;
+          } else if (action.startsWith('/') || action.startsWith('http')) {
+            window.location.href = action;
+          }
+        } catch (error) {
+          // Silently fail if there's an error
+        }
+      });
+    });
+  }
 
-    var observer = new IntersectionObserver(
+  function hydrateReveal() {
+    try {
+      var selectors = [
+        ".portfolio__hero",
+        ".portfolio__columns .bigcard",
+        ".portfolio__columns .card",
+        ".graphic .bigcard",
+        ".graphic .card",
+        ".graphic .gallery-item",
+        ".cv-entry",
+        ".cv-duo-group",
+        ".tag-collection.cv-duo__row"
+      ];
+
+      var observer = new IntersectionObserver(
       function (entries, obs) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -159,12 +196,24 @@
       }
     );
 
-    selectors.forEach(function (selector) {
-      document.querySelectorAll(selector).forEach(function (element) {
-        element.classList.add("reveal");
-        observer.observe(element);
+      selectors.forEach(function (selector) {
+        try {
+          var elements = document.querySelectorAll(selector);
+          if (elements && elements.length > 0) {
+            elements.forEach(function (element) {
+              if (element) {
+                element.classList.add("reveal");
+                observer.observe(element);
+              }
+            });
+          }
+        } catch (error) {
+          // Silently fail if selector fails
+        }
       });
-    });
+    } catch (error) {
+      // Silently fail if IntersectionObserver is not supported
+    }
   }
 
   function hydrate() {
@@ -172,6 +221,7 @@
     hydrateImages();
     hydrateIframes();
     hydrateReveal();
+    hydrateButtons();
 
     // Handle all scroll-to-top buttons
     document.querySelectorAll("[data-scroll-to-top]").forEach(function (button) {

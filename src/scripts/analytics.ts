@@ -22,8 +22,8 @@ export function trackEvent(category: string, action: string, label?: string) {
     win.ym(93372850, 'reachGoal', `${category}_${action}`, { label });
   }
   
-  // Console log for development
-  if (process.env.NODE_ENV === 'development') {
+  // Console log for development only (terser will remove this in production)
+  if (import.meta.env.DEV) {
     console.log('Analytics:', { category, action, label });
   }
 }

@@ -1,7 +1,8 @@
 import { getCases } from "./casesStore";
 import { getProjectAIContent } from "./aiContentStore";
 
-const BASE_URL = "https://danyavidmich.com";
+// Use environment variable or fallback to production URL
+const BASE_URL = import.meta.env.PUBLIC_SITE_URL || "https://danyavidmich.com";
 
 export interface OGMeta {
   title: string;
