@@ -898,6 +898,11 @@
       font-size: 18px; /* Keep normal font size on project pages */
     }
 
+    /* Override for homepage - larger font size */
+    .main .about {
+      font-size: 32px;
+    }
+
     .about9 {
       position: relative;
       width: 100%;
@@ -984,8 +989,7 @@
     .mobile-filters-actions.is-stuck {
       position: fixed;
       top: 64px;
-      left: 0;
-      right: 0;
+      /* left will be set by JS to align with .main */
       width: calc(100% + var(--space-lg) * 2);
       margin-left: calc(-1 * var(--space-lg));
       margin-right: calc(-1 * var(--space-lg));

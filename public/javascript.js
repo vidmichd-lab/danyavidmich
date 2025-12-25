@@ -221,16 +221,21 @@
     if (!mobileFilters) return;
 
     var header = document.querySelector(".header");
-    if (!header) return;
+    var main = document.querySelector(".main");
+    if (!header || !main) return;
 
     var filtersInitialTop = null;
     var headerHeight = header.offsetHeight;
+    var mainLeft = 0;
 
     function calculateInitialPosition() {
       // Calculate initial position only once, when not stuck
       if (!mobileFilters.classList.contains("is-stuck")) {
         var rect = mobileFilters.getBoundingClientRect();
         filtersInitialTop = rect.top + window.scrollY;
+        // Calculate main's left position to align filters
+        var mainRect = main.getBoundingClientRect();
+        mainLeft = mainRect.left;
       }
     }
 
@@ -245,11 +250,20 @@
       // When scrolled past the initial position of filters, make them stick to header
       if (scrollY >= filtersInitialTop - headerHeight) {
         if (!mobileFilters.classList.contains("is-stuck")) {
+          // Update main's left position when sticking
+          var mainRect = main.getBoundingClientRect();
+          mainLeft = mainRect.left;
+          mobileFilters.style.left = mainLeft + "px";
           mobileFilters.classList.add("is-stuck");
+        } else {
+          // Update position on resize while stuck
+          var mainRect = main.getBoundingClientRect();
+          mobileFilters.style.left = mainRect.left + "px";
         }
       } else {
         if (mobileFilters.classList.contains("is-stuck")) {
           mobileFilters.classList.remove("is-stuck");
+          mobileFilters.style.left = "";
           // Recalculate position after unsticking
           setTimeout(calculateInitialPosition, 0);
         }
