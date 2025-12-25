@@ -189,7 +189,6 @@
   
   .bigcard img,
   .gallery-item img {
-    object-fit: cover;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     transform: translateZ(0);
