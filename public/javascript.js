@@ -223,37 +223,59 @@
     var header = document.querySelector(".header");
     if (!header) return;
 
-    function getFiltersInitialTop() {
-      // Get the initial top position relative to document
-      var rect = mobileFilters.getBoundingClientRect();
-      return rect.top + window.scrollY;
-    }
+    var filtersInitialTop = null;
+    var headerHeight = header.offsetHeight;
 
-    function updateStickyState() {
-      var headerHeight = header.offsetHeight; // 64px on mobile
-      var scrollY = window.scrollY;
-      var filtersInitialTop = getFiltersInitialTop();
-      
-      // When scrolled past the initial position of filters, make them stick to header
-      if (scrollY >= filtersInitialTop - headerHeight) {
-        mobileFilters.classList.add("is-stuck");
-      } else {
-        mobileFilters.classList.remove("is-stuck");
+    function calculateInitialPosition() {
+      // Calculate initial position only once, when not stuck
+      if (!mobileFilters.classList.contains("is-stuck")) {
+        var rect = mobileFilters.getBoundingClientRect();
+        filtersInitialTop = rect.top + window.scrollY;
       }
     }
 
-    // Wait for layout to be ready
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(updateStickyState, 100);
-      });
-    } else {
-      setTimeout(updateStickyState, 100);
+    function updateStickyState() {
+      if (filtersInitialTop === null) {
+        calculateInitialPosition();
+        return;
+      }
+
+      var scrollY = window.scrollY;
+      
+      // When scrolled past the initial position of filters, make them stick to header
+      if (scrollY >= filtersInitialTop - headerHeight) {
+        if (!mobileFilters.classList.contains("is-stuck")) {
+          mobileFilters.classList.add("is-stuck");
+        }
+      } else {
+        if (mobileFilters.classList.contains("is-stuck")) {
+          mobileFilters.classList.remove("is-stuck");
+          // Recalculate position after unsticking
+          setTimeout(calculateInitialPosition, 0);
+        }
+      }
     }
 
-    updateStickyState();
+    // Wait for layout to be ready, then calculate initial position
+    function init() {
+      setTimeout(function() {
+        calculateInitialPosition();
+        updateStickyState();
+      }, 100);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+
     window.addEventListener("scroll", updateStickyState, { passive: true });
-    window.addEventListener("resize", updateStickyState, { passive: true });
+    window.addEventListener("resize", function() {
+      headerHeight = header.offsetHeight;
+      calculateInitialPosition();
+      updateStickyState();
+    }, { passive: true });
   }
 
   function hydrateScrollUpButton() {
