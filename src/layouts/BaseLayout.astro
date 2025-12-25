@@ -105,10 +105,10 @@ const {
   </head>
   <body>
     <slot />
-    {/* Mobile scroll to top button - fixed at bottom, only on homepage */}
+    {/* Mobile email button - fixed at bottom, only on homepage */}
     {showScrollUpButton && (
-      <button class="scroll-up-button" id="scroll-up-button" aria-label="Scroll to top" title="Go to top">
-        <span class="scroll-up-button__text">Up</span>
+      <button class="scroll-up-button" id="scroll-up-button" data-action="mailto:mail@danyavidmich.com" aria-label="Get in touch by email" title="Get in touch">
+        <span class="scroll-up-button__icon tabler--mail-filled" aria-hidden="true"></span>
       </button>
     )}
     <script is:inline src="/javascript.js" defer></script>

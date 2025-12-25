@@ -232,10 +232,15 @@
     toggleScrollUpVisibility();
     window.addEventListener("scroll", toggleScrollUpVisibility, { passive: true });
 
-    // Handle click for scroll to top
+    // Handle click - check if it's email button or scroll to top
     scrollUpButton.addEventListener("click", function (e) {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      var action = scrollUpButton.getAttribute("data-action");
+      if (action && action.startsWith("mailto:")) {
+        window.location.href = action;
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
     });
   }
 
