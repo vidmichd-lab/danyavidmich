@@ -189,7 +189,6 @@
   
   .bigcard img,
   .gallery-item img {
-    aspect-ratio: 16 / 9;
     object-fit: cover;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
