@@ -227,12 +227,34 @@
     var filtersInitialTop = null;
     var headerHeight = header.offsetHeight;
     var mainLeft = null;
+    var placeholder = null;
+    var filtersHeight = 0;
 
     function calculateInitialPosition() {
       // Calculate initial position only once, when not stuck
       if (!mobileFilters.classList.contains("is-stuck")) {
         var rect = mobileFilters.getBoundingClientRect();
         filtersInitialTop = rect.top + window.scrollY;
+        filtersHeight = rect.height;
+      }
+    }
+
+    function createPlaceholder() {
+      if (!placeholder) {
+        placeholder = document.createElement("div");
+        placeholder.className = "mobile-filters-placeholder";
+        placeholder.style.height = filtersHeight + "px";
+        placeholder.style.visibility = "hidden";
+        mobileFilters.parentNode.insertBefore(placeholder, mobileFilters.nextSibling);
+      } else {
+        placeholder.style.height = filtersHeight + "px";
+      }
+    }
+
+    function removePlaceholder() {
+      if (placeholder && placeholder.parentNode) {
+        placeholder.parentNode.removeChild(placeholder);
+        placeholder = null;
       }
     }
 
@@ -257,6 +279,8 @@
           updateMainLeft();
           mobileFilters.style.left = mainLeft + "px";
           mobileFilters.classList.add("is-stuck");
+          // Create placeholder to prevent content jump
+          createPlaceholder();
         }
         // Don't update left on every scroll - it causes jumping
       } else {
@@ -264,6 +288,8 @@
           mobileFilters.classList.remove("is-stuck");
           mobileFilters.style.left = "";
           mainLeft = null;
+          // Remove placeholder when unsticking
+          removePlaceholder();
           // Recalculate position after unsticking
           setTimeout(calculateInitialPosition, 0);
         }
