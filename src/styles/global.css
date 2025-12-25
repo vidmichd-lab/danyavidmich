@@ -889,6 +889,11 @@
       display: none;
     }
 
+    /* Add padding-top to account for fixed mobile-filters-actions */
+    .main {
+      padding-top: calc(64px + 80px); /* header height (64px) + filters section height (~80px) */
+    }
+
     .about {
       position: relative;
       width: calc(100% - var(--space-lg));
@@ -914,6 +919,7 @@
       align-items: flex-start;
       justify-content: space-between;
       width: calc(100% - var(--space-lg));
+      padding-top: calc(64px + 80px); /* header height (64px) + filters section height (~80px) */
       margin: 64px auto 0;
       overflow-x: visible;
     }
@@ -941,9 +947,9 @@
       display: none;
     }
 
-    /* Show scroll up button on mobile */
+    /* Hide scroll up button on mobile - filters are now fixed */
     .scroll-up-button {
-      display: flex;
+      display: none !important;
     }
 
     .desktop-filters {
@@ -959,18 +965,28 @@
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       -ms-overflow-style: none;
-      margin-bottom: var(--space-md);
+      margin-bottom: 0;
       padding: 0;
-      margin-left: calc(-1 * var(--space-lg));
-      margin-right: calc(-1 * var(--space-lg));
+      margin-left: 0;
+      margin-right: 0;
       padding-left: var(--space-lg);
       padding-right: var(--space-lg);
-      width: calc(100% + var(--space-lg) * 2);
+      width: 100%;
       box-sizing: border-box;
       /* Use native mobile scrolling - no smooth behavior */
       /* Enable hardware acceleration for smoother scrolling */
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
+      /* Fixed position on scroll */
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: linear-gradient(180deg, #f9fafb 60%, rgba(249, 250, 251, 0.95) 100%);
+      backdrop-filter: blur(10px);
+      padding-top: var(--space-sm);
+      padding-bottom: var(--space-sm);
     }
 
     .mobile-filters-actions::-webkit-scrollbar {
