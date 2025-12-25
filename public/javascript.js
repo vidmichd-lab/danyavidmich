@@ -251,7 +251,9 @@
       var scrollY = window.scrollY;
       
       // When scrolled past the initial position of filters, make them stick to header
-      if (scrollY >= filtersInitialTop - headerHeight) {
+      // Add small delay (20px) so it sticks a bit later
+      var stickThreshold = filtersInitialTop - headerHeight + 20;
+      if (scrollY >= stickThreshold) {
         if (!mobileFilters.classList.contains("is-stuck")) {
           // Calculate and set left position only once when sticking
           updateMainLeft();
