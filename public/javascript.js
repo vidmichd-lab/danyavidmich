@@ -216,6 +216,46 @@
     }
   }
 
+  function hydrateMobileFiltersSticky() {
+    var mobileFilters = document.querySelector(".mobile-filters-actions");
+    if (!mobileFilters) return;
+
+    var header = document.querySelector(".header");
+    if (!header) return;
+
+    function getFiltersInitialTop() {
+      // Get the initial top position relative to document
+      var rect = mobileFilters.getBoundingClientRect();
+      return rect.top + window.scrollY;
+    }
+
+    function updateStickyState() {
+      var headerHeight = header.offsetHeight; // 64px on mobile
+      var scrollY = window.scrollY;
+      var filtersInitialTop = getFiltersInitialTop();
+      
+      // When scrolled past the initial position of filters, make them stick to header
+      if (scrollY >= filtersInitialTop - headerHeight) {
+        mobileFilters.classList.add("is-stuck");
+      } else {
+        mobileFilters.classList.remove("is-stuck");
+      }
+    }
+
+    // Wait for layout to be ready
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", function() {
+        setTimeout(updateStickyState, 100);
+      });
+    } else {
+      setTimeout(updateStickyState, 100);
+    }
+
+    updateStickyState();
+    window.addEventListener("scroll", updateStickyState, { passive: true });
+    window.addEventListener("resize", updateStickyState, { passive: true });
+  }
+
   function hydrateScrollUpButton() {
     var scrollUpButton = document.getElementById("scroll-up-button");
     if (!scrollUpButton) return;
@@ -250,6 +290,7 @@
     hydrateIframes();
     hydrateReveal();
     hydrateButtons();
+    hydrateMobileFiltersSticky();
     hydrateScrollUpButton();
 
     // Handle all scroll-to-top buttons

@@ -971,14 +971,26 @@
       /* Enable hardware acceleration for smoother scrolling */
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
-      /* Sticky position - "sticks" to header when scrolling */
-      position: -webkit-sticky;
-      position: sticky;
-      top: 64px;
+      /* Default position - will be made fixed by JS when scrolled */
+      position: relative;
       z-index: 999;
       background: linear-gradient(180deg, #f9fafb 60%, rgba(241, 241, 241, 0) 100%);
       padding-top: var(--space-sm);
       padding-bottom: var(--space-sm);
+    }
+
+    /* When stuck to header (via JS) */
+    .mobile-filters-actions.is-stuck {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: var(--space-lg);
+      padding-right: var(--space-lg);
+      background: linear-gradient(180deg, #f9fafb 60%, rgba(241, 241, 241, 0) 100%);
     }
 
     .mobile-filters-actions::-webkit-scrollbar {
