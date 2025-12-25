@@ -919,9 +919,9 @@
       align-items: flex-start;
       justify-content: space-between;
       width: calc(100% - var(--space-lg));
-      padding-top: calc(64px + 80px); /* header height (64px) + filters section height (~80px) */
       margin: 64px auto 0;
       overflow-x: visible;
+      padding-top: 80px; /* height of fixed mobile-filters-actions section */
     }
 
     .graphic,
