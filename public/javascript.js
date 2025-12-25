@@ -273,7 +273,9 @@
       var scrollY = window.scrollY;
       
       // When scrolled past the initial position of filters, make them stick to header
-      if (scrollY >= filtersInitialTop - headerHeight) {
+      // Add small offset (15px) so buttons stick a bit later, preventing visual jump
+      var stickOffset = 15;
+      if (scrollY >= filtersInitialTop - headerHeight + stickOffset) {
         if (!mobileFilters.classList.contains("is-stuck")) {
           // Calculate and set left position only once when sticking
           updateMainLeft();
