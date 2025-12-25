@@ -8,10 +8,13 @@ export function generateSrcSet(basePath: string, breakpoints = [400, 800, 1200, 
     return '';
   }
   
+  // Decode URL-encoded path first to handle spaces and special characters
+  let decodedPath = decodeURIComponent(basePath);
+  
   // Convert to optimized path
-  let optimizedPath = basePath.includes('/img/optimized/')
-    ? basePath
-    : basePath.replace('/img/', '/img/optimized/').replace(/\.(jpg|jpeg|png)$/i, '.webp');
+  let optimizedPath = decodedPath.includes('/img/optimized/')
+    ? decodedPath
+    : decodedPath.replace('/img/', '/img/optimized/').replace(/\.(jpg|jpeg|png)$/i, '.webp');
   
   // Ensure .webp extension
   if (!optimizedPath.endsWith('.webp')) {
@@ -21,11 +24,13 @@ export function generateSrcSet(basePath: string, breakpoints = [400, 800, 1200, 
   // Get base path without extension for responsive versions
   const pathWithoutExt = optimizedPath.replace(/\.webp$/i, '');
   
-  // Generate srcset with responsive versions
+  // Generate srcset with responsive versions (properly encoded)
   const srcsetParts = breakpoints
     .map((width) => {
       const responsivePath = `${pathWithoutExt}-${width}w.webp`;
-      return `${responsivePath} ${width}w`;
+      // Encode the path properly for URLs
+      const encodedPath = encodeURI(responsivePath).replace(/#/g, '%23');
+      return `${encodedPath} ${width}w`;
     })
     .filter(Boolean);
   
@@ -37,26 +42,33 @@ export function getOptimizedImagePath(originalPath: string): string {
     return '';
   }
   
-  // If already optimized, return as is
-  if (originalPath.includes('/img/optimized/')) {
-    return originalPath;
+  // Decode URL-encoded path first to handle spaces and special characters
+  let decodedPath = decodeURIComponent(originalPath);
+  
+  // If already optimized, return as is (but ensure proper encoding)
+  if (decodedPath.includes('/img/optimized/')) {
+    // Re-encode the path properly for URLs
+    return encodeURI(decodedPath).replace(/#/g, '%23');
   }
   
   // For GIFs, use optimized path but keep .gif extension
-  if (originalPath.toLowerCase().endsWith('.gif')) {
-    return originalPath.replace('/img/', '/img/optimized/');
+  if (decodedPath.toLowerCase().endsWith('.gif')) {
+    const optimizedPath = decodedPath.replace('/img/', '/img/optimized/');
+    return encodeURI(optimizedPath).replace(/#/g, '%23');
   }
   
   // If already .webp, just change path to optimized
-  if (originalPath.toLowerCase().endsWith('.webp')) {
-    return originalPath.replace('/img/', '/img/optimized/');
+  if (decodedPath.toLowerCase().endsWith('.webp')) {
+    const optimizedPath = decodedPath.replace('/img/', '/img/optimized/');
+    return encodeURI(optimizedPath).replace(/#/g, '%23');
   }
   
   // Convert to optimized path and WebP
-  const optimizedPath = originalPath
+  const optimizedPath = decodedPath
     .replace('/img/', '/img/optimized/')
     .replace(/\.(jpg|jpeg|png)$/i, '.webp');
   
-  return optimizedPath;
+  // Encode the path properly for URLs (spaces become %20, etc.)
+  return encodeURI(optimizedPath).replace(/#/g, '%23');
 }
 
