@@ -508,6 +508,11 @@
     transform: translateY(0);
   }
 
+  /* After reveal animation, remove all transform to prevent conflicts */
+  .is-visible:not(.reveal) {
+    transform: none;
+  }
+
   .gallery-item,
   .bigcard {
     margin-bottom: var(--space-lg);
@@ -521,8 +526,8 @@
   .bigcard.reveal.is-visible {
     transition: none;
   }
-  
 
+  /* Hover effect - works on all cards, including after reveal animation */
   .gallery-item:has(a):hover,
   .bigcard:has(a):hover {
     transform: scale(0.98);

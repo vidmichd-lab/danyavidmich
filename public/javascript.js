@@ -133,6 +133,11 @@
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
             obs.unobserve(entry.target);
+            // Remove .reveal class after animation completes to prevent conflicts
+            // This ensures cards stay visible and don't re-trigger animations
+            setTimeout(function() {
+              entry.target.classList.remove("reveal");
+            }, 600); // Match transition duration (0.6s)
           }
         });
       },

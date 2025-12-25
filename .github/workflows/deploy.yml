@@ -4,6 +4,15 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '**.md'
+      - '.gitignore'
+      - '.editorconfig'
+      - '.prettierrc*'
+      - '.eslintrc*'
+      - 'README.md'
+      - 'AUDIT_REPORT.md'
+      - 'PERFORMANCE_IMPROVEMENTS.md'
   workflow_dispatch:
 
 concurrency:
@@ -26,9 +35,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
 
       - name: Generate sitemap
         run: npm run sitemap:generate
