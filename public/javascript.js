@@ -133,11 +133,23 @@
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
             obs.unobserve(entry.target);
-            // Remove .reveal class after animation completes to prevent conflicts
+            // Remove .reveal class after animation completes using transitionend event
             // This ensures cards stay visible and don't re-trigger animations
+            var handleTransitionEnd = function(e) {
+              // Only handle transitions on the target element itself, not children
+              if (e.target === entry.target) {
+                entry.target.classList.remove("reveal");
+                entry.target.removeEventListener("transitionend", handleTransitionEnd);
+              }
+            };
+            entry.target.addEventListener("transitionend", handleTransitionEnd, { once: true });
+            // Fallback: remove after timeout if transitionend doesn't fire
             setTimeout(function() {
-              entry.target.classList.remove("reveal");
-            }, 600); // Match transition duration (0.6s)
+              if (entry.target.classList.contains("reveal")) {
+                entry.target.classList.remove("reveal");
+                entry.target.removeEventListener("transitionend", handleTransitionEnd);
+              }
+            }, 700); // Slightly longer than transition duration
           }
         });
       },
