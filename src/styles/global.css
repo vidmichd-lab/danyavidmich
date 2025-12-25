@@ -511,7 +511,6 @@
   .gallery-item,
   .bigcard {
     margin-bottom: var(--space-lg);
-    transition: transform var(--transition-default);
     min-height: 450px;
   }
   
@@ -519,10 +518,15 @@
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
   
+  .bigcard.reveal.is-visible {
+    transition: none;
+  }
+  
 
   .gallery-item:has(a):hover,
   .bigcard:has(a):hover {
     transform: scale(0.98);
+    transition: transform var(--transition-default);
   }
 
   #bigcard2 {
