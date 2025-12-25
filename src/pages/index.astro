@@ -288,31 +288,80 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
   ogImage={ogMeta.ogImage}
 >
   <Fragment slot="head">
-    <link rel="preconnect" href="https://player.vimeo.com" crossorigin />
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
-    <link rel="preconnect" href="https://mc.yandex.ru" crossorigin />
-    <script is:inline defer src="https://player.vimeo.com/api/player.js" onerror="this.onerror=null; console.warn('Vimeo player script blocked or failed to load');"></script>
-    <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-4LGZW7QNFB"></script>
+    {/* Preload hero image for faster LCP - critical for mobile performance */}
+    {heroCase && (
+      <link rel="preload" as="image" href={getOptimizedImagePath(heroCase.coverImage)} />
+    )}
+    
+    {/* Defer external connections - only preconnect, don't load scripts immediately */}
+    <link rel="dns-prefetch" href="https://player.vimeo.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://mc.yandex.ru" />
+    
+    {/* Load analytics only after page is interactive - critical for mobile performance */}
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-4LGZW7QNFB');
+      // Defer all analytics to after page load
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(() => {
+          // Google Analytics
+          const gtagScript = document.createElement('script');
+          gtagScript.async = true;
+          gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-4LGZW7QNFB';
+          document.head.appendChild(gtagScript);
+          
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-4LGZW7QNFB');
+          
+          // Yandex Metrika
+          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+          m[i].l=1*new Date();
+          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+          
+          ym(93372850, "init", {
+              clickmap:true,
+              trackLinks:true,
+              accurateTrackBounce:true,
+              webvisor:true
+          });
+        }, { timeout: 5000 });
+      } else {
+        window.addEventListener('load', () => {
+          setTimeout(() => {
+            // Google Analytics
+            const gtagScript = document.createElement('script');
+            gtagScript.async = true;
+            gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-4LGZW7QNFB';
+            document.head.appendChild(gtagScript);
+            
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4LGZW7QNFB');
+            
+            // Yandex Metrika
+            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+            
+            ym(93372850, "init", {
+                clickmap:true,
+                trackLinks:true,
+                accurateTrackBounce:true,
+                webvisor:true
+            });
+          }, 2000);
+        });
+      }
     </script>
-    <script is:inline>
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-      ym(93372850, "init", {
-          clickmap:true,
-          trackLinks:true,
-          accurateTrackBounce:true,
-          webvisor:true
-      });
-    </script>
+    
+    {/* Vimeo player - load only when needed */}
+    <script is:inline defer src="https://player.vimeo.com/api/player.js" onerror="this.onerror=null;"></script>
   </Fragment>
 
   <noscript>

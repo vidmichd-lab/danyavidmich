@@ -2,13 +2,13 @@
   @font-face {
     font-family: "RightGrotesk";
     src: url("/fonts/RightGrotesk-Medium.otf") format("opentype");
-    font-display: swap;
+    font-display: optional; /* Faster on mobile - use system font if custom font not ready */
   }
 
   @font-face {
     font-family: "Arial Narrow";
     src: url("/fonts/arialnarrow.ttf") format("truetype");
-    font-display: swap;
+    font-display: optional; /* Faster on mobile - use system font if custom font not ready */
   }
 
   :root {
