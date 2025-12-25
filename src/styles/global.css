@@ -921,7 +921,6 @@
       width: calc(100% - var(--space-lg));
       margin: 64px auto 0;
       overflow-x: visible;
-      padding-top: 80px; /* height of fixed mobile-filters-actions section */
     }
 
     .graphic,
@@ -965,26 +964,23 @@
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       -ms-overflow-style: none;
-      margin-bottom: 0;
+      margin-bottom: var(--space-md);
       padding: 0;
-      margin-left: 0;
-      margin-right: 0;
+      margin-left: calc(-1 * var(--space-lg));
+      margin-right: calc(-1 * var(--space-lg));
       padding-left: var(--space-lg);
       padding-right: var(--space-lg);
-      width: 100%;
+      width: calc(100% + var(--space-lg) * 2);
       box-sizing: border-box;
       /* Use native mobile scrolling - no smooth behavior */
       /* Enable hardware acceleration for smoother scrolling */
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
-      /* Fixed position on scroll */
-      position: fixed;
+      /* Sticky position - "sticks" to header when scrolling */
+      position: sticky;
       top: 64px;
-      left: 0;
-      right: 0;
       z-index: 999;
-      background: linear-gradient(180deg, #f9fafb 60%, rgba(249, 250, 251, 0.95) 100%);
-      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, #f9fafb 60%, rgba(241, 241, 241, 0) 100%);
       padding-top: var(--space-sm);
       padding-bottom: var(--space-sm);
     }
