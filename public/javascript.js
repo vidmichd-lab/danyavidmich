@@ -275,17 +275,24 @@
       // When scrolled past the initial position of filters, make them stick to header
       // Add small offset (15px) so buttons stick a bit later, preventing visual jump
       var stickOffset = 15;
-      if (scrollY >= filtersInitialTop - headerHeight + stickOffset) {
+      var stickThreshold = filtersInitialTop - headerHeight + stickOffset;
+      
+      if (scrollY >= stickThreshold) {
         if (!mobileFilters.classList.contains("is-stuck")) {
+          // Create placeholder BEFORE sticking to prevent content jump
+          createPlaceholder();
           // Calculate and set left position only once when sticking
           updateMainLeft();
           mobileFilters.style.left = mainLeft + "px";
           mobileFilters.classList.add("is-stuck");
-          // Create placeholder to prevent content jump
-          createPlaceholder();
         }
         // Don't update left on every scroll - it causes jumping
       } else {
+        // Create placeholder slightly before sticking to smooth the transition
+        if (scrollY >= filtersInitialTop - headerHeight - 5 && !mobileFilters.classList.contains("is-stuck")) {
+          createPlaceholder();
+        }
+        
         if (mobileFilters.classList.contains("is-stuck")) {
           mobileFilters.classList.remove("is-stuck");
           mobileFilters.style.left = "";
