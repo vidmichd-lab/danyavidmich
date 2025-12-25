@@ -889,11 +889,6 @@
       display: none;
     }
 
-    /* Add padding-top to account for fixed mobile-filters-actions */
-    .main {
-      padding-top: calc(64px + 80px); /* header height (64px) + filters section height (~80px) */
-    }
-
     .about {
       position: relative;
       width: calc(100% - var(--space-lg));
@@ -977,6 +972,7 @@
       -webkit-transform: translate3d(0, 0, 0);
       transform: translate3d(0, 0, 0);
       /* Sticky position - "sticks" to header when scrolling */
+      position: -webkit-sticky;
       position: sticky;
       top: 64px;
       z-index: 999;

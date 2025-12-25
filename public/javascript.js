@@ -47,23 +47,23 @@
 
   function hydrateImages() {
     try {
-      var observer = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (entry) {
-            if (!entry.isIntersecting) {
-              return;
-            }
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) {
+            return;
+          }
 
-            var img = entry.target;
+          var img = entry.target;
             if (img && observer) {
-              observer.unobserve(img);
+          observer.unobserve(img);
             }
-            // Image is in viewport - native lazy loading will handle it
-            // CSS blur effect will be removed when image loads via 'load' event
-          });
-        },
-        { rootMargin: "300px 0px", threshold: 0.01 }
-      );
+          // Image is in viewport - native lazy loading will handle it
+          // CSS blur effect will be removed when image loads via 'load' event
+        });
+      },
+      { rootMargin: "300px 0px", threshold: 0.01 }
+    );
 
       var images = document.querySelectorAll("img");
       if (!images || images.length === 0) return;
@@ -100,7 +100,7 @@
       // Only observe for IntersectionObserver if we need to track loading state
       // Native lazy loading handles the actual loading
       try {
-        observer.observe(image);
+      observer.observe(image);
       } catch (error) {
         // Silently fail if observer can't observe image
       }
@@ -152,19 +152,19 @@
 
   function hydrateReveal() {
     try {
-      var selectors = [
-        ".portfolio__hero",
-        ".portfolio__columns .bigcard",
-        ".portfolio__columns .card",
-        ".graphic .bigcard",
-        ".graphic .card",
-        ".graphic .gallery-item",
-        ".cv-entry",
-        ".cv-duo-group",
-        ".tag-collection.cv-duo__row"
-      ];
+    var selectors = [
+      ".portfolio__hero",
+      ".portfolio__columns .bigcard",
+      ".portfolio__columns .card",
+      ".graphic .bigcard",
+      ".graphic .card",
+      ".graphic .gallery-item",
+      ".cv-entry",
+      ".cv-duo-group",
+      ".tag-collection.cv-duo__row"
+    ];
 
-      var observer = new IntersectionObserver(
+    var observer = new IntersectionObserver(
       function (entries, obs) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -196,16 +196,16 @@
       }
     );
 
-      selectors.forEach(function (selector) {
+    selectors.forEach(function (selector) {
         try {
           var elements = document.querySelectorAll(selector);
           if (elements && elements.length > 0) {
             elements.forEach(function (element) {
               if (element) {
-                element.classList.add("reveal");
-                observer.observe(element);
+        element.classList.add("reveal");
+        observer.observe(element);
               }
-            });
+      });
           }
         } catch (error) {
           // Silently fail if selector fails
