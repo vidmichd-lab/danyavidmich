@@ -516,6 +516,8 @@
   .bigcard {
     margin-bottom: var(--space-lg);
     min-height: 450px;
+    /* Prevent layout shifts - ensure stable positioning */
+    position: relative;
   }
   
   .bigcard.reveal {

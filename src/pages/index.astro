@@ -50,9 +50,9 @@ const caseColumns: Array<Array<CaseWithMeta>> = Array.from(
   () => [] as Array<CaseWithMeta>
 );
 
-// Distribute cases with perfect balance for mobile (columns 0 and 1)
+// Distribute cases across 3 columns for desktop
+// On mobile, CSS will display all columns as a single column
 // Strategy: distribute evenly between columns 0 and 1, then move every 3rd to column 2
-// This ensures columns 0 and 1 are always balanced for mobile view
 otherCasesWithMeta.forEach((item, idx) => {
   // Calculate which column this item should go to
   // Items at indices 2, 5, 8... (every 3rd starting from 2) go to column 2
@@ -69,21 +69,14 @@ otherCasesWithMeta.forEach((item, idx) => {
   }
 });
 
-// Add hero case to balance the first two columns for mobile
+// Add hero case to the first column
 if (heroCase) {
   const heroMeta = {
     entry: heroCase,
     tag: heroTag ?? getCaseTag(heroCase.tag),
     link: heroLink
   } as CaseWithMeta;
-  const col0Count = caseColumns[0].length;
-  const col1Count = caseColumns[1].length;
-  // Add hero to the shorter column to maintain perfect mobile balance
-  if (col0Count <= col1Count) {
   caseColumns[0].unshift(heroMeta);
-  } else {
-    caseColumns[1].unshift(heroMeta);
-  }
 }
 
 type ExtraMediaItem = {

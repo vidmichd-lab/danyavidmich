@@ -55,6 +55,8 @@
               var shouldShow = filter === 'all' || cardTag === filter;
               
               if (shouldShow) {
+                // Use visibility instead of display to prevent layout shifts
+                card.style.visibility = 'visible';
                 card.style.display = '';
                 setTimeout(function() {
                   card.style.opacity = '1';
@@ -64,6 +66,8 @@
                 card.style.opacity = '0';
                 card.style.transform = 'scale(0.95)';
                 setTimeout(function() {
+                  // Use visibility instead of display to prevent layout shifts
+                  card.style.visibility = 'hidden';
                   card.style.display = 'none';
                 }, 200);
               }

@@ -19,6 +19,8 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: var(--space-md);
     align-items: flex-start;
+    /* Prevent layout shifts on scroll */
+    contain: layout;
   }
 
   .portfolio__column {
@@ -26,20 +28,20 @@
     flex-direction: column;
     gap: var(--space-sm);
     min-height: 0;
+    /* Prevent layout shifts - ensure stable column positioning */
+    position: relative;
   }
 
   .bigcard {
     /* Ensure cards don't cause layout shift and don't block scrolling */
     min-height: 200px;
-    contain: layout style paint;
+    /* Removed contain to prevent layout recalculation on scroll */
     /* Allow scrolling even if images are loading */
     will-change: auto;
   }
 
   .bigcard img {
-    /* Ensure images don't block rendering - critical for mobile scroll */
-    content-visibility: auto;
-    contain-intrinsic-size: 800px 450px;
+    /* Removed content-visibility to prevent layout shifts on scroll */
     /* Prevent images from blocking scroll */
     loading: lazy;
     decoding: async;
@@ -52,8 +54,7 @@
     }
     
     .portfolio__columns {
-      /* Ensure columns render immediately without waiting for all images */
-      content-visibility: auto;
+      /* Removed content-visibility to prevent layout shifts on scroll */
     }
   }
 
@@ -70,7 +71,7 @@
     }
 
     .portfolio__columns {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: var(--space-sm);
     }
   }
