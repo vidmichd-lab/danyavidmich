@@ -50,16 +50,21 @@ const caseColumns: Array<Array<CaseWithMeta>> = Array.from(
   () => [] as Array<CaseWithMeta>
 );
 
-// Distribute cases with priority on balancing first 2 columns for mobile
+// Distribute cases with perfect balance for mobile (columns 0 and 1)
 // Strategy: distribute evenly between columns 0 and 1, then move every 3rd to column 2
+// This ensures columns 0 and 1 are always balanced for mobile view
 otherCasesWithMeta.forEach((item, idx) => {
-  // Every 3rd item (indices 2, 5, 8...) goes to column 2 for desktop
-  // This keeps columns 0 and 1 balanced for mobile
+  // Calculate which column this item should go to
+  // Items at indices 2, 5, 8... (every 3rd starting from 2) go to column 2
+  // All others alternate between columns 0 and 1
   if ((idx + 1) % 3 === 0) {
+    // Every 3rd item goes to column 2 for desktop
     caseColumns[2].push(item);
   } else {
-    // Alternate between columns 0 and 1 for mobile balance
-    const mobileColumn = idx % 2;
+    // Calculate the position in the sequence of items that stay in columns 0 and 1
+    // For items 0, 1, 3, 4, 6, 7... we need to alternate between 0 and 1
+    const positionInMobileColumns = idx - Math.floor(idx / 3);
+    const mobileColumn = positionInMobileColumns % 2;
     caseColumns[mobileColumn].push(item);
   }
 });
@@ -73,7 +78,7 @@ if (heroCase) {
   } as CaseWithMeta;
   const col0Count = caseColumns[0].length;
   const col1Count = caseColumns[1].length;
-  // Add hero to the shorter column (or column 0 if equal) to maintain mobile balance
+  // Add hero to the shorter column to maintain perfect mobile balance
   if (col0Count <= col1Count) {
     caseColumns[0].unshift(heroMeta);
   } else {
@@ -485,10 +490,12 @@ Apt.
                       <iframe
                         src={item.media.iframeSrc}
                         title={item.media.title ?? "Embedded media"}
-                        loading={item.media.loading ?? "lazy"}
+                        loading="lazy"
                         style={`${styleValue}; border: 0;`}
                         allow={allowValue}
                         allowfullscreen
+                        width="800"
+                        height="450"
                       ></iframe>
                       {item.media.caption && <p>{item.media.caption}</p>}
                     </div>

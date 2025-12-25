@@ -28,6 +28,35 @@
     min-height: 0;
   }
 
+  .bigcard {
+    /* Ensure cards don't cause layout shift and don't block scrolling */
+    min-height: 200px;
+    contain: layout style paint;
+    /* Allow scrolling even if images are loading */
+    will-change: auto;
+  }
+
+  .bigcard img {
+    /* Ensure images don't block rendering - critical for mobile scroll */
+    content-visibility: auto;
+    contain-intrinsic-size: 800px 450px;
+    /* Prevent images from blocking scroll */
+    loading: lazy;
+    decoding: async;
+  }
+
+  @media (max-width: 800px) {
+    .bigcard {
+      /* On mobile, ensure immediate scrollability */
+      min-height: 150px;
+    }
+    
+    .portfolio__columns {
+      /* Ensure columns render immediately without waiting for all images */
+      content-visibility: auto;
+    }
+  }
+
   .portfolio__columns .cards,
   .portfolio__columns .banner,
   .portfolio__columns .banner2,
