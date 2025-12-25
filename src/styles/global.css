@@ -516,12 +516,6 @@
     contain: layout style paint;
   }
   
-  .bigcard img {
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-    display: block;
-    will-change: auto;
-  }
 
   .gallery-item:has(a):hover,
   .bigcard:has(a):hover {
