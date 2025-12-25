@@ -1,11 +1,5 @@
 @layer base {
   @font-face {
-    font-family: "RightGrotesk";
-    src: url("/fonts/RightGrotesk-Medium.otf") format("opentype");
-    font-display: optional; /* Faster on mobile - use system font if custom font not ready */
-  }
-
-  @font-face {
     font-family: "Arial Narrow";
     src: url("/fonts/arialnarrow.ttf") format("truetype");
     font-display: swap; /* Swap to Arial Narrow after it loads, use Arial as fallback */
@@ -34,8 +28,8 @@
     --space-xl: 32px;
     --radius-sm: 12px;
     --radius-md: 16px;
-    --font-body: Arial, "Arial Narrow", "RightGrotesk", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-display: Arial, "Arial Narrow", "RightGrotesk", sans-serif;
+    --font-body: "Arial Narrow", Arial, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: "Arial Narrow", Arial, sans-serif;
     --transition-default: 0.25s ease;
     --shadow-subtle: 0 12px 32px rgba(36, 36, 36, 0.08);
   }

@@ -11,7 +11,6 @@ const STATIC_ASSETS = [
   '/scripts/portfolio-filters.js',
   '/scripts/image-error-handler.js',
   '/javascript.js',
-  '/fonts/RightGrotesk-Medium.otf',
   '/fonts/arialnarrow.ttf'
 ];
 

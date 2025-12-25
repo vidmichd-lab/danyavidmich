@@ -246,14 +246,8 @@
     initAnalytics();
   }
   
-  // Analytics tracking
+  // Yandex Metrika tracking
   function trackEvent(category, action, label) {
-    if (typeof gtag !== "undefined") {
-      gtag("event", action, {
-        event_category: category,
-        event_label: label
-      });
-    }
     if (typeof ym !== "undefined") {
       ym(93372850, "reachGoal", category + "_" + action, { label: label });
     }

@@ -1,6 +1,5 @@
-// Analytics tracking
+// Yandex Metrika tracking
 interface WindowWithAnalytics extends Window {
-  gtag?: (...args: unknown[]) => void;
   ym?: (...args: unknown[]) => void;
 }
 
@@ -8,14 +7,6 @@ export function trackEvent(category: string, action: string, label?: string) {
   if (typeof window === 'undefined') return;
   
   const win = window as WindowWithAnalytics;
-  
-  // Google Analytics
-  if (typeof win.gtag !== 'undefined' && win.gtag) {
-    win.gtag('event', action, {
-      event_category: category,
-      event_label: label
-    });
-  }
   
   // Yandex Metrika
   if (typeof win.ym !== 'undefined' && win.ym) {
