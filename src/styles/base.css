@@ -2,7 +2,7 @@
   @font-face {
     font-family: "Arial Narrow";
     src: url("/fonts/arialnarrow.ttf") format("truetype");
-    font-display: swap; /* Swap to Arial Narrow after it loads, use Arial as fallback */
+    font-display: block; /* Block text rendering until font loads, but load in parallel with images */
   }
 
   :root {

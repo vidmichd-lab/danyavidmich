@@ -14,7 +14,8 @@ const {
   ogUrl = import.meta.env.PUBLIC_SITE_URL || "https://danyavidmich.com",
   ogImage = `${import.meta.env.PUBLIC_SITE_URL || "https://danyavidmich.com"}/Union.png`,
   twitterCard = "summary_large_image",
-  preloadFonts = true
+  preloadFonts = true,
+  showScrollUpButton = false
 } = Astro.props;
 ---
 
@@ -61,8 +62,8 @@ const {
 
     {preloadFonts && (
       <>
-        {/* Preload critical font for mobile - only one to reduce blocking */}
-        <link rel="preload" href="/fonts/arialnarrow.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+        {/* Preload critical font early - load in parallel with images */}
+        <link rel="preload" href="/fonts/arialnarrow.ttf" as="font" type="font/ttf" crossorigin="anonymous" fetchpriority="high" />
       </>
     )}
 
@@ -104,11 +105,12 @@ const {
   </head>
   <body>
     <slot />
-    {/* Mobile scroll to top button - fixed at bottom */}
-    <button class="scroll-up-button" id="scroll-up-button" aria-label="Scroll to top" title="Go to top">
-      <span class="scroll-up-button__icon" aria-hidden="true">↑</span>
-      <span class="sr-only">Scroll to top</span>
-    </button>
+    {/* Mobile scroll to top button - fixed at bottom, only on homepage */}
+    {showScrollUpButton && (
+      <button class="scroll-up-button" id="scroll-up-button" aria-label="Scroll to top" title="Go to top">
+        <span class="scroll-up-button__text">Up</span>
+      </button>
+    )}
     <script is:inline src="/javascript.js" defer></script>
     <script src="/scripts/image-error-handler.js" defer></script>
     <script is:inline>

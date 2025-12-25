@@ -86,7 +86,6 @@
     font-weight: 400;
     transition: background-color var(--transition-default), color var(--transition-default), opacity var(--transition-default), transform var(--transition-default);
     z-index: 999;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     align-items: center;
     justify-content: center;
     opacity: 0;
@@ -107,10 +106,13 @@
     color: #fff;
   }
 
-  .scroll-up-button__icon {
-    font-size: 24px;
+  .scroll-up-button__text {
+    font-size: 14px;
+    font-weight: 400;
     line-height: 1;
     color: inherit;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .tag-chip {
