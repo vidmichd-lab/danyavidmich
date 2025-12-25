@@ -216,12 +216,36 @@
     }
   }
 
+  function hydrateScrollUpButton() {
+    var scrollUpButton = document.getElementById("scroll-up-button");
+    if (!scrollUpButton) return;
+
+    function toggleScrollUpVisibility() {
+      var shouldShow = window.scrollY > 300; // Show after scrolling 300px
+      if (shouldShow) {
+        scrollUpButton.classList.add("visible");
+      } else {
+        scrollUpButton.classList.remove("visible");
+      }
+    }
+
+    toggleScrollUpVisibility();
+    window.addEventListener("scroll", toggleScrollUpVisibility, { passive: true });
+
+    // Handle click for scroll to top
+    scrollUpButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
   function hydrate() {
     hydrateScrollTrigger();
     hydrateImages();
     hydrateIframes();
     hydrateReveal();
     hydrateButtons();
+    hydrateScrollUpButton();
 
     // Handle all scroll-to-top buttons
     document.querySelectorAll("[data-scroll-to-top]").forEach(function (button) {

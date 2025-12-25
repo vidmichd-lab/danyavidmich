@@ -70,6 +70,49 @@
     color: inherit;
   }
 
+  /* Mobile scroll to top button - fixed at bottom */
+  .scroll-up-button {
+    display: none; /* Hidden by default, shown on mobile when scrolled */
+    position: fixed;
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    font-weight: 400;
+    transition: background-color var(--transition-default), color var(--transition-default), opacity var(--transition-default), transform var(--transition-default);
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(20px);
+    pointer-events: none;
+    flex-direction: column;
+  }
+
+  .scroll-up-button.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .scroll-up-button:hover,
+  .scroll-up-button:focus-visible {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .scroll-up-button__icon {
+    font-size: 24px;
+    line-height: 1;
+    color: inherit;
+  }
+
   .tag-chip {
     display: inline-flex;
     align-items: center;
@@ -208,6 +251,16 @@
 
   iframe {
     border-radius: 0;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    display: block;
+  }
+  
+  .bigcard iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
   }
 
   .about img {
@@ -886,6 +939,11 @@
 
     .desktop-only {
       display: none;
+    }
+
+    /* Show scroll up button on mobile */
+    .scroll-up-button {
+      display: flex;
     }
 
     .desktop-filters {

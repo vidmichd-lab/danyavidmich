@@ -405,7 +405,7 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
       <div>
         <div>
           <p>
-            Multidisciplinary designer. Ex Badoo, Yandex Music, Yandex Go and
+            Multidisciplinary Design Lead. Ex Badoo, Yandex Music, Yandex Go and
             <a href="https://www.artlebedev.ru/vidmich/">Art. Lebedev Studio</a>. Co-founded dating app
 Apt.
             Type creator. Making media
@@ -514,11 +514,9 @@ Apt.
                         src={item.media.iframeSrc}
                         title={item.media.title ?? "Embedded media"}
                         loading="lazy"
-                        style={`${styleValue}; border: 0;`}
+                        style="width: 100%; height: auto; aspect-ratio: 16/9; border: 0;"
                         allow={allowValue}
                         allowfullscreen
-                        width="800"
-                        height="450"
                       ></iframe>
                       {item.media.caption && <p>{item.media.caption}</p>}
                     </div>

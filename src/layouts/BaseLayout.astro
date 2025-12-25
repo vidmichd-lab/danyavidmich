@@ -104,6 +104,11 @@ const {
   </head>
   <body>
     <slot />
+    {/* Mobile scroll to top button - fixed at bottom */}
+    <button class="scroll-up-button" id="scroll-up-button" aria-label="Scroll to top" title="Go to top">
+      <span class="scroll-up-button__icon" aria-hidden="true">↑</span>
+      <span class="sr-only">Scroll to top</span>
+    </button>
     <script is:inline src="/javascript.js" defer></script>
     <script src="/scripts/image-error-handler.js" defer></script>
     <script is:inline>
