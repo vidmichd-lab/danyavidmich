@@ -51,10 +51,10 @@ export function getOptimizedImagePath(originalPath: string): string {
     return encodeURI(decodedPath).replace(/#/g, '%23');
   }
   
-  // For GIFs, use optimized path but keep .gif extension
+  // For GIFs, use original path (don't use optimized, as they may lose animation)
   if (decodedPath.toLowerCase().endsWith('.gif')) {
-    const optimizedPath = decodedPath.replace('/img/', '/img/optimized/');
-    return encodeURI(optimizedPath).replace(/#/g, '%23');
+    // Return original path for GIFs to preserve animation
+    return encodeURI(decodedPath).replace(/#/g, '%23');
   }
   
   // If already .webp, just change path to optimized
