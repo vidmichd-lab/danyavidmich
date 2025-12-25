@@ -986,9 +986,9 @@
       top: 64px;
       left: 0;
       right: 0;
-      width: 100%;
-      margin-left: 0;
-      margin-right: 0;
+      width: calc(100% + var(--space-lg) * 2);
+      margin-left: calc(-1 * var(--space-lg));
+      margin-right: calc(-1 * var(--space-lg));
       padding-left: var(--space-lg);
       padding-right: var(--space-lg);
       background: linear-gradient(180deg, #f9fafb 60%, rgba(241, 241, 241, 0) 100%);

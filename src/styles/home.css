@@ -75,9 +75,9 @@
       gap: var(--space-sm);
     }
 
-    /* Larger font size for about section on homepage mobile */
+    /* Larger font size for about section on homepage mobile - same as header */
     .main .about {
-      font-size: 24px;
+      font-size: 32px;
     }
   }
 }
