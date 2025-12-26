@@ -360,18 +360,18 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
       if ('requestIdleCallback' in window) {
         requestIdleCallback(() => {
           // Yandex Metrika
-          (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-          m[i].l=1*new Date();
-          for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-          k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-          (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-          
-          ym(93372850, "init", {
-              clickmap:true,
-              trackLinks:true,
-              accurateTrackBounce:true,
-              webvisor:true
-          });
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(93372850, "init", {
+          clickmap:true,
+          trackLinks:true,
+          accurateTrackBounce:true,
+          webvisor:true
+      });
         }, { timeout: 5000 });
       } else {
         window.addEventListener('load', () => {
@@ -675,14 +675,6 @@ Apt.
       </div>
     </section>
   </div>
-
-  <div class="header">
-    <div class="top">
-      <a href="#" id="title1" data-scroll-to-top aria-label="Scroll to top" title="Go to top">Danya Vidmich</a>
-      <p id="title2"></p>
-      <p id="title3"></p>
-      </div>
-    </div>
     
   <link rel="stylesheet" href="/styles/portfolio-filters.css" />
   <script src="/scripts/portfolio-filters.js" defer></script>

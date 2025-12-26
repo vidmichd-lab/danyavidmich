@@ -31,7 +31,7 @@ const { subtitle = "", tertiary = "", variant = "detail" } = Astro.props;
         <span class="header__title-text">Danya Vidmich</span>
       </a>
     )}
-    {variant !== "home" && <p id="title2">{subtitle}</p>}
+    {subtitle && <p id="title2">{subtitle}</p>}
     <p id="title3">{tertiary}</p>
   </div>
 </div>

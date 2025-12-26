@@ -337,6 +337,27 @@
 
   .desktop-filters {
     display: block;
+    border: none;
+    border-style: none;
+    border-width: 0px;
+    border-color: rgba(0, 0, 0, 0);
+    border-image: none;
+  }
+
+  /* When stuck to header (via JS) */
+  .desktop-filters.is-stuck {
+    position: fixed;
+    top: 44px;
+    /* left and width will be set by JS to align with .portfolio section */
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-sm);
+    background: linear-gradient(180deg, #f9fafb 50%, rgba(249, 250, 251, 0.8) 70%, rgba(241, 241, 241, 0) 100%);
+    z-index: 999;
+    border: none;
+    border-style: none;
+    border-width: 0px;
+    border-color: rgba(0, 0, 0, 0);
+    border-image: none;
   }
 
   .avatar-wrapper {
@@ -998,7 +1019,7 @@
     /* When stuck to header (via JS) */
     .mobile-filters-actions.is-stuck {
       position: fixed;
-      top: 64px;
+      top: 48px;
       /* left will be set by JS to align with .main */
       width: calc(100% + var(--space-lg) * 2);
       margin-left: calc(-1 * var(--space-lg));

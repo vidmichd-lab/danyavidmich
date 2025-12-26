@@ -24,6 +24,13 @@
       return;
     }
 
+    // If title1 has data-scroll-to-top, it's the home page header - always show it
+    var isHomePage = scrollTrigger.hasAttribute("data-scroll-to-top");
+    if (isHomePage) {
+      scrollTrigger.style.display = "block";
+      return;
+    }
+
     var shouldShow = window.scrollY > 20;
     scrollTrigger.style.display = shouldShow ? "block" : "none";
   }
@@ -323,6 +330,119 @@
     }, { passive: true });
   }
 
+  function hydrateDesktopFiltersSticky() {
+    var desktopFilters = document.getElementById("portfolio-filters-desktop");
+    if (!desktopFilters) return;
+
+    var header = document.querySelector(".header");
+    var portfolio = desktopFilters.closest(".portfolio");
+    if (!header || !portfolio) return;
+
+    var filtersInitialTop = null;
+    var headerHeight = header.offsetHeight;
+    var portfolioLeft = null;
+    var portfolioWidth = null;
+    var placeholder = null;
+    var filtersHeight = 0;
+
+    function calculateInitialPosition() {
+      // Calculate initial position only once, when not stuck
+      if (!desktopFilters.classList.contains("is-stuck")) {
+        var rect = desktopFilters.getBoundingClientRect();
+        filtersInitialTop = rect.top + window.scrollY;
+        filtersHeight = rect.height;
+      }
+    }
+
+    function createPlaceholder() {
+      if (!placeholder) {
+        placeholder = document.createElement("div");
+        placeholder.className = "desktop-filters-placeholder";
+        placeholder.style.height = filtersHeight + "px";
+        placeholder.style.visibility = "hidden";
+        desktopFilters.parentNode.insertBefore(placeholder, desktopFilters.nextSibling);
+      } else {
+        placeholder.style.height = filtersHeight + "px";
+      }
+    }
+
+    function removePlaceholder() {
+      if (placeholder && placeholder.parentNode) {
+        placeholder.parentNode.removeChild(placeholder);
+        placeholder = null;
+      }
+    }
+
+    function updatePortfolioPosition() {
+      // Calculate portfolio's left position and width - only when needed
+      var portfolioRect = portfolio.getBoundingClientRect();
+      portfolioLeft = portfolioRect.left;
+      portfolioWidth = portfolioRect.width;
+    }
+
+    function updateStickyState() {
+      if (filtersInitialTop === null) {
+        calculateInitialPosition();
+        return;
+      }
+
+      var scrollY = window.scrollY;
+      
+      // When scrolled past the initial position of filters, make them stick to header
+      if (scrollY >= filtersInitialTop - headerHeight) {
+        if (!desktopFilters.classList.contains("is-stuck")) {
+          // Calculate and set left position and width only once when sticking
+          updatePortfolioPosition();
+          desktopFilters.style.left = portfolioLeft + "px";
+          desktopFilters.style.width = portfolioWidth + "px";
+          desktopFilters.classList.add("is-stuck");
+          // Create placeholder to prevent content jump
+          createPlaceholder();
+        }
+        // Don't update left on every scroll - it causes jumping
+      } else {
+        if (desktopFilters.classList.contains("is-stuck")) {
+          desktopFilters.classList.remove("is-stuck");
+          desktopFilters.style.left = "";
+          desktopFilters.style.width = "";
+          portfolioLeft = null;
+          portfolioWidth = null;
+          // Remove placeholder when unsticking
+          removePlaceholder();
+          // Recalculate position after unsticking
+          setTimeout(calculateInitialPosition, 0);
+        }
+      }
+    }
+
+    // Wait for layout to be ready, then calculate initial position
+    function init() {
+      setTimeout(function() {
+        calculateInitialPosition();
+        updateStickyState();
+      }, 100);
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", init);
+    } else {
+      init();
+    }
+
+    window.addEventListener("scroll", updateStickyState, { passive: true });
+    window.addEventListener("resize", function() {
+      headerHeight = header.offsetHeight;
+      calculateInitialPosition();
+      // Recalculate portfolio position on resize if stuck
+      if (desktopFilters.classList.contains("is-stuck")) {
+        updatePortfolioPosition();
+        desktopFilters.style.left = portfolioLeft + "px";
+        desktopFilters.style.width = portfolioWidth + "px";
+      }
+      updateStickyState();
+    }, { passive: true });
+  }
+
   function hydrateScrollUpButton() {
     var scrollUpButton = document.getElementById("scroll-up-button");
     if (!scrollUpButton) return;
@@ -358,6 +478,7 @@
     hydrateReveal();
     hydrateButtons();
     hydrateMobileFiltersSticky();
+    hydrateDesktopFiltersSticky();
     hydrateScrollUpButton();
 
     // Handle all scroll-to-top buttons

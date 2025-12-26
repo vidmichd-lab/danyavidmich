@@ -124,7 +124,7 @@ const {
               // Check for updates on focus (when user returns to tab)
         // This is more efficient than polling every hour
         window.addEventListener('focus', function() {
-          registration.update();
+                registration.update();
         }, { once: false });
             })
             .catch(() => {
