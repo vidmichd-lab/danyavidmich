@@ -68,6 +68,7 @@
   @media (max-width: 800px) {
     .portfolio {
       width: 100%;
+      --portfolio-item-spacing: var(--space-md);
     }
 
     .portfolio__columns {

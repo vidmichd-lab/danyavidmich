@@ -932,6 +932,7 @@
     /* Override for homepage - larger font size */
     .main .about {
       font-size: 32px;
+      margin-bottom: var(--space-md);
     }
 
     .about9 {
@@ -996,7 +997,7 @@
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       -ms-overflow-style: none;
-      margin-bottom: var(--space-md);
+      margin-bottom: 0;
       padding: 0;
       margin-left: calc(-1 * var(--space-lg));
       margin-right: calc(-1 * var(--space-lg));
@@ -1019,7 +1020,7 @@
     /* When stuck to header (via JS) */
     .mobile-filters-actions.is-stuck {
       position: fixed;
-      top: 48px;
+      top: 64px;
       /* left will be set by JS to align with .main */
       width: calc(100% + var(--space-lg) * 2);
       margin-left: calc(-1 * var(--space-lg));
