@@ -168,7 +168,9 @@
       ".graphic .gallery-item",
       ".cv-entry",
       ".cv-duo-group",
-      ".tag-collection.cv-duo__row"
+      ".tag-collection.cv-duo__row",
+      ".consultation-section",
+      ".consultation-card"
     ];
 
     var observer = new IntersectionObserver(

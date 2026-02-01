@@ -1,0 +1,271 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Header from "@components/Header.astro";
+import { getOGMeta } from "@utils/ogMeta";
+
+const subtitle = "Consultation";
+const tertiary = "";
+const ogMeta = await getOGMeta("consultation");
+
+const topics = [
+  "Skills assessment",
+  "Skills and competency development",
+  "Portfolio review",
+  "Design systems and guidelines",
+  "Growth in your current role",
+  "Design team management",
+  "Mentoring and feedback",
+  "Building design processes",
+  "Corporate career and its nuances",
+  "Visual language and branding",
+  "Marketing and communications",
+];
+---
+
+<BaseLayout
+  title={ogMeta.title}
+  description={ogMeta.description}
+  ogTitle={ogMeta.ogTitle}
+  ogDescription={ogMeta.ogDescription}
+  ogUrl={ogMeta.ogUrl}
+  ogImage={ogMeta.ogImage}
+>
+  <Header subtitle={subtitle} tertiary={tertiary} />
+
+  <div class="main">
+    <div class="about">
+      <div>
+        <p>Consultation <span class="consultation-duration">60 min</span></p>
+        <div class="mentioned">
+          <p id="media">I'm a design lead with 8+ years in product and brand design (Yandex Practicum, Yandex Music, Badoo, Yandex Go, Art. Lebedev Studio). In this 60‑minute session we can work on skills assessment, portfolio review, career direction, design systems, team management, or mentoring and processes. One conversation — we focus on your goals and define clear next steps.</p>
+        </div>
+      </div>
+
+      <div class="consultation-actions">
+        <p class="consultation-book-text">
+          <a href="https://t.me/dvtel" target="_blank" rel="noopener noreferrer"><span class="consultation-book-label">Book a session</span><br>8000 rub.</a>
+        </p>
+        <div class="action-group">
+          <button class="circle-button" onclick="window.open('https://t.me/dvtel', '_blank', 'noopener,noreferrer')" aria-label="Telegram">
+            <span aria-hidden="true" class="circle-button__icon tabler--telegram"></span>
+            <span class="sr-only">Telegram</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="aboutzero"></div>
+
+    <div id="consultation-content" class="graphic">
+      <section class="consultation-section">
+        <div>
+          <h2 class="consultation-heading">What I can help with</h2>
+        </div>
+        <div class="consultation-grid">
+          {topics.map((topic) => (
+            <div class="consultation-card">
+              <p>{topic}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div class="cv-bottom-space"></div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .consultation-duration {
+    color: rgba(176, 176, 176, 1);
+  }
+
+  #consultation-content.graphic {
+    width: calc(((100% - var(--space-sm)) / 5) * 4);
+  }
+
+  .consultation-section {
+    width: 100%;
+  }
+
+  .consultation-heading {
+    font-size: 32px;
+    font-family: var(--font-display);
+    color: rgba(82, 82, 82, 1);
+    margin: 0px 0 var(--space-md) 0;
+    font-weight: 400;
+  }
+
+  .consultation-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 4px;
+    row-gap: 4px;
+    width: 100%;
+  }
+
+  .consultation-card {
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    padding: var(--space-md) calc(var(--space-md) + 4px);
+    border-radius: var(--radius-sm);
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .consultation-card p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.1;
+  }
+
+  .consultation-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-sm);
+    margin-top: 12px;
+    padding: 8px;
+    border-radius: 12px;
+    font-size: 57px;
+    background-color: rgba(0, 0, 0, 1);
+    color: #fff;
+    height: fit-content;
+    vertical-align: middle;
+  }
+
+  .consultation-actions .action-group {
+    width: 100%;
+    flex: 1 1 0;
+    min-width: 0;
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  .consultation-actions .circle-button {
+    width: 100%;
+    border-radius: 32px;
+    background-color: #fff;
+    color: #000;
+    flex-shrink: 0;
+  }
+
+  .consultation-actions .circle-button__icon {
+    vertical-align: middle;
+  }
+
+  .consultation-actions .circle-button:hover,
+  .consultation-actions .circle-button:focus-visible {
+    background-color: #000;
+    color: #fff;
+  }
+
+  .consultation-book-text {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.1;
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+  }
+
+  .consultation-book-text a {
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    width: auto;
+    vertical-align: middle;
+  }
+
+  .consultation-actions .consultation-book-text,
+  .consultation-actions .consultation-book-text a {
+    color: #fff;
+  }
+
+  .consultation-actions .consultation-book-text a:hover {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .consultation-book-text .consultation-book-label {
+    opacity: 0.5;
+    white-space: nowrap;
+  }
+
+  .consultation-book-text a:hover {
+    color: var(--color-text-primary);
+  }
+
+  /* Consultation page: header subtitle in solid black */
+  :global(#title2) {
+    color: #000;
+  }
+
+  @media (max-width: 800px) {
+    .consultation-section {
+      margin-bottom: var(--space-xl);
+    }
+
+    /* Full width with edge padding on mobile */
+    .main {
+      width: 100%;
+      padding-left: var(--space-sm);
+      padding-right: var(--space-sm);
+      box-sizing: border-box;
+    }
+
+    .about {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .about > div:first-of-type {
+      width: 100%;
+    }
+
+    .consultation-actions {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    #consultation-content.graphic {
+      width: 100%;
+    }
+
+    .consultation-grid {
+      grid-template-columns: 1fr;
+    }
+
+    /* Book a session left, Telegram button fills remaining space */
+    .consultation-actions {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .consultation-book-text {
+      width: auto;
+      text-align: left;
+    }
+
+    .consultation-book-text a {
+      width: auto;
+      text-align: left;
+      padding-left: 8px;
+    }
+
+    .consultation-actions .action-group {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .consultation-actions .circle-button {
+      width: 100%;
+    }
+  }
+</style>

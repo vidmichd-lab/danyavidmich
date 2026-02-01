@@ -58,6 +58,13 @@ export async function getOGMeta(slug: string, pageTitle?: string): Promise<OGMet
       ogDescription: "Multidisciplinary Design Lead with 8+ years of experience in major tech companies (Yandex Practicum, Yandex Music, Badoo, Yandex Go). Specializes in brand systems, digital product design and large-scale campaigns.",
       ogUrl: `${BASE_URL}/cv/`,
     },
+    consultation: {
+      title: "Danya Vidmich — Consultation",
+      description: "60‑minute consultation: skills assessment, portfolio review, competency development, design systems, corporate career, visual language and branding.",
+      ogTitle: "Danya Vidmich — Consultation 60 min",
+      ogDescription: "60 min consultation: skills assessment, portfolio review, design team management, design systems, corporate career, visual language and branding.",
+      ogUrl: `${BASE_URL}/consultation/`,
+    },
     "": {
       title: "Designer Danya Vidmich",
       description: "Graphic and product designer. Ex Badoo, Yandex Music, Yandex Go and Art. Lebedev Studio. Making media Lug. Co-founded dating app Apt",
