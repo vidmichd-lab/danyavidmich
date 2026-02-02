@@ -1001,10 +1001,10 @@
       font-size: 18px; /* Keep normal font size on project pages */
     }
 
-    /* Override for homepage - larger font size */
+    /* Override for homepage - larger font size, tighter gap above mobile buttons */
     .main .about {
       font-size: 32px;
-      margin-bottom: var(--space-md);
+      margin-bottom: var(--space-sm);
     }
 
     .about9 {
@@ -1089,7 +1089,7 @@
       position: relative;
       z-index: 998;
       background: transparent;
-      padding-top: var(--space-sm);
+      padding-top: var(--space-xs);
       padding-bottom: var(--space-sm);
     }
 
@@ -1151,8 +1151,8 @@
 
     .mobile-filters-actions .consultation-cta .avatar-wrapper,
     .mobile-filters-actions .consultation-cta .avatar {
-      width: 40px;
-      height: 40px;
+      width: 32px;
+      height: 32px;
     }
 
     .mobile-filters-actions .portfolio-filters {
