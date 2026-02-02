@@ -709,6 +709,11 @@
     margin: 0 auto;
     background: linear-gradient(180deg, #f9fafb 60%, rgba(241, 241, 241, 0) 100%);
     font-size: 18px;
+    /* Safari iOS: force own layer so fixed header paints immediately */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
 
   /* Solid white background for header on homepage */
@@ -941,9 +946,17 @@
   @media (max-width: 800px) {
     .header {
       height: 64px;
+      min-height: 64px;
+      padding-top: env(safe-area-inset-top, 0);
+      box-sizing: border-box;
       font-size: 32px;
       z-index: 1000;
       background: linear-gradient(180deg, #f9fafb 60%, rgba(241, 241, 241, 0) 100%);
+      /* Safari iOS: ensure fixed header visible from first paint */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
 
     /* Solid white background for header on homepage mobile */
@@ -1094,6 +1107,11 @@
       padding-bottom: 0;
       background: linear-gradient(180deg, #f9fafb 50%, rgba(249, 250, 251, 0.8) 70%, rgba(241, 241, 241, 0) 100%);
       z-index: 999;
+      /* Safari iOS: force own layer so fixed bar paints when stuck */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
     }
 
     .mobile-filters-actions::-webkit-scrollbar {

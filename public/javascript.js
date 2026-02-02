@@ -305,11 +305,16 @@
       }
     }
 
-    // Wait for layout to be ready, then calculate initial position
+    // Wait for layout to be ready (Safari iOS needs extra time), then calculate initial position
     function init() {
-      setTimeout(function() {
+      function runInit() {
         calculateInitialPosition();
         updateStickyState();
+      }
+      setTimeout(function() {
+        requestAnimationFrame(function() {
+          requestAnimationFrame(runInit);
+        });
       }, 100);
     }
 
@@ -319,7 +324,30 @@
       init();
     }
 
-    window.addEventListener("scroll", updateStickyState, { passive: true });
+    // Use rAF so Safari iOS reads scrollY/layout after its viewport update
+    var scrollScheduled = false;
+    function onScroll() {
+      if (scrollScheduled) return;
+      scrollScheduled = true;
+      requestAnimationFrame(function() {
+        scrollScheduled = false;
+        headerHeight = header.offsetHeight;
+        updateStickyState();
+      });
+    }
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    // Safari iOS: viewport can change after scroll ends; recalc so sticky state is correct
+    function onScrollEnd() {
+      if (!mobileFilters.classList.contains("is-stuck")) {
+        calculateInitialPosition();
+      }
+      updateStickyState();
+    }
+    if ("onscrollend" in window) {
+      window.addEventListener("scrollend", onScrollEnd, { passive: true });
+    }
+
     window.addEventListener("resize", function() {
       headerHeight = header.offsetHeight;
       calculateInitialPosition();
