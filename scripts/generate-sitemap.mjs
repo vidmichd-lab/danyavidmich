@@ -31,7 +31,7 @@ const urls = [
     changefreq: 'weekly'
   },
   {
-    loc: `${baseUrl}/cv_vidmich_designer.pdf`,
+    loc: `${baseUrl}/cv_vidmich_designer_2026.pdf`,
     lastmod: now,
     priority: '0.8',
     changefreq: 'monthly'
@@ -57,4 +57,3 @@ ${urls.map(url => `  <url>
 writeFileSync(outputPath, sitemap, 'utf-8');
 console.log(`Sitemap generated successfully with ${urls.length} URLs`);
 console.log(`Output: ${outputPath}`);
-

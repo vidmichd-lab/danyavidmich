@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const rootDir = join(__dirname, '..');
 const distDir = join(rootDir, 'dist');
-const pdfPath = join(rootDir, 'public', 'cv_vidmich_designer.pdf');
+const pdfPath = join(rootDir, 'public', 'cv_vidmich_designer_2026.pdf');
 
 async function generatePDF() {
   // Check if dist directory exists
@@ -53,4 +53,3 @@ generatePDF().catch((error) => {
   console.error('Error generating PDF:', error);
   process.exit(1);
 });
-
