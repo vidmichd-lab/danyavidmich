@@ -1,6 +1,3 @@
-# Canonical domain: keep the apex host as the only public host.
-https://www.danyavidmich.com/* https://danyavidmich.com/:splat 301
-
 # Legacy URLs from the old static hosting setup.
 /chekhov.html /chekhov/ 301
 /wouly.html /wouly/ 301
