@@ -1,0 +1,17 @@
+# Legacy URLs from the old static hosting setup.
+/chekhov.html /chekhov/ 301
+/wouly.html /wouly/ 301
+/plays.html /plays/ 301
+/s7.html /s7/ 301
+/gorenko.html /gorenko/ 301
+/badoo.html /badoo/ 301
+/korolev.html /korolev/ 301
+/humans.html /humans/ 301
+/palio.html /palio/ 301
+/rublev.html /rublev/ 301
+
+# Legacy project slugs found in search results and older links.
+/aptproduct /apt-product/ 301
+/aptproduct/ /apt-product/ 301
+/aptbranding /apt-branding/ 301
+/aptbranding/ /apt-branding/ 301

@@ -128,31 +128,6 @@ const {
     )}
     <script is:inline src="/javascript.js" defer></script>
     <script src="/scripts/image-error-handler.js" defer></script>
-    <script is:inline>
-      // Register service worker (deferred to not block page load)
-      if ('serviceWorker' in navigator) {
-        // Use requestIdleCallback if available, otherwise setTimeout
-        const registerSW = () => {
-          navigator.serviceWorker.register('/sw.js', { updateViaCache: 'none' })
-            .then((registration) => {
-              // Check for updates on focus (when user returns to tab)
-        // This is more efficient than polling every hour
-        window.addEventListener('focus', function() {
-                registration.update();
-        }, { once: false });
-            })
-            .catch(() => {
-              // Service worker registration failed
-            });
-        };
-
-        if ('requestIdleCallback' in window) {
-          requestIdleCallback(registerSW, { timeout: 5000 });
-        } else {
-          setTimeout(registerSW, 3000);
-        }
-      }
-    </script>
     <script>
         // Initialize error tracking (only in production with DSN) - deferred
         if (import.meta.env.PUBLIC_SENTRY_DSN && import.meta.env.PROD) {
@@ -180,4 +155,3 @@ const {
     </script>
   </body>
 </html>
-
