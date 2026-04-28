@@ -1,0 +1,72 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+
+const canonicalUrl = "https://danyavidmich.com/404/";
+---
+
+<BaseLayout
+  title="Page not found | Danya Vidmich"
+  description="This page does not exist on Danya Vidmich's portfolio."
+  ogTitle="Page not found | Danya Vidmich"
+  ogDescription="This page does not exist on Danya Vidmich's portfolio."
+  ogUrl={canonicalUrl}
+  ogImage="https://danyavidmich.com/Union.png"
+  preloadFonts={false}
+>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex, follow" />
+  </Fragment>
+
+  <main class="not-found" aria-labelledby="not-found-title">
+    <p class="not-found__eyebrow">404</p>
+    <h1 id="not-found-title">Page not found</h1>
+    <p>The page was moved, deleted, or never existed.</p>
+    <a href="/" class="not-found__link">Back to portfolio</a>
+  </main>
+</BaseLayout>
+
+<style>
+  .not-found {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    width: min(680px, calc(100% - 24px));
+    margin: 0 auto;
+    color: #525252;
+  }
+
+  .not-found__eyebrow {
+    margin: 0;
+    font-size: clamp(72px, 18vw, 180px);
+    line-height: 0.86;
+    letter-spacing: -0.08em;
+  }
+
+  .not-found h1,
+  .not-found p {
+    margin: 0;
+  }
+
+  .not-found h1 {
+    font-size: clamp(32px, 7vw, 80px);
+    line-height: 0.9;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+  }
+
+  .not-found p {
+    max-width: 440px;
+    font-size: clamp(18px, 3vw, 28px);
+  }
+
+  .not-found__link {
+    width: fit-content;
+    margin-top: 12px;
+    color: currentColor;
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.14em;
+    font-size: clamp(18px, 3vw, 28px);
+  }
+</style>

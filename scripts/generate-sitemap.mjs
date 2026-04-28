@@ -19,7 +19,7 @@ const baseUrl = 'https://danyavidmich.com';
 const pages = readdirSync(pagesDir)
   .filter(file => file.endsWith('.astro'))
   .map(file => file.replace('.astro', ''))
-  .filter(page => page !== 'index') // index is root
+  .filter(page => page !== 'index' && page !== '404') // index is root; 404 must not be indexed
   .sort();
 
 // Generate sitemap XML
@@ -52,7 +52,8 @@ ${urls.map(url => `  <url>
     <changefreq>${url.changefreq}</changefreq>
     <priority>${url.priority}</priority>
   </url>`).join('\n')}
-</urlset>`;
+</urlset>
+`;
 
 writeFileSync(outputPath, sitemap, 'utf-8');
 console.log(`Sitemap generated successfully with ${urls.length} URLs`);
