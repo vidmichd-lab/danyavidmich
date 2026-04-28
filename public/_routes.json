@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "include": [
+    "/*"
+  ],
+  "exclude": [
+    "/assets/*",
+    "/fonts/*",
+    "/icons/*",
+    "/scripts/*",
+    "/styles/*",
+    "/Union.png",
+    "/apple-touch-icon.png",
+    "/cv_vidmich_designer.pdf",
+    "/cv_vidmich_designer_2026.pdf",
+    "/favicon.ico",
+    "/favicon-16x16.png",
+    "/favicon-32x32.png",
+    "/javascript.js",
+    "/robots.txt",
+    "/site.webmanifest",
+    "/sitemap.xml",
+    "/sw.js"
+  ]
+}
