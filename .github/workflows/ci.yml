@@ -18,11 +18,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Lint
         run: npm run lint
@@ -30,13 +30,12 @@ jobs:
       - name: Type check
         run: npm run check
 
+      - name: Build
+        run: npm run build
+
       - name: Unit tests
         run: npm run test:unit
 
       - name: Visual regression tests
         if: env.ENABLE_VISUAL_TESTS == 'true'
         run: npm run test:visual
-
-      - name: Build
-        run: npm run build
-
