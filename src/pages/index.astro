@@ -88,19 +88,11 @@ type ExtraMediaItem = {
   description?: string;
   tagId?: import("@utils/casesStore").CaseTag;
   loading?: "lazy" | "eager";
-  iframeSrc?: string;
-  iframeAllow?: string;
-  iframeStyle?: string;
   caption?: string;
 };
 
 const getExtraMediaTag = (tagId?: import("@utils/casesStore").CaseTag) =>
   tagId ? getCaseTag(tagId) : null;
-
-const isIframeItem = (
-  item: ExtraMediaItem
-): item is ExtraMediaItem & { iframeSrc: string } =>
-  typeof item.iframeSrc === "string" && item.iframeSrc.length > 0;
 
 // All posters - will be distributed randomly across columns
 const allPosters: ExtraMediaItem[] = [
@@ -238,13 +230,6 @@ const columnExtras: ReadonlyArray<ReadonlyArray<ExtraMediaItem>> = [
       alt: "Poster artwork"
     },
     {
-      iframeSrc:
-        "https://player.vimeo.com/video/714391101?h=f94ebefed7&autoplay=1&loop=1&title=0&byline=0&portrait=0&muted=1",
-      iframeAllow: "autoplay; fullscreen; picture-in-picture",
-      iframeStyle: "top:0;left:0;width:100%;height:100%;",
-      title: "Temp School Promo"
-    },
-    {
       src: "/img/other/ach.webp",
       alt: "ACH poster"
     },
@@ -362,12 +347,6 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
     {heroCase && (
       <link rel="preload" as="image" href={getOptimizedImagePath(heroCase.coverImage)} />
     )}
-    
-    {/* Defer external connections - only preconnect, don't load scripts immediately */}
-    <link rel="dns-prefetch" href="https://player.vimeo.com" />
-    
-    {/* Vimeo player - load only when needed */}
-    <script is:inline defer src="https://player.vimeo.com/api/player.js" onerror="this.onerror=null;"></script>
   </Fragment>
 
   <Header variant="home" subtitle="Projects" />
@@ -426,31 +405,6 @@ Apt.
             <div class="portfolio__column">
               {columnItems.map((item) => {
               if (item.kind === "media") {
-                if (isIframeItem(item.media)) {
-                  const allowValue =
-                    typeof item.media.iframeAllow === "string"
-                      ? item.media.iframeAllow
-                      : "autoplay; fullscreen; picture-in-picture";
-                  const styleValue =
-                    typeof item.media.iframeStyle === "string"
-                      ? item.media.iframeStyle
-                      : "top:0;left:0;width:100%;height:100%;";
-                  const iframeTag = item.media.tagId || "posters";
-                  return (
-                    <div class="bigcard" data-tag={iframeTag}>
-                      <iframe
-                        src={item.media.iframeSrc}
-                        title={item.media.title ?? "Embedded media"}
-                        loading="lazy"
-                        style="width: 100%; height: auto; aspect-ratio: 16/9; border: 0;"
-                        allow={allowValue}
-                        allowfullscreen
-                      ></iframe>
-                      {item.media.caption && <p>{item.media.caption}</p>}
-                    </div>
-                  );
-                }
-
                 const tag = getExtraMediaTag(item.media.tagId);
                 const hasTitle = Boolean(item.media.title);
                 const hasTag = Boolean(tag);
