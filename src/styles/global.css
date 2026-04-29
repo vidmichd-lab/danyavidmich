@@ -223,7 +223,7 @@
     width: 100%;
     height: auto;
     margin-bottom: var(--space-sm);
-    border-radius: 0;
+    border-radius: 10px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -250,7 +250,7 @@
   }
 
   iframe {
-    border-radius: 0;
+    border-radius: 10px;
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;

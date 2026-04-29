@@ -27,6 +27,18 @@
     "originalText": "May of May is a brand that offers vibrant clothing, designed to be worn for no specific reason, but purely for personal pleasure and desire.\n  This concept is reflected in the typography, which encourages, \"Hey, stay curious about yourself and celebrate your diversity every day\""
   },
   {
+    "id": "made-with-ai",
+    "title": "Made with AI",
+    "slug": "made-with-ai",
+    "tag": "branding",
+    "description": "Branding",
+    "layout": "single",
+    "coverImage": "/img/gr/made-with-ai/frame-16.webp",
+    "linkUrl": "https://practicum.yandex.ru/practicum-award",
+    "createdAt": "2025-04-03T00:00:00.000Z",
+    "updatedAt": "2025-04-03T00:00:00.000Z"
+  },
+  {
     "id": "shuttle-bus",
     "title": "Shuttle Bus",
     "slug": "shuttle-bus",
