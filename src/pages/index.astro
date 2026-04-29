@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
 import Header from "@components/Header.astro";
+import PortfolioFilters from "@components/PortfolioFilters.astro";
 import "@styles/home.css";
 import { getCases, type CaseEntry } from "@utils/casesStore";
 import { getCaseTag } from "@utils/caseTags";
@@ -414,30 +415,10 @@ Apt.
           <span class="sr-only">Get in touch</span>
         </button>
       </div>
-      <div class="portfolio-filters" id="portfolio-filters">
-        <button class="filter-button filter-button--active" data-filter="all">All</button>
-        <button class="filter-button" data-filter="branding">Branding</button>
-        <button class="filter-button" data-filter="visual">Visual Communications</button>
-        <button class="filter-button" data-filter="product">Product Design</button>
-        <button class="filter-button" data-filter="web">Web</button>
-        <button class="filter-button" data-filter="typography">Typography</button>
-        <button class="filter-button" data-filter="merch">Merch</button>
-        <button class="filter-button" data-filter="concept">Concept</button>
-        <button class="filter-button" data-filter="posters">Posters</button>
-      </div>
+      <PortfolioFilters id="portfolio-filters" />
     </div>
     <section class="portfolio">
-      <div class="portfolio-filters desktop-filters" id="portfolio-filters-desktop">
-        <button class="filter-button filter-button--active" data-filter="all">All</button>
-        <button class="filter-button" data-filter="branding">Branding</button>
-        <button class="filter-button" data-filter="visual">Visual Communications</button>
-        <button class="filter-button" data-filter="product">Product Design</button>
-        <button class="filter-button" data-filter="web">Web</button>
-        <button class="filter-button" data-filter="typography">Typography</button>
-        <button class="filter-button" data-filter="merch">Merch</button>
-        <button class="filter-button" data-filter="concept">Concept</button>
-        <button class="filter-button" data-filter="posters">Posters</button>
-      </div>
+      <PortfolioFilters id="portfolio-filters-desktop" class="desktop-filters" />
       <div class="portfolio__columns">
         {(() => {
           let caseIndex = 0;

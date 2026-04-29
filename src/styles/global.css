@@ -673,7 +673,7 @@
     transition: transform var(--transition-default);
   }
 
-  #bigcard2 {
+  .project-card {
     width: 100%;
     margin-bottom: var(--space-sm);
   }
@@ -839,7 +839,7 @@
     width: calc((100% - var(--space-lg)) / 5);
   }
 
-  #page3 {
+  .graphic.project-content {
     width: calc(((100% - 9px) / 5) * 4);
     margin-bottom: var(--space-sm);
   }
@@ -1241,7 +1241,7 @@
       display: flex;
     }
 
-    #page3 {
+    .graphic.project-content {
       width: 100%;
       margin-bottom: var(--space-sm);
     }
@@ -1291,4 +1291,3 @@
     line-height: 1.25;
     display: block;
   }
-
