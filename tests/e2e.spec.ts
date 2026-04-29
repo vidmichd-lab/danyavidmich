@@ -8,20 +8,19 @@ test.describe('Homepage', () => {
 
   test('should have working navigation', async ({ page }) => {
     await page.goto('/');
-    const cvLink = page.locator('a[href*="cv"]').first();
-    await expect(cvLink).toBeVisible();
+    await page.getByRole('button', { name: 'Open CV page' }).first().click();
+    await expect(page).toHaveURL(/\/cv\/?$/);
   });
 
   test('should have portfolio filters', async ({ page }) => {
     await page.goto('/');
-    const filters = page.locator('.filter-button');
+    const filters = page.locator('#portfolio-filters-desktop .filter-button');
     await expect(filters.first()).toBeVisible();
   });
 
   test('should filter projects', async ({ page }) => {
     await page.goto('/');
-    const productFilter = page.locator('.filter-button').filter({ hasText: 'Product' });
-    await productFilter.click();
+    await page.locator('#portfolio-filters-desktop .filter-button[data-filter="product"]').click();
     await page.waitForTimeout(500);
     const visibleCards = page.locator('.bigcard:visible');
     const count = await visibleCards.count();
@@ -51,7 +50,7 @@ test.describe('Project Pages', () => {
 
   test('should have project content', async ({ page }) => {
     await page.goto('/apt-product');
-    const content = page.locator('main');
+    const content = page.locator('.main');
     await expect(content).toBeVisible();
   });
 });
@@ -82,4 +81,3 @@ test.describe('Accessibility', () => {
     }
   });
 });
-

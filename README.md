@@ -18,15 +18,9 @@ npm run dev
 - **Linting**: `npm run lint`
 - **Type checking**: `npm run check`
 - **Unit tests**: `npm run test:unit`
-- **Visual regression**: `npm run test:visual` (builds first, then runs Playwright)
+- **E2E checks**: `npm run test:e2e` (builds first, then runs Playwright)
 
-> The first Playwright run requires a baseline. Capture it with:
->
-> ```bash
-> npm run test:visual -- --update-snapshots
-> ```
-
-CI lives in `.github/workflows/ci.yml` and verifies lint, type, unit tests, optional visual tests (enable with `ENABLE_VISUAL_TESTS=true`), and build.
+CI lives in `.github/workflows/ci.yml` and verifies lint, type check, build, and unit tests. Optional Playwright checks can be run locally with `npm run test:e2e`.
 
 ## Visual Parity
 
@@ -40,14 +34,6 @@ CI lives in `.github/workflows/ci.yml` and verifies lint, type, unit tests, opti
 - Lazy loading with blur placeholders handled by `src/scripts/lazy-media.ts`, surfaced globally and exposed as plain JS fallback (`public/javascript.js`).
 - Images remain in `public/img`, keeping URLs unchanged.
 - To compare performance with the legacy build, run Lighthouse/WebPageTest against both the historical deployment and the Astro build (`npm run preview`)—capture metrics for FCP, LCP, CLS, and total transfer.
-
-## Visual Baseline Checklist
-
-1. `npm install`
-2. `npm run test:visual -- --update-snapshots`
-3. Commit the generated files under `tests/visual/__snapshots__/`
-
-Repeat after any visual change to guarantee pixel-perfect parity.
 
 ## Homepage Layout Notes
 
@@ -85,28 +71,27 @@ npm run ai:generate
    - Project descriptions
    - Page subtitles
 
-See [AI_INTEGRATION.md](./AI_INTEGRATION.md) for detailed documentation.
-
 ## Project Structure
 
-- `src/pages/*.html.astro` – page templates mirroring legacy routes (e.g. `aptproduct.html`).
-- `src/components` – shared UI fragments (`Header.astro`).
+- `src/pages/*.astro` – Astro routes for portfolio pages.
+- `src/components` – shared UI fragments.
 - `src/styles/reset.css` – Meyer reset for consistency.
 - `src/styles/base.css` – global fonts, color tokens, and shared type helpers.
-- `src/styles/style.css` – legacy layout rules (now with new alias classes such as `.gallery-item`, `.gallery-pair`, and `.tag--*` for clearer semantics).
+- `src/styles/global.css` – legacy layout rules and shared project styles.
 - `src/styles/home.css` – Masonry layout for the homepage (two-column Pinterest-style grid).
 - `src/scripts` – hydrated browser modules authored in TypeScript.
 - `src/utils` – reusable logic + unit tests.
 - `public/` – static assets (images, fonts, PDFs, icons, legacy JS entrypoint).
 
-## Automated Deployment (Reg.ru)
+## Automated Deployment (Cloudflare Pages)
 
-Continuous deployment is configured through GitHub Actions. Every push to the `main` branch triggers `.github/workflows/deploy.yml`, which:
+Continuous deployment is configured through GitHub Actions. Every push to the `main` branch triggers `.github/workflows/deploy-cloudflare-pages.yml`, which:
 
 1. Installs dependencies with `npm ci`.
-2. Builds the static bundle (`npm run build` → `dist/`).
-3. Verifies the build output.
-4. Uploads the `dist/` contents to the Reg.ru `public_html` directory via FTP.
+2. Generates `public/sitemap.xml`.
+3. Builds the static bundle (`npm run build` → `dist/`).
+4. Runs unit tests.
+5. Deploys `dist/` to Cloudflare Pages with Wrangler.
 
 ### Setup Instructions
 
@@ -116,27 +101,21 @@ Continuous deployment is configured through GitHub Actions. Every push to the `m
 2. Navigate to **Settings** → **Secrets and variables** → **Actions**.
 3. Click **New repository secret** and add the following:
 
-   - **Name:** `FTP_HOST`  
-     **Value:** `31.31.196.4`
+   - **Name:** `CLOUDFLARE_API_TOKEN`  
+     **Value:** Cloudflare API token with Pages deploy access
 
-   - **Name:** `FTP_USER`  
-     **Value:** `u2034102`
-
-   - **Name:** `FTP_PASSWORD`  
-     **Value:** Your FTP password from Reg.ru (the one shown in the FTP access section, not the control panel password)
-
-   - **Name:** `FTP_PORT` *(optional)*  
-     **Value:** `21` (default, can be omitted)
+   - **Name:** `CLOUDFLARE_ACCOUNT_ID`  
+     **Value:** Cloudflare account ID
 
 #### Step 2: Test the Deployment
 
 1. Push any change to the `main` branch, or
-2. Go to **Actions** tab → **Deploy to Reg.ru** → **Run workflow** → **Run workflow** (manual trigger).
+2. Go to **Actions** tab → **Deploy to Cloudflare Pages** → **Run workflow** → **Run workflow**.
 
 The workflow will:
-- Build the site automatically
-- Upload only changed files (incremental sync)
-- Show detailed logs in the Actions tab
+- Build the site automatically.
+- Publish the current `dist/` output to the `danyavidmich-com` Cloudflare Pages project.
+- Show detailed logs in the Actions tab.
 
 #### Step 3: Verify Deployment
 
@@ -148,9 +127,9 @@ After the workflow completes successfully:
 ### Troubleshooting
 
 - **Build fails:** Check that `npm ci` completes without errors locally.
-- **FTP connection fails:** Verify FTP credentials in Reg.ru panel and ensure the IP isn't blocked.
-- **Files not updating:** Check the workflow logs for specific file upload errors.
-- **Partial deployment:** The workflow uses incremental sync; deleted local files won't be removed from the server unless you manually clean `public_html`.
+- **Deploy fails:** Verify the Cloudflare token, account ID, and Pages project name.
+- **Files not updating:** Check the Cloudflare Pages deployment logs and browser cache headers in `public/_headers`.
+- **Redirects or headers fail:** Check `public/_redirects`, `public/_headers`, `public/_routes.json`, and `functions/_middleware.js`.
 
 ### Manual Deployment
 
@@ -158,6 +137,5 @@ If you need to deploy manually without GitHub Actions:
 
 ```bash
 npm run build
-# Then upload dist/ contents to public_html via FTP client
+npx wrangler@4 pages deploy dist --project-name=danyavidmich-com --branch=main
 ```
-

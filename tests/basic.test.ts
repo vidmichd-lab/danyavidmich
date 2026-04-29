@@ -64,12 +64,11 @@ describe('SEO verification', () => {
 });
 
 describe('Security headers', () => {
-  it('should have web.config with security headers', () => {
-    const configPath = join(process.cwd(), 'dist', 'web.config');
+  it('should have Cloudflare headers with security headers', () => {
+    const configPath = join(process.cwd(), 'dist', '_headers');
     expect(existsSync(configPath)).toBe(true);
     const content = readFileSync(configPath, 'utf-8');
     expect(content).toContain('X-Content-Type-Options');
     expect(content).toContain('Content-Security-Policy');
   });
 });
-
