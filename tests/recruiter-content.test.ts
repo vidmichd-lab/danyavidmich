@@ -60,7 +60,7 @@ describe("recruiter-facing portfolio content", () => {
 
     expect(indexSource).toContain('class="about-note"');
     expect(indexSource).toContain(">Open CV<");
-    expect(indexSource).toContain(">Email<");
+    expect(indexSource).not.toContain('class="home-action-button__label">Email</span>');
     expect(styles).toContain(".about-note");
     expect(styles).toContain("font-size: 18px");
   });
