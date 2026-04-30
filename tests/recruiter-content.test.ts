@@ -41,9 +41,8 @@ describe("recruiter-facing portfolio content", () => {
     const cvSource = read("src/pages/cv.astro");
 
     expect(cvSource).toContain("Lead Brand & Product Designer for tech companies");
-    expect(cvSource).toContain("Open to remote or global roles");
-    expect(cvSource).toContain("Available for contract/full-time");
-    expect(cvSource).toContain("Working English");
+    expect(cvSource).toContain("Multidisciplinary Design Lead with 8+ years of experience");
+    expect(cvSource).toContain("Open to remote or global roles, including relocation opportunities");
     expect(cvSource).toContain("Now based in Saint Petersburg");
     expect(cvSource).toContain('id="saint-petersburg-time"');
     expect(cvSource).not.toContain(" · ");
@@ -51,6 +50,8 @@ describe("recruiter-facing portfolio content", () => {
     expect(cvSource).toContain(">Email<");
     expect(cvSource).not.toContain(">LinkedIn profile<");
     expect(cvSource).not.toContain(">Telegram chat<");
+    expect(cvSource).not.toContain(">Miro/FigJam<");
+    expect(cvSource).not.toContain(">Sketch<");
   });
 
   it("keeps homepage recruiter detail at normal copy size with visible action labels", () => {
