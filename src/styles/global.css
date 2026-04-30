@@ -728,6 +728,7 @@
     min-height: 450px;
     /* Prevent layout shifts - ensure stable positioning */
     position: relative;
+    transition: transform var(--transition-default);
   }
   
   .bigcard.reveal {
@@ -738,16 +739,15 @@
     transition: opacity 0.6s ease;
   }
   
-  /* After reveal completes, no transitions to prevent jerky behavior */
+  /* After reveal completes, keep only the hover transform transition. */
   .bigcard.is-visible:not(.reveal) {
-    transition: none;
+    transition: transform var(--transition-default);
   }
 
   /* Hover effect - works on all cards, including after reveal animation */
   .gallery-item:has(a):hover,
   .bigcard:has(a):hover {
     transform: scale(0.98);
-    transition: transform var(--transition-default);
   }
 
   .project-card {

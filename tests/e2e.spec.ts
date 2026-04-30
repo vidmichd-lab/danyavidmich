@@ -90,6 +90,22 @@ test.describe('Homepage', () => {
       await button.hover();
       await expect(button).toHaveCSS('background-color', color);
     }
+
+    await page.locator('#portfolio-filters-desktop .filter-button[data-filter="product"]').click();
+    const activeProductButton = page.locator('#portfolio-filters-desktop .filter-button[data-filter="product"]');
+    await activeProductButton.hover();
+    await expect(activeProductButton).toHaveCSS('background-color', expectedHoverColors.product);
+  });
+
+  test('should use smooth hover scaling for featured and grid cards', async ({ page }) => {
+    await page.goto('/');
+
+    const featuredCard = page.locator('.portfolio__featured .bigcard:has(a)').first();
+    await expect(featuredCard).toHaveCSS('transition-property', /transform/);
+
+    await page.locator('#portfolio-filters-desktop .filter-button[data-filter="product"]').click();
+    const gridCard = page.locator('.portfolio__columns .bigcard:has(a):visible').first();
+    await expect(gridCard).toHaveCSS('transition-property', /transform/);
   });
 
   test('should render Badoo as the sixth featured card', async ({ page }) => {

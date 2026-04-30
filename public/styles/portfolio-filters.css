@@ -71,7 +71,9 @@
 }
 
 .filter-button:hover,
-.filter-button:focus-visible {
+.filter-button:focus-visible,
+.filter-button--active:hover,
+.filter-button--active:focus-visible {
   background-color: var(--filter-hover-color);
   color: var(--color-text-primary);
   opacity: 1;
@@ -132,7 +134,9 @@
   }
   
   .filter-button:hover,
-  .filter-button:focus-visible {
+  .filter-button:focus-visible,
+  .filter-button--active:hover,
+  .filter-button--active:focus-visible {
     background-color: var(--filter-hover-color);
     color: var(--color-text-primary);
     opacity: 1;
