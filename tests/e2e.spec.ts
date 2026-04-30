@@ -74,6 +74,11 @@ test.describe('Homepage', () => {
   test('should color filter tabs by tag on hover', async ({ page }) => {
     await page.goto('/');
 
+    const allButton = page.locator('#portfolio-filters-desktop .filter-button[data-filter="all"]');
+    await allButton.hover();
+    await expect(allButton).toHaveCSS('background-color', 'rgb(0, 0, 0)');
+    await expect(allButton).toHaveCSS('color', 'rgb(255, 255, 255)');
+
     const expectedHoverColors = {
       branding: 'rgb(252, 231, 78)',
       visual: 'rgb(255, 100, 48)',
@@ -89,12 +94,14 @@ test.describe('Homepage', () => {
       const button = page.locator(`#portfolio-filters-desktop .filter-button[data-filter="${filter}"]`);
       await button.hover();
       await expect(button).toHaveCSS('background-color', color);
+      await expect(button).toHaveCSS('color', 'rgb(0, 0, 0)');
     }
 
     await page.locator('#portfolio-filters-desktop .filter-button[data-filter="product"]').click();
     const activeProductButton = page.locator('#portfolio-filters-desktop .filter-button[data-filter="product"]');
     await activeProductButton.hover();
     await expect(activeProductButton).toHaveCSS('background-color', expectedHoverColors.product);
+    await expect(activeProductButton).toHaveCSS('color', 'rgb(0, 0, 0)');
   });
 
   test('should use smooth hover scaling for featured and grid cards', async ({ page }) => {

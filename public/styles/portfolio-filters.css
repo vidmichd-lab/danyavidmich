@@ -75,8 +75,15 @@
 .filter-button--active:hover,
 .filter-button--active:focus-visible {
   background-color: var(--filter-hover-color);
-  color: var(--color-text-primary);
+  color: #000;
   opacity: 1;
+}
+
+.filter-button[data-filter="all"]:hover,
+.filter-button[data-filter="all"]:focus-visible,
+.filter-button--active[data-filter="all"]:hover,
+.filter-button--active[data-filter="all"]:focus-visible {
+  color: #fff;
 }
 
 .filter-button--active {
@@ -138,8 +145,15 @@
   .filter-button--active:hover,
   .filter-button--active:focus-visible {
     background-color: var(--filter-hover-color);
-    color: var(--color-text-primary);
+    color: #000;
     opacity: 1;
+  }
+
+  .filter-button[data-filter="all"]:hover,
+  .filter-button[data-filter="all"]:focus-visible,
+  .filter-button--active[data-filter="all"]:hover,
+  .filter-button--active[data-filter="all"]:focus-visible {
+    color: #fff;
   }
   
   .filter-button--active {
