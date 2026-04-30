@@ -42,9 +42,9 @@ export async function getOGMeta(slug: string, pageTitle?: string): Promise<OGMet
   // Default meta for pages without case data
   const defaultMeta: OGMeta = {
     title: "Danya Vidmich — Designer",
-    description: "Graphic and product designer. Ex Badoo, Yandex Music, Yandex Go and Art. Lebedev Studio.",
-    ogTitle: "Danya Vidmich. Graphic and product design",
-    ogDescription: "Graphic and product designer. Ex Badoo, Yandex Music, Yandex Go and Art. Lebedev Studio. Making media Lug. Co-founded dating app Apt",
+    description: "Lead Brand & Product Designer for tech companies. 8+ years across Badoo, Yandex and Art. Lebedev.",
+    ogTitle: "Danya Vidmich. Lead Brand & Product Designer",
+    ogDescription: "Lead Brand & Product Designer for tech companies. Brand systems, campaigns, AI-assisted production and product launches.",
     ogUrl: `${BASE_URL}/${slug}`,
     ogImage: `${BASE_URL}/Union.png?v=2`,
   };
@@ -52,10 +52,10 @@ export async function getOGMeta(slug: string, pageTitle?: string): Promise<OGMet
   // Special cases for specific pages
   const specialPages: Record<string, Partial<OGMeta>> = {
     cv: {
-      title: "Danya Vidmich — Work Experience",
-      description: "Multidisciplinary Design Lead with 8+ years of experience in major tech companies. View full CV and work experience.",
-      ogTitle: "Danya Vidmich — Work Experience & CV",
-      ogDescription: "Multidisciplinary Design Lead with 8+ years of experience in major tech companies (Yandex Practicum, Yandex Music, Badoo, Yandex Go). Specializes in brand systems, digital product design and large-scale campaigns.",
+      title: "Danya Vidmich — Lead Brand & Product Designer",
+      description: "Lead Brand & Product Designer for tech companies. 8+ years across Badoo, Yandex and Art. Lebedev. Open to remote or global roles.",
+      ogTitle: "Danya Vidmich — Lead Brand & Product Designer",
+      ogDescription: "Lead Brand & Product Designer for tech companies. 8+ years across Badoo, Yandex and Art. Lebedev. Brand systems, campaigns and AI-assisted production.",
       ogUrl: `${BASE_URL}/cv/`,
     },
     consultation: {
@@ -66,10 +66,10 @@ export async function getOGMeta(slug: string, pageTitle?: string): Promise<OGMet
       ogUrl: `${BASE_URL}/consultation/`,
     },
     "": {
-      title: "Designer Danya Vidmich",
-      description: "Graphic and product designer. Ex Badoo, Yandex Music, Yandex Go and Art. Lebedev Studio. Making media Lug. Co-founded dating app Apt",
-      ogTitle: "Danya Vidmich. Graphic and product design",
-      ogDescription: "Graphic and product designer. Ex Badoo, Yandex Music, Yandex Go and Art. Lebedev Studio. Making media Lug. Co-founded dating app Apt",
+      title: "Danya Vidmich — Lead Brand & Product Designer",
+      description: "Lead Brand & Product Designer for tech companies. 8+ years across Badoo, Yandex and Art. Lebedev. Open to remote or global roles.",
+      ogTitle: "Danya Vidmich. Lead Brand & Product Designer",
+      ogDescription: "Lead Brand & Product Designer for tech companies. Brand systems, campaigns, AI-assisted production and product launches.",
       ogUrl: BASE_URL,
     },
   };
@@ -77,4 +77,3 @@ export async function getOGMeta(slug: string, pageTitle?: string): Promise<OGMet
   const special = specialPages[slug] || {};
   return { ...defaultMeta, ...special };
 }
-

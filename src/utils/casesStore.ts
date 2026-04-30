@@ -42,7 +42,9 @@ export interface CaseEntry {
   slug: string;
   tag: CaseTag;
   isHero: boolean;
+  featuredOrder?: number;
   description?: string;
+  impact?: string;
   button?: CaseButton;
   layout: CaseLayout;
   coverImage: string;
@@ -59,7 +61,9 @@ export interface CaseInput {
   slug: string;
   tag: CaseTag;
   isHero?: boolean;
+  featuredOrder?: number;
   description?: string;
+  impact?: string;
   button?: CaseButton;
   layout: CaseLayout;
   coverImage: string;
@@ -165,6 +169,9 @@ export const getCases = async (): Promise<CaseEntry[]> => {
   return [...cases].sort((a, b) => {
     const heroDiff = Number(b.isHero) - Number(a.isHero);
     if (heroDiff !== 0) return heroDiff;
+    const aOrder = Number.isFinite(a.featuredOrder) ? Number(a.featuredOrder) : Number.POSITIVE_INFINITY;
+    const bOrder = Number.isFinite(b.featuredOrder) ? Number(b.featuredOrder) : Number.POSITIVE_INFINITY;
+    if (aOrder !== bOrder) return aOrder - bOrder;
     const aDate = a.createdAt ?? "";
     const bDate = b.createdAt ?? "";
     if (aDate === bDate) return 0;
@@ -271,4 +278,3 @@ export const deleteCase = async (id: string): Promise<boolean> => {
   await writeCases(next);
   return true;
 };
-

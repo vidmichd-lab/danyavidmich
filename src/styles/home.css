@@ -32,6 +32,14 @@
     position: relative;
   }
 
+  .portfolio__featured {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--space-md);
+    align-items: flex-start;
+  }
+
   .bigcard {
     /* Ensure cards don't cause layout shift and don't block scrolling */
     min-height: 200px;
@@ -55,6 +63,11 @@
     
     .portfolio__columns {
       /* Removed content-visibility to prevent layout shifts on scroll */
+    }
+
+    .portfolio__featured {
+      grid-template-columns: 1fr;
+      gap: var(--space-sm);
     }
   }
 

@@ -44,6 +44,27 @@ const otherCasesWithMeta = otherCases.map((entry) => ({
   link: resolveLink(entry)
 }));
 type CaseWithMeta = (typeof otherCasesWithMeta)[number];
+const FEATURED_CASE_IDS = [
+  "badoo-ooh",
+  "yandex-practicum-pro",
+  "yam-2024",
+  "apt-product",
+  "bandlink",
+  "s7-logistics"
+] as const;
+const featuredCaseIds = new Set<string>(FEATURED_CASE_IDS);
+const featuredCases = cases
+  .map((entry) => ({
+    entry,
+    tag: getCaseTag(entry.tag),
+    link: resolveLink(entry)
+  }))
+  .filter((item) => featuredCaseIds.has(item.entry.id))
+  .sort(
+    (a, b) =>
+      FEATURED_CASE_IDS.indexOf(a.entry.id as (typeof FEATURED_CASE_IDS)[number]) -
+      FEATURED_CASE_IDS.indexOf(b.entry.id as (typeof FEATURED_CASE_IDS)[number])
+  );
 
 const COLUMN_COUNT = 3;
 const caseColumns: Array<Array<CaseWithMeta>> = Array.from(
@@ -79,6 +100,12 @@ if (heroCase) {
   } as CaseWithMeta;
   caseColumns[0].unshift(heroMeta);
 }
+
+caseColumns.forEach((column, columnIndex) => {
+  caseColumns[columnIndex] = column.filter(
+    (item) => !featuredCaseIds.has(item.entry.id)
+  );
+});
 
 type ExtraMediaItem = {
   src?: string;
@@ -342,13 +369,6 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
   ogUrl={ogMeta.ogUrl}
   ogImage={ogMeta.ogImage}
 >
-  <Fragment slot="head">
-    {/* Preload hero image for faster LCP - critical for mobile performance */}
-    {heroCase && (
-      <link rel="preload" as="image" href={getOptimizedImagePath(heroCase.coverImage)} />
-    )}
-  </Fragment>
-
   <Header variant="home" subtitle="Projects" />
 
   <div class="main">
@@ -356,11 +376,10 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
       <div>
         <div>
           <p>
-            Multidisciplinary Design Lead. Ex Badoo, Yandex Music, Yandex Go and
-            <a href="https://www.artlebedev.ru/vidmich/">Art. Lebedev Studio</a>. Co-founded dating app
-Apt.
-            Type creator. Making media
-            <a href="https://instagram.com/lugmedia/">Lug</a>
+            Lead Brand & Product Designer for tech companies. 8+ years across Badoo, Yandex and
+            <a href="https://www.artlebedev.ru/vidmich/">Art. Lebedev</a>. Brand systems, campaigns,
+            AI-assisted production, product launches. Co-founded dating app Apt. Type creator.
+            Open to remote or global roles.
           </p>
         </div>
       </div>
@@ -398,6 +417,69 @@ Apt.
     </div>
     <section class="portfolio">
       <PortfolioFilters id="portfolio-filters-desktop" class="desktop-filters" />
+      <div class="portfolio__featured">
+        {featuredCases.map(({ entry, tag, link }) => (
+          <div class="bigcard" data-tag={entry.tag}>
+            {link ? (
+              <a href={link}>
+                <img
+                  id="click"
+                  src={getOptimizedImagePath(entry.coverImage)}
+                  srcset={generateSrcSet(entry.coverImage)}
+                  sizes="(max-width: 800px) 100vw, 33vw"
+                  alt={entry.coverImageAlt ?? entry.title}
+                  fetchpriority={entry.isHero ? "high" : undefined}
+                  loading={entry.isHero ? "eager" : "lazy"}
+                  decoding={entry.isHero ? "sync" : "async"}
+                  width="800"
+                  height="450"
+                />
+              </a>
+            ) : (
+              <img
+                src={getOptimizedImagePath(entry.coverImage)}
+                srcset={generateSrcSet(entry.coverImage)}
+                sizes="(max-width: 800px) 100vw, 33vw"
+                alt={entry.coverImageAlt ?? entry.title}
+                fetchpriority={entry.isHero ? "high" : undefined}
+                loading={entry.isHero ? "eager" : "lazy"}
+                decoding={entry.isHero ? "sync" : "async"}
+                width="800"
+                height="450"
+              />
+            )}
+            {link ? (
+              <a href={link}>
+                <p>
+                  {entry.title}{" "}
+                  {tag && entry.id !== "1913" && (entry.description || tag.label) && (
+                    <span class={tag.className}>
+                      {entry.description ?? tag.label}
+                      <span></span>
+                    </span>
+                  )}
+                  {entry.impact && (
+                    <span class="portfolio-impact">{entry.impact}</span>
+                  )}
+                </p>
+              </a>
+            ) : (
+              <p>
+                {entry.title}{" "}
+                {tag && entry.id !== "1913" && (entry.description || tag.label) && (
+                  <span class={tag.className}>
+                    {entry.description ?? tag.label}
+                    <span></span>
+                  </span>
+                )}
+                {entry.impact && (
+                  <span class="portfolio-impact">{entry.impact}</span>
+                )}
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
       <div class="portfolio__columns">
         {(() => {
           let caseIndex = 0;
@@ -529,6 +611,9 @@ Apt.
                             <span></span>
                           </span>
                         )}
+                        {entry.impact && (
+                          <span class="portfolio-impact">{entry.impact}</span>
+                        )}
                       </p>
                     </a>
                   ) : (
@@ -539,6 +624,9 @@ Apt.
                           {entry.description ?? tag.label}
                           <span></span>
                         </span>
+                      )}
+                      {entry.impact && (
+                        <span class="portfolio-impact">{entry.impact}</span>
                       )}
                     </p>
                   )}

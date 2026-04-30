@@ -5,7 +5,7 @@
     var buttons = filtersContainer.querySelectorAll('.filter-button');
     if (!buttons || buttons.length === 0) return;
     
-    var cards = document.querySelectorAll('.portfolio__column .bigcard');
+    var cards = document.querySelectorAll('.portfolio .bigcard');
     if (!cards || cards.length === 0) return;
     
     var columnsContainer = document.querySelector('.portfolio__columns');
@@ -93,4 +93,3 @@
     initFilters();
   }
 })();
-
