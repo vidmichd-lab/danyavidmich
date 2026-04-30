@@ -65,6 +65,7 @@ const featuredCases = cases
       FEATURED_CASE_IDS.indexOf(a.entry.id as (typeof FEATURED_CASE_IDS)[number]) -
       FEATURED_CASE_IDS.indexOf(b.entry.id as (typeof FEATURED_CASE_IDS)[number])
   );
+const portfolioAssetsVersion = "20260430-1";
 
 const COLUMN_COUNT = 3;
 const caseColumns: Array<Array<CaseWithMeta>> = Array.from(
@@ -626,6 +627,6 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
     </section>
   </div>
     
-  <link rel="stylesheet" href="/styles/portfolio-filters.css" />
-  <script src="/scripts/portfolio-filters.js" defer></script>
+  <link rel="stylesheet" href={`/styles/portfolio-filters.css?v=${portfolioAssetsVersion}`} />
+  <script src={`/scripts/portfolio-filters.js?v=${portfolioAssetsVersion}`} defer></script>
 </BaseLayout>
