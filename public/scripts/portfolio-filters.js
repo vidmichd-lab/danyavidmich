@@ -1,54 +1,4 @@
 (function() {
-  function applyPortfolioFilter(filter) {
-    if (window.__applyPortfolioFilter) {
-      window.__applyPortfolioFilter(filter);
-      return;
-    }
-
-    var cards = document.querySelectorAll('.portfolio__columns .bigcard');
-    var columnsContainer = document.querySelector('.portfolio__columns');
-    var featuredContainer = document.querySelector('.portfolio__featured');
-
-    if (filter === 'all') {
-      if (columnsContainer) {
-        columnsContainer.classList.remove('portfolio__columns--filtered');
-      }
-      if (featuredContainer) {
-        featuredContainer.style.display = '';
-      }
-    } else {
-      if (columnsContainer) {
-        columnsContainer.classList.add('portfolio__columns--filtered');
-      }
-      if (featuredContainer) {
-        featuredContainer.style.display = 'none';
-      }
-    }
-
-    for (var k = 0; k < cards.length; k++) {
-      var card = cards[k];
-      var cardTag = card.dataset.tag || '';
-      var isFeaturedCopy = card.dataset.featuredCopy === 'true';
-      var shouldShow = filter === 'all' ? !isFeaturedCopy : cardTag === filter;
-
-      if (shouldShow) {
-        card.style.visibility = 'visible';
-        card.style.display = isFeaturedCopy ? 'block' : '';
-        setTimeout(function(currentCard) {
-          currentCard.style.opacity = '1';
-          currentCard.style.transform = 'scale(1)';
-        }, 10, card);
-      } else {
-        card.style.opacity = '0';
-        card.style.transform = 'scale(0.95)';
-        setTimeout(function(currentCard) {
-          currentCard.style.visibility = 'hidden';
-          currentCard.style.display = 'none';
-        }, 200, card);
-      }
-    }
-  }
-
   function setupFilterLogic(filtersContainer) {
     if (!filtersContainer) return;
     
@@ -85,7 +35,9 @@
             // Silently fail if there's an error updating filter states
           }
           
-          applyPortfolioFilter(filter);
+          if (window.__applyPortfolioFilter) {
+            window.__applyPortfolioFilter(filter);
+          }
         });
       })(buttons[i]);
     }
@@ -100,7 +52,7 @@
     setupFilterLogic(desktopFilters);
 
     if (window.__pendingPortfolioFilter) {
-      applyPortfolioFilter(window.__pendingPortfolioFilter);
+      window.__applyPortfolioFilter(window.__pendingPortfolioFilter);
     }
   }
   

@@ -553,14 +553,15 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
 
               const { entry, tag, link } = item;
               caseIndex++;
-              // Only hero case loads eagerly, all others are lazy
-              const fetchPriority = entry.isHero ? "high" : undefined;
-              const loadingMode = entry.isHero ? "eager" : "lazy";
+              const isFeaturedCopy = featuredCaseIds.has(entry.id);
+              // Only the real hero card loads eagerly; hidden filter copies stay lazy.
+              const fetchPriority = entry.isHero && !isFeaturedCopy ? "high" : undefined;
+              const loadingMode = entry.isHero && !isFeaturedCopy ? "eager" : "lazy";
 
               return (
                 <div
-                  class:list={["bigcard", featuredCaseIds.has(entry.id) && "bigcard--featured-copy"]}
-                  data-featured-copy={featuredCaseIds.has(entry.id) ? "true" : undefined}
+                  class:list={["bigcard", isFeaturedCopy && "bigcard--featured-copy"]}
+                  data-featured-copy={isFeaturedCopy ? "true" : undefined}
                   data-tag={entry.tag}
                 >
                   {link ? (
