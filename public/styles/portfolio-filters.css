@@ -15,6 +15,7 @@
 }
 
 .filter-button {
+  --filter-hover-color: #000;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -37,9 +38,42 @@
   -webkit-transform: translateZ(0);
 }
 
-.filter-button:hover {
-  background-color: #000;
-  color: #fff;
+.filter-button[data-filter="branding"] {
+  --filter-hover-color: var(--color-highlight-branding);
+}
+
+.filter-button[data-filter="visual"] {
+  --filter-hover-color: var(--color-highlight-visual);
+}
+
+.filter-button[data-filter="product"] {
+  --filter-hover-color: var(--color-highlight-product);
+}
+
+.filter-button[data-filter="web"] {
+  --filter-hover-color: var(--color-highlight-web);
+}
+
+.filter-button[data-filter="typography"] {
+  --filter-hover-color: var(--color-highlight-typography);
+}
+
+.filter-button[data-filter="merch"] {
+  --filter-hover-color: var(--color-highlight-merch);
+}
+
+.filter-button[data-filter="concept"] {
+  --filter-hover-color: var(--color-highlight-concept);
+}
+
+.filter-button[data-filter="posters"] {
+  --filter-hover-color: var(--color-highlight-neutral);
+}
+
+.filter-button:hover,
+.filter-button:focus-visible {
+  background-color: var(--filter-hover-color);
+  color: var(--color-text-primary);
   opacity: 1;
 }
 
@@ -97,9 +131,10 @@
     transition: background-color var(--transition-default), color var(--transition-default);
   }
   
-  .filter-button:hover {
-    background-color: #000;
-    color: #fff;
+  .filter-button:hover,
+  .filter-button:focus-visible {
+    background-color: var(--filter-hover-color);
+    color: var(--color-text-primary);
     opacity: 1;
   }
   
@@ -108,4 +143,3 @@
     color: #fff;
   }
 }
-

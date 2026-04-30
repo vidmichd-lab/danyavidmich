@@ -50,14 +50,46 @@ test.describe('Homepage', () => {
   test('should include matching featured projects in tag filters', async ({ page }) => {
     await page.goto('/');
 
-    await page.locator('#portfolio-filters-desktop .filter-button[data-filter="visual"]').click();
-    await expect(page.locator('.portfolio__featured')).toBeHidden();
-    await expect(page.locator('.portfolio__columns .bigcard[data-featured-copy="true"]:visible')).toContainText('Badoo "Be Yourself With Me"');
+    const featuredByFilter = {
+      branding: ['Yandex Practicum Pro', 'S7 Logistics'],
+      concept: ['Your 2024 at Yandex Music'],
+      product: ['Apt'],
+      typography: ['Chekhov'],
+      visual: ['Badoo "Be Yourself With Me"']
+    };
 
-    await page.locator('#portfolio-filters-desktop .filter-button[data-filter="branding"]').click();
-    const visibleFeaturedCopies = page.locator('.portfolio__columns .bigcard[data-featured-copy="true"]:visible');
-    await expect(visibleFeaturedCopies.filter({ hasText: 'Yandex Practicum Pro' })).toHaveCount(1);
-    await expect(visibleFeaturedCopies.filter({ hasText: 'S7 Logistics' })).toHaveCount(1);
+    for (const [filter, titles] of Object.entries(featuredByFilter)) {
+      await page.locator(`#portfolio-filters-desktop .filter-button[data-filter="${filter}"]`).click();
+      await expect(page.locator('.portfolio__featured')).toBeHidden();
+
+      const visibleFeaturedCopies = page.locator('.portfolio__columns .bigcard[data-featured-copy="true"]:visible');
+      await expect(visibleFeaturedCopies).toHaveCount(titles.length);
+
+      for (const title of titles) {
+        await expect(visibleFeaturedCopies.filter({ hasText: title })).toHaveCount(1);
+      }
+    }
+  });
+
+  test('should color filter tabs by tag on hover', async ({ page }) => {
+    await page.goto('/');
+
+    const expectedHoverColors = {
+      branding: 'rgb(252, 231, 78)',
+      visual: 'rgb(255, 100, 48)',
+      product: 'rgb(44, 128, 255)',
+      web: 'rgb(255, 144, 211)',
+      typography: 'rgb(255, 0, 61)',
+      merch: 'rgb(126, 189, 44)',
+      concept: 'rgb(187, 164, 131)',
+      posters: 'rgb(211, 211, 211)'
+    };
+
+    for (const [filter, color] of Object.entries(expectedHoverColors)) {
+      const button = page.locator(`#portfolio-filters-desktop .filter-button[data-filter="${filter}"]`);
+      await button.hover();
+      await expect(button).toHaveCSS('background-color', color);
+    }
   });
 
   test('should render Badoo as the sixth featured card', async ({ page }) => {
