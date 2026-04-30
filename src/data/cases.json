@@ -11,7 +11,7 @@
     "createdAt": "2025-03-03T00:00:00.000Z",
     "updatedAt": "2025-03-03T00:00:00.000Z",
     "isHero": true,
-    "featuredOrder": 1,
+    "featuredOrder": 6,
     "impact": "375K+ users in two weeks"
   },
   {
@@ -27,7 +27,7 @@
     "updatedAt": "2025-03-20T00:00:00.000Z",
     "originalText": "Yandex Practicum courses for professionals. Stay ahead with AI-powered tools, real-world practice, and guidance from top industry leaders — so your career keeps moving forward. Our visual identity is built around the idea of work-life blend, where work and life flow together naturally and inspire each other.",
     "isHero": false,
-    "featuredOrder": 2,
+    "featuredOrder": 1,
     "impact": "+652% brand search lift"
   },
   {
@@ -42,7 +42,7 @@
     "createdAt": "2025-03-10T00:00:00.000Z",
     "updatedAt": "2025-03-10T00:00:00.000Z",
     "isHero": false,
-    "featuredOrder": 3,
+    "featuredOrder": 2,
     "impact": "70M+ MAU music platform"
   },
   {
@@ -58,7 +58,7 @@
     "createdAt": "2025-02-20T00:00:00.000Z",
     "updatedAt": "2025-02-20T00:00:00.000Z",
     "isHero": false,
-    "featuredOrder": 4,
+    "featuredOrder": 3,
     "impact": "6K+ MAU in six months"
   },
   {
@@ -74,7 +74,7 @@
     "createdAt": "2025-04-01T00:00:00.000Z",
     "updatedAt": "2025-04-01T00:00:00.000Z",
     "originalText": "All men and beasts, lions, eagles, and quails, horned stags, geese, spiders, silent fish that inhabit the waves, starfish from the sea, and creatures invisible to the eye — in one word, life — all, all life, completing the dreary round imposed upon it, has died out at last. A thousand years have passed since the earth last bore a living creature on her breast, and the unhappy moon now lights her lamp in vain. No longer are the cries of storks heard in the meadows, or the drone of beetles in the groves of limes. All is cold, cold. All is void, void, void. All is terrible, terrible",
-    "featuredOrder": 5
+    "featuredOrder": 4
   },
   {
     "id": "s7-logistics",
@@ -89,7 +89,7 @@
     "updatedAt": "2025-03-12T00:00:00.000Z",
     "originalText": "Develop a sub-brand for S7’s B2B delivery service that communicates the ability to ship packages by air using the airline's technology, ensuring delivery within 24 hours.\n\n  I based the visual language on a metaphor of clouds of different sizes, symbolizing packages of any dimension. These “clouds” fly through real clouds, reinforcing the concept of flight and seamless delivery.\n\n  By maintaining S7’s recognizable color scheme, I created a bold and distinctive design system that stands out among other shipments, ensuring strong brand visibility.",
     "isHero": false,
-    "featuredOrder": 6,
+    "featuredOrder": 5,
     "impact": "24-hour air delivery sub-brand"
   },
   {

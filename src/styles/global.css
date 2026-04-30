@@ -352,7 +352,7 @@
   }
 
   .about-actions .action-group.desktop-only .home-action-button:last-child {
-    border-radius: 24px;
+    border-radius: 10px;
   }
 
   .about-lead {

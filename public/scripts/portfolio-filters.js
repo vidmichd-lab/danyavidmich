@@ -5,10 +5,11 @@
     var buttons = filtersContainer.querySelectorAll('.filter-button');
     if (!buttons || buttons.length === 0) return;
     
-    var cards = document.querySelectorAll('.portfolio .bigcard');
+    var cards = document.querySelectorAll('.portfolio__columns .bigcard');
     if (!cards || cards.length === 0) return;
     
     var columnsContainer = document.querySelector('.portfolio__columns');
+    var featuredContainer = document.querySelector('.portfolio__featured');
     
     for (var i = 0; i < buttons.length; i++) {
       (function(button) {
@@ -43,9 +44,15 @@
             if (columnsContainer) {
               columnsContainer.classList.remove('portfolio__columns--filtered');
             }
+            if (featuredContainer) {
+              featuredContainer.style.display = '';
+            }
           } else {
             if (columnsContainer) {
               columnsContainer.classList.add('portfolio__columns--filtered');
+            }
+            if (featuredContainer) {
+              featuredContainer.style.display = 'none';
             }
           }
           

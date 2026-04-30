@@ -45,12 +45,12 @@ const otherCasesWithMeta = otherCases.map((entry) => ({
 }));
 type CaseWithMeta = (typeof otherCasesWithMeta)[number];
 const FEATURED_CASE_IDS = [
-  "badoo-ooh",
   "yandex-practicum-pro",
   "yam-2024",
   "apt-product",
   "chekhov",
-  "s7-logistics"
+  "s7-logistics",
+  "badoo-ooh"
 ] as const;
 const featuredCaseIds = new Set<string>(FEATURED_CASE_IDS);
 const featuredCases = cases

@@ -26,6 +26,31 @@ test.describe('Homepage', () => {
     const count = await visibleCards.count();
     expect(count).toBeGreaterThan(0);
   });
+
+  test('should show featured projects only for all filter', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('.portfolio__featured')).toBeVisible();
+
+    await page.locator('#portfolio-filters-desktop .filter-button[data-filter="product"]').click();
+    await expect(page.locator('.portfolio__featured')).toBeHidden();
+
+    await expect.poll(async () => {
+      const visibleTags = await page.locator('.portfolio__columns .bigcard:visible').evaluateAll((cards) =>
+        cards.map((card) => card.getAttribute('data-tag'))
+      );
+      return visibleTags.length > 0 && visibleTags.every((tag) => tag === 'product');
+    }).toBeTruthy();
+
+    await page.locator('#portfolio-filters-desktop .filter-button[data-filter="all"]').click();
+    await expect(page.locator('.portfolio__featured')).toBeVisible();
+  });
+
+  test('should render Badoo as the sixth featured card', async ({ page }) => {
+    await page.goto('/');
+    const featuredCards = page.locator('.portfolio__featured .bigcard');
+    await expect(featuredCards).toHaveCount(6);
+    await expect(featuredCards.nth(5)).toContainText('Badoo "Be Yourself With Me"');
+  });
 });
 
 test.describe('CV Page', () => {
