@@ -12,7 +12,8 @@
     "updatedAt": "2025-03-03T00:00:00.000Z",
     "isHero": true,
     "featuredOrder": 6,
-    "impact": "375K+ users in two weeks"
+    "impact": "375K+ users in two weeks",
+    "year": 2021
   },
   {
     "id": "yandex-practicum-pro",
@@ -28,7 +29,8 @@
     "originalText": "Yandex Practicum courses for professionals. Stay ahead with AI-powered tools, real-world practice, and guidance from top industry leaders — so your career keeps moving forward. Our visual identity is built around the idea of work-life blend, where work and life flow together naturally and inspire each other.",
     "isHero": false,
     "featuredOrder": 1,
-    "impact": "+652% brand search lift"
+    "impact": "+652% brand search lift",
+    "year": 2026
   },
   {
     "id": "yam-2024",
@@ -43,7 +45,8 @@
     "updatedAt": "2025-03-10T00:00:00.000Z",
     "isHero": false,
     "featuredOrder": 2,
-    "impact": "70M+ MAU music platform"
+    "impact": "70M+ MAU music platform",
+    "year": 2024
   },
   {
     "id": "apt-product",
@@ -59,7 +62,8 @@
     "updatedAt": "2025-02-20T00:00:00.000Z",
     "isHero": false,
     "featuredOrder": 3,
-    "impact": "6K+ MAU in six months"
+    "impact": "6K+ MAU in six months",
+    "year": 2021
   },
   {
     "id": "chekhov",
@@ -74,7 +78,8 @@
     "createdAt": "2025-04-01T00:00:00.000Z",
     "updatedAt": "2025-04-01T00:00:00.000Z",
     "originalText": "All men and beasts, lions, eagles, and quails, horned stags, geese, spiders, silent fish that inhabit the waves, starfish from the sea, and creatures invisible to the eye — in one word, life — all, all life, completing the dreary round imposed upon it, has died out at last. A thousand years have passed since the earth last bore a living creature on her breast, and the unhappy moon now lights her lamp in vain. No longer are the cries of storks heard in the meadows, or the drone of beetles in the groves of limes. All is cold, cold. All is void, void, void. All is terrible, terrible",
-    "featuredOrder": 4
+    "featuredOrder": 4,
+    "year": 2025
   },
   {
     "id": "s7-logistics",
@@ -90,7 +95,8 @@
     "originalText": "Develop a sub-brand for S7’s B2B delivery service that communicates the ability to ship packages by air using the airline's technology, ensuring delivery within 24 hours.\n\n  I based the visual language on a metaphor of clouds of different sizes, symbolizing packages of any dimension. These “clouds” fly through real clouds, reinforcing the concept of flight and seamless delivery.\n\n  By maintaining S7’s recognizable color scheme, I created a bold and distinctive design system that stands out among other shipments, ensuring strong brand visibility.",
     "isHero": false,
     "featuredOrder": 5,
-    "impact": "24-hour air delivery sub-brand"
+    "impact": "24-hour air delivery sub-brand",
+    "year": 2021
   },
   {
     "id": "made-with-ai",
@@ -102,7 +108,8 @@
     "coverImage": "/img/gr/made-with-ai/frame-16.webp",
     "linkUrl": "https://practicum.yandex.ru/practicum-award",
     "createdAt": "2025-04-03T00:00:00.000Z",
-    "updatedAt": "2025-04-03T00:00:00.000Z"
+    "updatedAt": "2025-04-03T00:00:00.000Z",
+    "year": 2026
   },
   {
     "id": "may-of-may",
@@ -115,7 +122,8 @@
     "linkUrl": "/may-of-may",
     "createdAt": "2025-04-02T00:00:00.000Z",
     "updatedAt": "2025-04-02T00:00:00.000Z",
-    "originalText": "May of May is a brand that offers vibrant clothing, designed to be worn for no specific reason, but purely for personal pleasure and desire.\n  This concept is reflected in the typography, which encourages, \"Hey, stay curious about yourself and celebrate your diversity every day\""
+    "originalText": "May of May is a brand that offers vibrant clothing, designed to be worn for no specific reason, but purely for personal pleasure and desire.\n  This concept is reflected in the typography, which encourages, \"Hey, stay curious about yourself and celebrate your diversity every day\"",
+    "year": 2023
   },
   {
     "id": "wouly",
@@ -128,7 +136,8 @@
     "linkUrl": "/wouly.html",
     "createdAt": "2025-03-18T00:00:00.000Z",
     "updatedAt": "2025-03-18T00:00:00.000Z",
-    "originalText": "New identity for Wouly — a service that lets you split prices into four equal pieces, making your wishes more achievable. The layouts are all about dividing the space into four parts — kind of like the whole idea of the service. It’s simple, visual, and straight to the point. Bright colors keeps the vibe upbeat and approachable. Split layouts reflects the \"four equal parts\" idea visually. Check out how it works in subway posters, billboards, and urban spaces"
+    "originalText": "New identity for Wouly — a service that lets you split prices into four equal pieces, making your wishes more achievable. The layouts are all about dividing the space into four parts — kind of like the whole idea of the service. It’s simple, visual, and straight to the point. Bright colors keeps the vibe upbeat and approachable. Split layouts reflects the \"four equal parts\" idea visually. Check out how it works in subway posters, billboards, and urban spaces",
+    "year": 2024
   },
   {
     "id": "chekhov-plays",
@@ -140,7 +149,8 @@
     "coverImage": "/img/gr/plays/01.webp",
     "linkUrl": "/plays.html",
     "createdAt": "2025-03-15T00:00:00.000Z",
-    "updatedAt": "2025-03-15T00:00:00.000Z"
+    "updatedAt": "2025-03-15T00:00:00.000Z",
+    "year": 2025
   },
   {
     "id": "prosto-school",
@@ -153,7 +163,8 @@
     "linkUrl": "/prosto-school",
     "createdAt": "2025-03-08T00:00:00.000Z",
     "updatedAt": "2025-03-08T00:00:00.000Z",
-    "originalText": "Prosto School is a private school in the heart of Moscow, where the child is the top priority. The identity is built around the letter \"П\" in russian — a simple yet adaptable form, reflecting the growth and transformation of students within the school."
+    "originalText": "Prosto School is a private school in the heart of Moscow, where the child is the top priority. The identity is built around the letter \"П\" in russian — a simple yet adaptable form, reflecting the growth and transformation of students within the school.",
+    "year": 2025
   },
   {
     "id": "gorenko",
@@ -166,7 +177,8 @@
     "linkUrl": "/gorenko.html",
     "createdAt": "2025-03-06T00:00:00.000Z",
     "updatedAt": "2025-03-06T00:00:00.000Z",
-    "originalText": "The persona of Anna Akhmatova (née Gorenko), one of the most prominent Russian poets of the 20th century, inspired the creation of this typeface. The curves and breaks in her verses became the foundation for letters that seem to \"writhe\" in the anguish of history yet remain resilient and readable. I hope I have succeeded in capturing the spirit of fractured human destinies that Akhmatova so poignantly celebrated in her work"
+    "originalText": "The persona of Anna Akhmatova (née Gorenko), one of the most prominent Russian poets of the 20th century, inspired the creation of this typeface. The curves and breaks in her verses became the foundation for letters that seem to \"writhe\" in the anguish of history yet remain resilient and readable. I hope I have succeeded in capturing the spirit of fractured human destinies that Akhmatova so poignantly celebrated in her work",
+    "year": 2024
   },
   {
     "id": "shuttle-bus",
@@ -178,7 +190,8 @@
     "coverImage": "/img/sh.webp",
     "linkUrl": "",
     "createdAt": "2025-03-04T00:00:00.000Z",
-    "updatedAt": "2025-03-04T00:00:00.000Z"
+    "updatedAt": "2025-03-04T00:00:00.000Z",
+    "year": 2024
   },
   {
     "id": "lug-brand",
@@ -190,7 +203,8 @@
     "coverImage": "/img/gr/lug/lug.webp",
     "linkUrl": "/lug",
     "createdAt": "2025-03-02T00:00:00.000Z",
-    "updatedAt": "2025-03-02T00:00:00.000Z"
+    "updatedAt": "2025-03-02T00:00:00.000Z",
+    "year": 2022
   },
   {
     "id": "bandlink",
@@ -204,7 +218,8 @@
     "createdAt": "2025-03-01T00:00:00.000Z",
     "updatedAt": "2025-03-01T00:00:00.000Z",
     "isHero": false,
-    "impact": "Artist analytics identity relaunch"
+    "impact": "Artist analytics identity relaunch",
+    "year": 2022
   },
   {
     "id": "korolev",
@@ -216,7 +231,8 @@
     "coverImage": "/img/gr/korl.webp",
     "linkUrl": "/korolev.html",
     "createdAt": "2025-02-27T00:00:00.000Z",
-    "updatedAt": "2025-02-27T00:00:00.000Z"
+    "updatedAt": "2025-02-27T00:00:00.000Z",
+    "year": 2022
   },
   {
     "id": "apt-branding",
@@ -228,7 +244,8 @@
     "coverImage": "/img/gr/apt/cover.webp",
     "linkUrl": "/apt-branding",
     "createdAt": "2025-02-25T00:00:00.000Z",
-    "updatedAt": "2025-02-25T00:00:00.000Z"
+    "updatedAt": "2025-02-25T00:00:00.000Z",
+    "year": 2021
   },
   {
     "id": "echelon",
@@ -240,7 +257,8 @@
     "coverImage": "/img/gr/echelon/cover.gif",
     "linkUrl": "https://www.artlebedev.ru/type/echelon/",
     "createdAt": "2025-02-24T00:00:00.000Z",
-    "updatedAt": "2025-02-24T00:00:00.000Z"
+    "updatedAt": "2025-02-24T00:00:00.000Z",
+    "year": 2019
   },
   {
     "id": "boulevard-depo",
@@ -252,7 +270,8 @@
     "coverImage": "/img/other/depo.webp",
     "linkUrl": "",
     "createdAt": "2025-02-23T00:00:00.000Z",
-    "updatedAt": "2025-02-23T00:00:00.000Z"
+    "updatedAt": "2025-02-23T00:00:00.000Z",
+    "year": 2023
   },
   {
     "id": "lug-merch",
@@ -264,7 +283,8 @@
     "coverImage": "/img/other/lug.webp",
     "linkUrl": "",
     "createdAt": "2025-02-22T00:00:00.000Z",
-    "updatedAt": "2025-02-22T00:00:00.000Z"
+    "updatedAt": "2025-02-22T00:00:00.000Z",
+    "year": 2023
   },
   {
     "id": "kavkaz-sila",
@@ -276,7 +296,8 @@
     "coverImage": "/img/gr/kavkaz.gif",
     "linkUrl": "https://www.artlebedev.ru/kavkazsila/",
     "createdAt": "2025-02-21T00:00:00.000Z",
-    "updatedAt": "2025-02-21T00:00:00.000Z"
+    "updatedAt": "2025-02-21T00:00:00.000Z",
+    "year": 2019
   },
   {
     "id": "kraygid",
@@ -288,7 +309,8 @@
     "coverImage": "/img/gr/kray.webp",
     "linkUrl": "https://kraygid.ru",
     "createdAt": "2025-02-19T00:00:00.000Z",
-    "updatedAt": "2025-02-19T00:00:00.000Z"
+    "updatedAt": "2025-02-19T00:00:00.000Z",
+    "year": 2024
   },
   {
     "id": "badoo-hotline",
@@ -301,7 +323,8 @@
     "linkUrl": "/badoo-hotline",
     "createdAt": "2025-02-18T00:00:00.000Z",
     "updatedAt": "2025-02-18T00:00:00.000Z",
-    "originalText": "The visual concept of the mobile site draws inspiration from a virtual hotline metaphor. Upon entering the site, users are metaphorically connected with operators. By selecting an operator, users can engage with various content formats such as reading articles, listening to audio, watching instructional videos, taking tests, and experiencing ASMR content"
+    "originalText": "The visual concept of the mobile site draws inspiration from a virtual hotline metaphor. Upon entering the site, users are metaphorically connected with operators. By selecting an operator, users can engage with various content formats such as reading articles, listening to audio, watching instructional videos, taking tests, and experiencing ASMR content",
+    "year": 2020
   },
   {
     "id": "humans-web3",
@@ -314,7 +337,8 @@
     "linkUrl": "/humans.html",
     "createdAt": "2025-02-17T00:00:00.000Z",
     "updatedAt": "2025-02-17T00:00:00.000Z",
-    "originalText": "I have crafted a web platform that enables users to explore job opportunities and companies within the web3 ecosystem. Additionally, users are incentivized with rewards for successful recommendations"
+    "originalText": "I have crafted a web platform that enables users to explore job opportunities and companies within the web3 ecosystem. Additionally, users are incentivized with rewards for successful recommendations",
+    "year": 2022
   },
   {
     "id": "karo-art-cinema",
@@ -326,7 +350,8 @@
     "coverImage": "/img/other/karo.webp",
     "linkUrl": "https://vimeo.com/manage/videos/658612337",
     "createdAt": "2025-02-16T00:00:00.000Z",
-    "updatedAt": "2025-02-16T00:00:00.000Z"
+    "updatedAt": "2025-02-16T00:00:00.000Z",
+    "year": 2020
   },
   {
     "id": "perekrestok-terminal",
@@ -338,7 +363,8 @@
     "coverImage": "/img/other/perek.gif",
     "linkUrl": "https://www.artlebedev.ru/perekrestok/interface/",
     "createdAt": "2025-02-15T00:00:00.000Z",
-    "updatedAt": "2025-02-15T00:00:00.000Z"
+    "updatedAt": "2025-02-15T00:00:00.000Z",
+    "year": 2019
   },
   {
     "id": "captures-360",
@@ -350,19 +376,8 @@
     "coverImage": "/img/pr/360-captures/1.webp",
     "linkUrl": "/360-captures",
     "createdAt": "2025-02-14T00:00:00.000Z",
-    "updatedAt": "2025-02-14T00:00:00.000Z"
-  },
-  {
-    "id": "il-palio",
-    "title": "Il Palio",
-    "slug": "palio",
-    "tag": "concept",
-    "description": "Concept / Branding",
-    "layout": "single",
-    "coverImage": "/img/gr/palio/6.webp",
-    "linkUrl": "/palio.html",
-    "createdAt": "2025-02-13T00:00:00.000Z",
-    "updatedAt": "2025-02-13T00:00:00.000Z"
+    "updatedAt": "2025-02-14T00:00:00.000Z",
+    "year": 2023
   },
   {
     "id": "peterburgskie-povesti",
@@ -397,7 +412,8 @@
     "coverImage": "/img/gr/web5.webp",
     "linkUrl": "https://temp.school",
     "createdAt": "2025-02-09T00:00:00.000Z",
-    "updatedAt": "2025-02-09T00:00:00.000Z"
+    "updatedAt": "2025-02-09T00:00:00.000Z",
+    "year": 2023
   },
   {
     "id": "museum-of-architecture",
@@ -409,7 +425,8 @@
     "coverImage": "/img/gr/muar/cover.gif",
     "linkUrl": "https://vimeo.com/426928063?share=copy",
     "createdAt": "2025-02-08T00:00:00.000Z",
-    "updatedAt": "2025-02-08T00:00:00.000Z"
+    "updatedAt": "2025-02-08T00:00:00.000Z",
+    "year": 2020
   },
   {
     "id": "apt-net-festival",
@@ -420,7 +437,9 @@
     "coverImage": "/img/gr/fh.webp",
     "linkUrl": "",
     "createdAt": "2025-02-07T00:00:00.000Z",
-    "updatedAt": "2025-02-07T00:00:00.000Z"
+    "updatedAt": "2025-02-07T00:00:00.000Z",
+    "description": "Visual Communications",
+    "year": 2021
   },
   {
     "id": "stereo-ooh",
@@ -432,7 +451,8 @@
     "coverImage": "/img/other/stereo1.webp",
     "linkUrl": "",
     "createdAt": "2025-02-06T00:00:00.000Z",
-    "updatedAt": "2025-02-06T00:00:00.000Z"
+    "updatedAt": "2025-02-06T00:00:00.000Z",
+    "year": 2022
   },
   {
     "id": "temp-school-merch",
@@ -444,7 +464,8 @@
     "coverImage": "/img/other/temp_gr.webp",
     "linkUrl": "",
     "createdAt": "2025-02-05T00:00:00.000Z",
-    "updatedAt": "2025-02-05T00:00:00.000Z"
+    "updatedAt": "2025-02-05T00:00:00.000Z",
+    "year": 2023
   },
   {
     "id": "black-friday-2025",
@@ -457,6 +478,7 @@
     "linkUrl": "/black-friday-practicum",
     "createdAt": "2025-01-01T00:00:00.000Z",
     "updatedAt": "2025-01-01T00:00:00.000Z",
-    "originalText": "THE MAIN DISCOUNT OF THE YEAR GREEN PINK BLUE 20 PERCENT NEW BLACK FRIDAY SKILLS IT B3gegDSGj23t!11! Black Friday in a concise and punchy way"
+    "originalText": "THE MAIN DISCOUNT OF THE YEAR GREEN PINK BLUE 20 PERCENT NEW BLACK FRIDAY SKILLS IT B3gegDSGj23t!11! Black Friday in a concise and punchy way",
+    "year": 2025
   }
 ]

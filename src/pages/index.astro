@@ -101,12 +101,6 @@ if (heroCase) {
   caseColumns[0].unshift(heroMeta);
 }
 
-caseColumns.forEach((column, columnIndex) => {
-  caseColumns[columnIndex] = column.filter(
-    (item) => !featuredCaseIds.has(item.entry.id)
-  );
-});
-
 type ExtraMediaItem = {
   src?: string;
   alt?: string;
@@ -564,7 +558,11 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
               const loadingMode = entry.isHero ? "eager" : "lazy";
 
               return (
-                <div class="bigcard" data-tag={entry.tag}>
+                <div
+                  class:list={["bigcard", featuredCaseIds.has(entry.id) && "bigcard--featured-copy"]}
+                  data-featured-copy={featuredCaseIds.has(entry.id) ? "true" : undefined}
+                  data-tag={entry.tag}
+                >
                   {link ? (
                     <a href={link}>
                       <img

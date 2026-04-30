@@ -27,6 +27,26 @@ describe("homepage content configuration", () => {
     expect(indexSource).toContain("/img/gr/posters/frame-61.webp");
   });
 
+  it("stores production years for signed non-poster projects", () => {
+    const casesById = new Map(cases.map((entry) => [entry.id, entry]));
+
+    expect(casesById.get("yandex-practicum-pro")).toMatchObject({ year: 2026 });
+    expect(casesById.get("badoo-ooh")).toMatchObject({ year: 2021 });
+    expect(casesById.get("apt-net-festival")).toMatchObject({
+      description: "Visual Communications",
+      year: 2021
+    });
+    expect(casesById.get("peterburgskie-povesti")).not.toHaveProperty("year");
+    expect(casesById.get("1913")).not.toHaveProperty("year");
+  });
+
+  it("removes Il Palio from portfolio data and pages", () => {
+    const pageNames = readFileSync(join(root, "public/sitemap.xml"), "utf-8");
+
+    expect(cases).not.toContainEqual(expect.objectContaining({ id: "il-palio" }));
+    expect(pageNames).not.toContain("/palio");
+  });
+
   it("rounds site media to 10px", () => {
     const globalCss = readFileSync(join(root, "src/styles/global.css"), "utf-8");
 

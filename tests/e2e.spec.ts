@@ -40,9 +40,24 @@ test.describe('Homepage', () => {
       );
       return visibleTags.length > 0 && visibleTags.every((tag) => tag === 'product');
     }).toBeTruthy();
+    await expect(page.locator('.portfolio__columns .bigcard[data-featured-copy="true"]:visible')).toContainText('Apt');
 
     await page.locator('#portfolio-filters-desktop .filter-button[data-filter="all"]').click();
     await expect(page.locator('.portfolio__featured')).toBeVisible();
+    await expect(page.locator('.portfolio__columns .bigcard[data-featured-copy="true"]:visible')).toHaveCount(0);
+  });
+
+  test('should include matching featured projects in tag filters', async ({ page }) => {
+    await page.goto('/');
+
+    await page.locator('#portfolio-filters-desktop .filter-button[data-filter="visual"]').click();
+    await expect(page.locator('.portfolio__featured')).toBeHidden();
+    await expect(page.locator('.portfolio__columns .bigcard[data-featured-copy="true"]:visible')).toContainText('Badoo "Be Yourself With Me"');
+
+    await page.locator('#portfolio-filters-desktop .filter-button[data-filter="branding"]').click();
+    const visibleFeaturedCopies = page.locator('.portfolio__columns .bigcard[data-featured-copy="true"]:visible');
+    await expect(visibleFeaturedCopies.filter({ hasText: 'Yandex Practicum Pro' })).toHaveCount(1);
+    await expect(visibleFeaturedCopies.filter({ hasText: 'S7 Logistics' })).toHaveCount(1);
   });
 
   test('should render Badoo as the sixth featured card', async ({ page }) => {
@@ -50,6 +65,26 @@ test.describe('Homepage', () => {
     const featuredCards = page.locator('.portfolio__featured .bigcard');
     await expect(featuredCards).toHaveCount(6);
     await expect(featuredCards.nth(5)).toContainText('Badoo "Be Yourself With Me"');
+  });
+
+  test('should handle filter clicks before images finish loading', async ({ page }) => {
+    await page.route(/\.(webp|png|jpg|jpeg|gif|ico)(\?.*)?$/i, () => new Promise(() => {}));
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+    await page.locator('#portfolio-filters-desktop .filter-button[data-filter="product"]').click();
+
+    await expect(page.locator('#portfolio-filters-desktop .filter-button[data-filter="product"]')).toHaveClass(/filter-button--active/);
+    await expect(page.locator('.portfolio__featured')).toBeHidden();
+  });
+
+  test('should handle mobile action buttons before images finish loading', async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.route(/\.(webp|png|jpg|jpeg|gif|ico)(\?.*)?$/i, () => new Promise(() => {}));
+    await page.goto('/', { waitUntil: 'domcontentloaded' });
+
+    await page.getByRole('button', { name: 'Open CV page' }).first().click();
+
+    await expect(page).toHaveURL(/\/cv\/?$/);
   });
 });
 

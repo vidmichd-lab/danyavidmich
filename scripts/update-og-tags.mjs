@@ -23,7 +23,6 @@ const pageSlugMap = {
   'lug.astro': 'lug',
   'may-of-may.astro': 'may-of-may',
   'my.astro': 'my',
-  'palio.astro': 'palio',
   'peterburgskie-povesti.astro': 'peterburgskie-povesti',
   'plays.astro': 'plays',
   'prosto-school.astro': 'prosto-school',
@@ -48,4 +47,3 @@ Object.entries(pageSlugMap).forEach(([file, slug]) => {
 
 console.log('\nRun this script to see which pages need updates.');
 console.log('Manual update required for each page.');
-

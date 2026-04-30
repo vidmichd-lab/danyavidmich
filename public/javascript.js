@@ -141,6 +141,7 @@
       if (!action) return;
       
       button.addEventListener('click', function(e) {
+        if (e.defaultPrevented) return;
         e.preventDefault();
         try {
           if (action === 'cv') {
@@ -491,6 +492,7 @@
 
     // Handle click - check if it's email button or scroll to top
     scrollUpButton.addEventListener("click", function (e) {
+      if (e.defaultPrevented) return;
       e.preventDefault();
       var action = scrollUpButton.getAttribute("data-action");
       if (action && action.startsWith("mailto:")) {
@@ -564,4 +566,3 @@
     });
   }
 })();
-

@@ -55,6 +55,10 @@
     decoding: async;
   }
 
+  .bigcard--featured-copy {
+    display: none;
+  }
+
   @media (max-width: 800px) {
     .bigcard {
       /* On mobile, ensure immediate scrollability */

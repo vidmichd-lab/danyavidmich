@@ -1,19 +1,64 @@
 (function() {
+  function applyPortfolioFilter(filter) {
+    if (window.__applyPortfolioFilter) {
+      window.__applyPortfolioFilter(filter);
+      return;
+    }
+
+    var cards = document.querySelectorAll('.portfolio__columns .bigcard');
+    var columnsContainer = document.querySelector('.portfolio__columns');
+    var featuredContainer = document.querySelector('.portfolio__featured');
+
+    if (filter === 'all') {
+      if (columnsContainer) {
+        columnsContainer.classList.remove('portfolio__columns--filtered');
+      }
+      if (featuredContainer) {
+        featuredContainer.style.display = '';
+      }
+    } else {
+      if (columnsContainer) {
+        columnsContainer.classList.add('portfolio__columns--filtered');
+      }
+      if (featuredContainer) {
+        featuredContainer.style.display = 'none';
+      }
+    }
+
+    for (var k = 0; k < cards.length; k++) {
+      var card = cards[k];
+      var cardTag = card.dataset.tag || '';
+      var isFeaturedCopy = card.dataset.featuredCopy === 'true';
+      var shouldShow = filter === 'all' ? !isFeaturedCopy : cardTag === filter;
+
+      if (shouldShow) {
+        card.style.visibility = 'visible';
+        card.style.display = isFeaturedCopy ? 'block' : '';
+        setTimeout(function(currentCard) {
+          currentCard.style.opacity = '1';
+          currentCard.style.transform = 'scale(1)';
+        }, 10, card);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'scale(0.95)';
+        setTimeout(function(currentCard) {
+          currentCard.style.visibility = 'hidden';
+          currentCard.style.display = 'none';
+        }, 200, card);
+      }
+    }
+  }
+
   function setupFilterLogic(filtersContainer) {
     if (!filtersContainer) return;
     
     var buttons = filtersContainer.querySelectorAll('.filter-button');
     if (!buttons || buttons.length === 0) return;
-    
-    var cards = document.querySelectorAll('.portfolio__columns .bigcard');
-    if (!cards || cards.length === 0) return;
-    
-    var columnsContainer = document.querySelector('.portfolio__columns');
-    var featuredContainer = document.querySelector('.portfolio__featured');
-    
+
     for (var i = 0; i < buttons.length; i++) {
       (function(button) {
         button.addEventListener('click', function(e) {
+          if (e.defaultPrevented) return;
           e.preventDefault();
           e.stopPropagation();
           
@@ -40,46 +85,7 @@
             // Silently fail if there's an error updating filter states
           }
           
-          if (filter === 'all') {
-            if (columnsContainer) {
-              columnsContainer.classList.remove('portfolio__columns--filtered');
-            }
-            if (featuredContainer) {
-              featuredContainer.style.display = '';
-            }
-          } else {
-            if (columnsContainer) {
-              columnsContainer.classList.add('portfolio__columns--filtered');
-            }
-            if (featuredContainer) {
-              featuredContainer.style.display = 'none';
-            }
-          }
-          
-          for (var k = 0; k < cards.length; k++) {
-            (function(card) {
-              var cardTag = card.dataset.tag || '';
-              var shouldShow = filter === 'all' || cardTag === filter;
-              
-              if (shouldShow) {
-                // Use visibility instead of display to prevent layout shifts
-                card.style.visibility = 'visible';
-                card.style.display = '';
-                setTimeout(function() {
-                  card.style.opacity = '1';
-                  card.style.transform = 'scale(1)';
-                }, 10);
-              } else {
-                card.style.opacity = '0';
-                card.style.transform = 'scale(0.95)';
-                setTimeout(function() {
-                  // Use visibility instead of display to prevent layout shifts
-                  card.style.visibility = 'hidden';
-                  card.style.display = 'none';
-                }, 200);
-              }
-            })(cards[k]);
-          }
+          applyPortfolioFilter(filter);
         });
       })(buttons[i]);
     }
@@ -92,6 +98,10 @@
     
     setupFilterLogic(mobileFilters);
     setupFilterLogic(desktopFilters);
+
+    if (window.__pendingPortfolioFilter) {
+      applyPortfolioFilter(window.__pendingPortfolioFilter);
+    }
   }
   
   if (document.readyState === 'loading') {

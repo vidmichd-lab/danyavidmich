@@ -43,6 +43,7 @@ export interface CaseEntry {
   tag: CaseTag;
   isHero: boolean;
   featuredOrder?: number;
+  year?: number;
   description?: string;
   impact?: string;
   button?: CaseButton;
@@ -62,6 +63,7 @@ export interface CaseInput {
   tag: CaseTag;
   isHero?: boolean;
   featuredOrder?: number;
+  year?: number;
   description?: string;
   impact?: string;
   button?: CaseButton;

@@ -73,6 +73,97 @@ const {
     <style is:inline>
       {`*{box-sizing:border-box}body{margin:0;font-family:"Arial Narrow",Arial,system-ui,-apple-system,sans-serif;font-size:18px;line-height:1.1;color:#525252;background:#f9fafb;overflow-x:hidden}img{width:100%;height:auto;display:block}.header{position:fixed;top:0;left:0;right:0;z-index:1000;width:100%;height:44px;background:linear-gradient(180deg,#f9fafb 60%,rgba(241,241,241,0) 100%);font-size:18px;-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-backface-visibility:hidden;backface-visibility:hidden}.main{display:flex;align-items:flex-start;justify-content:space-between;flex-direction:row;width:calc(100% - 24px);margin:44px auto 0}@media (max-width:800px){.header{height:64px;min-height:64px;padding-top:env(safe-area-inset-top,0);font-size:32px}.main{flex-direction:column;width:calc(100% - 24px);margin:64px auto 0}}`}
     </style>
+    <script is:inline>
+      (function () {
+        if (window.__earlyInteractionsReady) return;
+        window.__earlyInteractionsReady = true;
+
+        function runAction(action) {
+          if (!action) return;
+          if (action === "cv") {
+            window.location.href = "/cv/";
+          } else if (action.indexOf("mailto:") === 0) {
+            window.location.href = action;
+          } else if (action.indexOf("/") === 0 || action.indexOf("http") === 0) {
+            window.location.href = action;
+          }
+        }
+
+        function syncFilterButtons(filter) {
+          document.querySelectorAll(".portfolio-filters").forEach(function (container) {
+            container.querySelectorAll(".filter-button").forEach(function (button) {
+              button.classList.toggle("filter-button--active", button.dataset.filter === filter);
+            });
+          });
+        }
+
+        function applyPortfolioFilter(filter) {
+          if (!filter) return;
+          window.__pendingPortfolioFilter = filter;
+          syncFilterButtons(filter);
+
+          var columnsContainer = document.querySelector(".portfolio__columns");
+          var featuredContainer = document.querySelector(".portfolio__featured");
+          var cards = document.querySelectorAll(".portfolio__columns .bigcard");
+
+          if (columnsContainer) {
+            columnsContainer.classList.toggle("portfolio__columns--filtered", filter !== "all");
+          }
+
+          if (featuredContainer) {
+            featuredContainer.style.display = filter === "all" ? "" : "none";
+          }
+
+          cards.forEach(function (card) {
+            var cardTag = card.dataset.tag || "";
+            var isFeaturedCopy = card.dataset.featuredCopy === "true";
+            var shouldShow = filter === "all" ? !isFeaturedCopy : cardTag === filter;
+
+            if (shouldShow) {
+              card.style.visibility = "visible";
+              card.style.display = isFeaturedCopy ? "block" : "";
+              card.style.opacity = "1";
+              card.style.transform = "scale(1)";
+            } else {
+              card.style.opacity = "0";
+              card.style.transform = "scale(0.95)";
+              card.style.visibility = "hidden";
+              card.style.display = "none";
+            }
+          });
+        }
+
+        window.__applyPortfolioFilter = applyPortfolioFilter;
+
+        document.addEventListener(
+          "click",
+          function (event) {
+            var target = event.target;
+            if (!target || !target.closest) return;
+
+            var filterButton = target.closest(".filter-button");
+            if (filterButton) {
+              event.preventDefault();
+              applyPortfolioFilter(filterButton.dataset.filter || "all");
+              return;
+            }
+
+            var actionButton = target.closest(".circle-button[data-action]");
+            if (actionButton) {
+              event.preventDefault();
+              runAction(actionButton.getAttribute("data-action"));
+            }
+          },
+          true
+        );
+
+        document.addEventListener("DOMContentLoaded", function () {
+          if (window.__pendingPortfolioFilter) {
+            applyPortfolioFilter(window.__pendingPortfolioFilter);
+          }
+        });
+      })();
+    </script>
 
     {preloadFonts && (
       <>

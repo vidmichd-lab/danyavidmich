@@ -10,7 +10,7 @@ const pagesDir = join(rootDir, 'src', 'pages');
 const pagesToUpdate = [
   'apt-branding', 'apt-product', 'badoo', 'badoo-hotline', 'bandlink',
   'black-friday-practicum', 'chekhov', 'cinema', 'gorenko', 'humans',
-  'korolev', 'lug', 'may-of-may', 'my', 'palio', 'peterburgskie-povesti',
+  'korolev', 'lug', 'may-of-may', 'my', 'peterburgskie-povesti',
   'plays', 'prosto-school', 'rublev', 's7', 'stereo', 'sub',
   'temp-school-graphics', 'wouly', 'yandex-practicum-pro', '360-captures'
 ];
@@ -98,4 +98,3 @@ pagesToUpdate.forEach(slug => {
 });
 
 console.log(`\nUpdated ${updated} pages.`);
-
