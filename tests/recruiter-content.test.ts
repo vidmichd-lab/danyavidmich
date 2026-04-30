@@ -47,10 +47,10 @@ describe("recruiter-facing portfolio content", () => {
     expect(cvSource).toContain("Now based in Saint Petersburg");
     expect(cvSource).toContain('id="saint-petersburg-time"');
     expect(cvSource).not.toContain(" · ");
-    expect(cvSource).toContain(">Download CV<");
-    expect(cvSource).toContain(">Email me<");
-    expect(cvSource).toContain(">LinkedIn profile<");
-    expect(cvSource).toContain(">Telegram chat<");
+    expect(cvSource).toContain(">Open PDF<");
+    expect(cvSource).toContain(">Email<");
+    expect(cvSource).not.toContain(">LinkedIn profile<");
+    expect(cvSource).not.toContain(">Telegram chat<");
   });
 
   it("keeps homepage recruiter detail at normal copy size with visible action labels", () => {
@@ -58,8 +58,8 @@ describe("recruiter-facing portfolio content", () => {
     const styles = read("src/styles/global.css");
 
     expect(indexSource).toContain('class="about-note"');
-    expect(indexSource).toContain(">View CV<");
-    expect(indexSource).toContain(">Email me<");
+    expect(indexSource).toContain(">Open CV<");
+    expect(indexSource).toContain(">Email<");
     expect(styles).toContain(".about-note");
     expect(styles).toContain("font-size: 18px");
   });
