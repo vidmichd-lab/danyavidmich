@@ -46,6 +46,7 @@ describe("recruiter-facing portfolio content", () => {
     expect(cvSource).toContain("Working English");
     expect(cvSource).toContain("Now based in Saint Petersburg");
     expect(cvSource).toContain('id="saint-petersburg-time"');
+    expect(cvSource).not.toContain(" · ");
     expect(cvSource).toContain(">Download CV<");
     expect(cvSource).toContain(">Email me<");
     expect(cvSource).toContain(">LinkedIn profile<");
@@ -61,6 +62,15 @@ describe("recruiter-facing portfolio content", () => {
     expect(indexSource).toContain(">Email me<");
     expect(styles).toContain(".about-note");
     expect(styles).toContain("font-size: 18px");
+  });
+
+  it("keeps recruiter summary and button labels at normal text size", () => {
+    const styles = read("src/styles/global.css");
+
+    expect(styles).toContain(".recruiter-summary");
+    expect(styles).toContain(".cv-action-button");
+    expect(styles).toContain(".home-action-button");
+    expect(styles.match(/font-size: 18px/g)?.length ?? 0).toBeGreaterThanOrEqual(4);
   });
 
   it("does not show top-line metrics in the CV sidebar", () => {
