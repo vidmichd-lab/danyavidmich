@@ -47,7 +47,7 @@ describe("recruiter-facing portfolio content", () => {
     expect(cvSource).toContain('id="saint-petersburg-time"');
     expect(cvSource).not.toContain(" · ");
     expect(cvSource).toContain(">Open PDF<");
-    expect(cvSource).toContain(">Email<");
+    expect(cvSource).not.toContain('class="cv-action-button__label">Email</span>');
     expect(cvSource).not.toContain(">LinkedIn profile<");
     expect(cvSource).not.toContain(">Telegram chat<");
     expect(cvSource).not.toContain(">Miro/FigJam<");
