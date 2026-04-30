@@ -64,20 +64,19 @@
     "impact": "6K+ MAU in six months"
   },
   {
-    "id": "bandlink",
-    "title": "Bandlink",
-    "slug": "bandlink",
-    "tag": "visual",
-    "description": "Brand System / Music Tech",
-    "layout": "single",
-    "coverImage": "/img/gr/bandlink/cover.webp",
-    "linkUrl": "/bandlink",
-    "createdAt": "2025-03-01T00:00:00.000Z",
-    "updatedAt": "2025-03-01T00:00:00.000Z",
+    "id": "chekhov",
+    "title": "Chekhov",
+    "slug": "chekhov",
+    "tag": "typography",
     "isHero": false,
-    "featuredOrder": 5,
-    "impact": "Artist analytics identity relaunch",
-    "originalText": "Relaunched the Bandlink analytics service identity and communication system for artists, covering visual language, SMM, CRM, events and product-adjacent touchpoints inside the Yandex Music ecosystem."
+    "description": "Typography",
+    "layout": "single",
+    "coverImage": "/img/gr/chekhov/1.webp",
+    "linkUrl": "/chekhov.html",
+    "createdAt": "2025-04-01T00:00:00.000Z",
+    "updatedAt": "2025-04-01T00:00:00.000Z",
+    "originalText": "All men and beasts, lions, eagles, and quails, horned stags, geese, spiders, silent fish that inhabit the waves, starfish from the sea, and creatures invisible to the eye — in one word, life — all, all life, completing the dreary round imposed upon it, has died out at last. A thousand years have passed since the earth last bore a living creature on her breast, and the unhappy moon now lights her lamp in vain. No longer are the cries of storks heard in the meadows, or the drone of beetles in the groves of limes. All is cold, cold. All is void, void, void. All is terrible, terrible",
+    "featuredOrder": 5
   },
   {
     "id": "s7-logistics",
@@ -119,20 +118,6 @@
     "createdAt": "2025-04-02T00:00:00.000Z",
     "updatedAt": "2025-04-02T00:00:00.000Z",
     "originalText": "May of May is a brand that offers vibrant clothing, designed to be worn for no specific reason, but purely for personal pleasure and desire.\n  This concept is reflected in the typography, which encourages, \"Hey, stay curious about yourself and celebrate your diversity every day\""
-  },
-  {
-    "id": "chekhov",
-    "title": "Chekhov",
-    "slug": "chekhov",
-    "tag": "typography",
-    "isHero": false,
-    "description": "Typography",
-    "layout": "single",
-    "coverImage": "/img/gr/chekhov/1.webp",
-    "linkUrl": "/chekhov.html",
-    "createdAt": "2025-04-01T00:00:00.000Z",
-    "updatedAt": "2025-04-01T00:00:00.000Z",
-    "originalText": "All men and beasts, lions, eagles, and quails, horned stags, geese, spiders, silent fish that inhabit the waves, starfish from the sea, and creatures invisible to the eye — in one word, life — all, all life, completing the dreary round imposed upon it, has died out at last. A thousand years have passed since the earth last bore a living creature on her breast, and the unhappy moon now lights her lamp in vain. No longer are the cries of storks heard in the meadows, or the drone of beetles in the groves of limes. All is cold, cold. All is void, void, void. All is terrible, terrible"
   },
   {
     "id": "wouly",
@@ -208,6 +193,21 @@
     "linkUrl": "/lug",
     "createdAt": "2025-03-02T00:00:00.000Z",
     "updatedAt": "2025-03-02T00:00:00.000Z"
+  },
+  {
+    "id": "bandlink",
+    "title": "Bandlink",
+    "slug": "bandlink",
+    "tag": "visual",
+    "description": "Brand System / Music Tech",
+    "layout": "single",
+    "coverImage": "/img/gr/bandlink/cover.webp",
+    "linkUrl": "/bandlink",
+    "createdAt": "2025-03-01T00:00:00.000Z",
+    "updatedAt": "2025-03-01T00:00:00.000Z",
+    "isHero": false,
+    "impact": "Artist analytics identity relaunch",
+    "originalText": "Relaunched the Bandlink analytics service identity and communication system for artists, covering visual language, SMM, CRM, events and product-adjacent touchpoints inside the Yandex Music ecosystem."
   },
   {
     "id": "korolev",

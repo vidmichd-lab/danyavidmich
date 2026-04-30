@@ -8,7 +8,7 @@ test.describe('Homepage', () => {
 
   test('should have working navigation', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('button', { name: 'Open CV page' }).first().click();
+    await page.getByRole('button', { name: 'View CV page' }).first().click();
     await expect(page).toHaveURL(/\/cv\/?$/);
   });
 

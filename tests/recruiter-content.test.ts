@@ -13,12 +13,12 @@ describe("recruiter-facing portfolio content", () => {
       "yandex-practicum-pro",
       "yam-2024",
       "apt-product",
-      "bandlink",
+      "chekhov",
       "s7-logistics"
     ]);
   });
 
-  it("surfaces impact metrics on key portfolio cards", () => {
+  it("keeps impact metrics in data without rendering them under cards", () => {
     const expectedImpacts = [
       "375K+ users in two weeks",
       "+652% brand search lift",
@@ -33,7 +33,8 @@ describe("recruiter-facing portfolio content", () => {
     }
 
     const indexSource = read("src/pages/index.astro");
-    expect(indexSource).toContain("entry.impact");
+    expect(indexSource).not.toContain("portfolio-impact");
+    expect(indexSource).not.toContain("entry.impact");
   });
 
   it("adds recruiter summary, labelled actions and live location time to CV", () => {
@@ -46,8 +47,28 @@ describe("recruiter-facing portfolio content", () => {
     expect(cvSource).toContain("Now based in Saint Petersburg");
     expect(cvSource).toContain('id="saint-petersburg-time"');
     expect(cvSource).toContain(">Download CV<");
-    expect(cvSource).toContain(">Email<");
-    expect(cvSource).toContain(">LinkedIn<");
+    expect(cvSource).toContain(">Email me<");
+    expect(cvSource).toContain(">LinkedIn profile<");
+    expect(cvSource).toContain(">Telegram chat<");
+  });
+
+  it("keeps homepage recruiter detail at normal copy size with visible action labels", () => {
+    const indexSource = read("src/pages/index.astro");
+    const styles = read("src/styles/global.css");
+
+    expect(indexSource).toContain('class="about-note"');
+    expect(indexSource).toContain(">View CV<");
+    expect(indexSource).toContain(">Email me<");
+    expect(styles).toContain(".about-note");
+    expect(styles).toContain("font-size: 18px");
+  });
+
+  it("does not show top-line metrics in the CV sidebar", () => {
+    const cvSource = read("src/pages/cv.astro");
+
+    expect(cvSource).not.toContain("+652% brand search lift for Yandex Practicum Pro");
+    expect(cvSource).not.toContain("375K+ users reached by Badoo Hotline in two weeks");
+    expect(cvSource).not.toContain("6K+ MAU for co-founded dating app Apt");
   });
 
   it("removes internal or locally-specific CV phrasing", () => {

@@ -49,7 +49,7 @@ const FEATURED_CASE_IDS = [
   "yandex-practicum-pro",
   "yam-2024",
   "apt-product",
-  "bandlink",
+  "chekhov",
   "s7-logistics"
 ] as const;
 const featuredCaseIds = new Set<string>(FEATURED_CASE_IDS);
@@ -375,9 +375,12 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
     <div class="about">
       <div>
         <div>
-          <p>
+          <p class="about-lead">
             Lead Brand & Product Designer for tech companies. 8+ years across Badoo, Yandex and
-            <a href="https://www.artlebedev.ru/vidmich/">Art. Lebedev</a>. Brand systems, campaigns,
+            <a href="https://www.artlebedev.ru/vidmich/">Art. Lebedev</a>.
+          </p>
+          <p class="about-note">
+            Brand systems, campaigns,
             AI-assisted production, product launches. Co-founded dating app Apt. Type creator.
             Open to remote or global roles.
           </p>
@@ -386,14 +389,14 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
 
       <div class="about-actions">
         <div class="action-group desktop-only">
-          <button class="circle-button" data-action="cv" aria-label="Open CV page">
+          <button class="circle-button home-action-button" data-action="cv" aria-label="View CV page">
             <span aria-hidden="true" class="circle-button__text">CV</span>
-            <span class="sr-only">Open CV Page</span>
+            <span class="home-action-button__label">View CV</span>
           </button>
 
-          <button class="circle-button" data-action="mailto:mail@danyavidmich.com" aria-label="Get in touch by email">
+          <button class="circle-button home-action-button" data-action="mailto:mail@danyavidmich.com" aria-label="Email Danya Vidmich">
             <span aria-hidden="true" class="circle-button__icon tabler--mail-filled"></span>
-            <span class="sr-only">Get in touch</span>
+            <span class="home-action-button__label">Email me</span>
           </button>
         </div>
       </div>
@@ -403,14 +406,14 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
 
     <div class="mobile-filters-actions">
       <div class="action-group">
-        <button class="circle-button" data-action="cv" aria-label="Open CV page">
+        <button class="circle-button home-action-button" data-action="cv" aria-label="View CV page">
           <span aria-hidden="true" class="circle-button__text">CV</span>
-          <span class="sr-only">Open CV Page</span>
+          <span class="home-action-button__label">View CV</span>
         </button>
 
-        <button class="circle-button" data-action="mailto:mail@danyavidmich.com" aria-label="Get in touch by email">
+        <button class="circle-button home-action-button" data-action="mailto:mail@danyavidmich.com" aria-label="Email Danya Vidmich">
           <span aria-hidden="true" class="circle-button__icon tabler--mail-filled"></span>
-          <span class="sr-only">Get in touch</span>
+          <span class="home-action-button__label">Email me</span>
         </button>
       </div>
       <PortfolioFilters id="portfolio-filters" />
@@ -458,9 +461,6 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                       <span></span>
                     </span>
                   )}
-                  {entry.impact && (
-                    <span class="portfolio-impact">{entry.impact}</span>
-                  )}
                 </p>
               </a>
             ) : (
@@ -471,9 +471,6 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                     {entry.description ?? tag.label}
                     <span></span>
                   </span>
-                )}
-                {entry.impact && (
-                  <span class="portfolio-impact">{entry.impact}</span>
                 )}
               </p>
             )}
@@ -611,9 +608,6 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                             <span></span>
                           </span>
                         )}
-                        {entry.impact && (
-                          <span class="portfolio-impact">{entry.impact}</span>
-                        )}
                       </p>
                     </a>
                   ) : (
@@ -624,9 +618,6 @@ const displayColumns = caseColumns.map((caseItems, columnIndex) =>
                           {entry.description ?? tag.label}
                           <span></span>
                         </span>
-                      )}
-                      {entry.impact && (
-                        <span class="portfolio-impact">{entry.impact}</span>
                       )}
                     </p>
                   )}
