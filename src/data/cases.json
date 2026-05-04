@@ -300,6 +300,19 @@
     "year": 2019
   },
   {
+    "id": "community-yandex-practicum",
+    "title": "Community at Yandex Practicum",
+    "slug": "community-yandex-practicum",
+    "tag": "web",
+    "description": "Web",
+    "layout": "single",
+    "coverImage": "/img/gr/community-yandex-practicum/cover.webp",
+    "linkUrl": "https://practicum.yandex.ru/community/",
+    "createdAt": "2026-05-04T00:00:00.000Z",
+    "updatedAt": "2026-05-04T00:00:00.000Z",
+    "year": 2026
+  },
+  {
     "id": "kraygid",
     "title": "Kraygid",
     "slug": "kraygid",
