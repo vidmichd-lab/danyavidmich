@@ -55,6 +55,16 @@ const {
     {/* Preconnect to external resources */}
     <link rel="dns-prefetch" href="https://mc.yandex.ru" />
 
+    {/* Google tag (gtag.js) */}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LGZW7QNFB" is:inline></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-4LGZW7QNFB');
+    </script>
+
     {/* Yandex.Metrika counter */}
     <script type="text/javascript" is:inline>
         (function(m,e,t,r,i,k,a){
